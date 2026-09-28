@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rachata Flood AI - น้ำท่วมไทย | Thailand Flood Portal</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f5f8;--card:#fff;--text:#1b2430;--muted:#5d6b7b;--bd:#d5dde7;--navy:#0b2f5b;--gold:#c9a227;--link:#0b5cad;--l0:#2e9d5b;--l1:#d9a400;--l2:#e8791b;--l3:#c62828}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e141b;--card:#161f2a;--text:#e6ebf1;--muted:#93a1b1;--bd:#2b3846;--link:#7db7f2}}
+:root[data-theme="dark"]{--bg:#0e141b;--card:#161f2a;--text:#e6ebf1;--muted:#93a1b1;--bd:#2b3846;--link:#7db7f2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Sarabun","Noto Sans Thai",system-ui,sans-serif;font-size:15px;line-height:1.55}a{color:var(--link)}
+.tri{height:6px;background:linear-gradient(90deg,#a51931 0 16.6%,#f4f5f8 0 33.3%,#2d2a4a 0 66.6%,#f4f5f8 0 83.3%,#a51931 0)}
+header{background:var(--navy);color:#fff;padding:12px 18px;border-bottom:4px solid var(--gold);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+header h1{margin:0;font-size:20px}header small{display:block;color:#e6c65a;font-size:12.5px}
+.lang button{background:transparent;border:1px solid #6d86a8;color:#fff;padding:4px 12px;font:inherit;cursor:pointer}.lang button:first-child{border-radius:4px 0 0 4px}.lang button:last-child{border-radius:0 4px 4px 0}.lang .on{background:var(--gold);color:#000;border-color:var(--gold)}
+nav{display:flex;flex-wrap:wrap;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav button{background:none;border:0;border-bottom:3px solid transparent;padding:11px 16px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}nav button.on{color:var(--text);border-color:var(--gold)}
+main{max-width:1100px;margin:0 auto;padding:14px}section{display:none}section.on{display:block}
+.hero{background:var(--card);border:1px solid var(--bd);border-left:6px solid var(--l2);border-radius:4px;padding:14px 16px;margin-bottom:12px}
+.hero h2{margin:0 0 6px;font-size:19px}.pill{display:inline-block;border-radius:12px;padding:1px 10px;font-size:12px;color:#fff;font-weight:700}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.tile{background:var(--card);border:1px solid var(--bd);border-top:3px solid var(--navy);border-radius:4px;padding:10px}.tile b{display:block;font-size:24px;line-height:1.1}.tile span{font-size:12.5px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:4px;padding:12px 14px;margin-bottom:12px;min-width:0}.card h3{margin:0 0 8px;font-size:16px}.muted{color:var(--muted);font-size:12.5px}
+.news{list-style:none;margin:0;padding:0}.news li{padding:9px 0;border-bottom:1px solid var(--bd)}.news li:last-child{border:0}.news .m{font-size:12px;color:var(--muted)}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:520px}th{background:var(--navy);color:#fff;text-align:left;padding:6px;font-size:13px}td{padding:6px;border-bottom:1px solid var(--bd)}
+.bar{background:var(--bd);border-radius:3px;height:16px;position:relative;min-width:90px}.bar i{display:block;height:100%;border-radius:3px}.bar span{position:absolute;inset:0;text-align:center;font-size:11px;line-height:16px;font-weight:700;color:#000;text-shadow:0 0 3px #fff}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:4px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}.btn.sm{padding:3px 10px;font-size:12.5px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+label.f{display:block;margin:9px 0 2px;font-weight:700;font-size:13.5px}label.f output{float:right;color:var(--muted);font-weight:400}input[type=range]{width:100%}
+input[type=text],select,#q{width:100%;padding:8px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--text);font:inherit}
+.res{text-align:center}.res svg{width:160px;height:160px}.badge{display:inline-block;padding:4px 14px;border-radius:14px;color:#fff;font-weight:700}
+#chat{height:340px;overflow:auto;border:1px solid var(--bd);border-radius:4px;padding:8px;background:var(--bg)}#chat div{margin:0 0 8px;padding:8px 11px;border-radius:10px;max-width:92%}
+#chat .u{background:var(--navy);color:#fff;margin-left:auto;white-space:pre-wrap}#chat .b{background:var(--card);border:1px solid var(--bd)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.chips button{background:var(--card);color:var(--text);border:1px solid var(--bd);border-radius:14px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.row{display:flex;gap:6px}.row #q{flex:1}ul.t{margin:4px 0 0 18px;padding:0}
+footer{background:var(--navy);color:#cfdaea;padding:14px 18px;font-size:12.5px;border-top:4px solid var(--gold);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="tri"></div>
+<header>
+ <div><h1>Rachata Flood AI</h1><small data-i="sub"></small></div>
+ <div style="display:flex;gap:14px;align-items:center"><span class="muted" style="color:#dbe6f5"><span data-i="owner"></span>: <b>Rachata</b></span><span class="lang"><button id="bth">ไทย</button><button id="ben">EN</button></span></div>
+</header>
+<nav id="tabs"><button data-t="t1" class="on" data-i="t1"></button><button data-t="t2" data-i="t2"></button><button data-t="t3" data-i="t3"></button><button data-t="t4" data-i="t4"></button></nav>
+<main>
+<section id="t1" class="on">
+ <div class="hero"><h2 id="hl"></h2><span class="pill" id="age"></span> <span class="muted" id="ageTxt"></span></div>
+ <div class="tiles" id="tiles"></div>
+ <div class="grid">
+  <div class="card"><h3 data-i="news"></h3><ul class="news" id="news"></ul></div>
+  <div><div class="card"><h3 data-i="live"></h3><div class="links" id="live"></div><p class="muted" data-i="liveN"></p></div>
+  <div class="card"><h3 data-i="prov"></h3><div class="scroll"><table><thead><tr><th data-i="pv"></th><th data-i="rk"></th><th data-i="st"></th><th></th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted" data-i="provN"></p></div></div>
+ </div>
+</section>
+<section id="t2"><div class="grid">
+ <div class="card"><h3 data-i="in"></h3>
+  <label class="f" data-i="loc"></label><input type="text" id="loc" value="Bangkok, Thailand">
+  <label class="f" data-i="pre"></label><select id="pre"></select>
+  <label class="f"><span data-i="f0"></span><output id="o0"></output></label><input type="range" id="i0" min="0" max="300" value="120">
+  <label class="f"><span data-i="f1"></span><output id="o1"></output></label><input type="range" id="i1" min="0" max="100" value="60">
+  <label class="f"><span data-i="f2"></span><output id="o2"></output></label><input type="range" id="i2" min="0" max="100" value="60">
+  <label class="f"><span data-i="f3"></span><output id="o3"></output></label><input type="range" id="i3" min="0" max="100" value="0">
+  <label class="f"><span data-i="f4"></span><output id="o4"></output></label><input type="range" id="i4" min="0" max="100" value="60"></div>
+ <div class="card res"><h3 data-i="out"></h3><div id="out"></div></div>
+</div></section>
+<section id="t3"><div class="grid">
+ <div class="card"><h3 data-i="hot"></h3><ul class="t" id="hot"></ul></div>
+ <div class="card"><h3 data-i="do"></h3><ul class="t" id="dos"></ul></div>
+ <div class="card"><h3 data-i="after"></h3><ul class="t" id="aft"></ul></div>
+ <div class="card"><h3 data-i="world"></h3><ul class="t" id="wld"></ul></div>
+</div></section>
+<section id="t4"><div class="card"><h3 data-i="askT"></h3><div id="chat"></div><div class="chips" id="chips"></div>
+ <div class="row"><input id="q" autocomplete="off"><button class="btn" id="send" data-i="send"></button><button class="btn" id="stop" style="display:none;background:var(--l3)" data-i="stop"></button></div><div class="muted" id="mode"></div></div></section>
+</main>
+<footer><span data-i="foot"></span> &copy; 2026 <b>Rachata</b></footer>
+<script>
+const $=id=>document.getElementById(id),rnd=(a=0,b=1)=>a+Math.random()*(b-a),c01=x=>Math.max(0,Math.min(1,x)),sig=x=>1/(1+Math.exp(-x)),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// ================= DATA SNAPSHOT (refreshed by re-publishing; set LIVE_URL to auto-refresh when self-hosted) =================
+const LIVE_URL="";
+let DATA={updated:"2026-09-28T11:30:00+07:00",
+ headline:{th:"ฝนเริ่มซาลง แต่น้ำท่วมขังยังอยู่ - กทม. คาดใช้เวลาระบาย 2-3 วัน หากไม่มีฝนเพิ่ม",en:"Rain is easing but flooding remains - Bangkok expects 2-3 days to drain if no more rain falls"},
+ stats:[{v:"545,000",l:{th:"ผู้ได้รับผลกระทบ (25 จังหวัด) - ปภ.",en:"People affected (25 provinces) - DDPM"}},{v:"8",l:{th:"ผู้เสียชีวิตที่รายงาน",en:"Deaths reported"}},
+  {v:"35 / 81",l:{th:"จุดถนนสายหลัก กทม. ที่ยังท่วมขัง",en:"Bangkok main-road points still flooded"}},{v:"1,950",l:{th:"ลบ.ม./วินาที เขื่อนเจ้าพระยา (26 ก.ย.)",en:"m³/s Chao Phraya Dam release (26 Sep)"}},
+  {v:"50",l:{th:"เขต กทม. ประกาศพื้นที่ภัยพิบัติ",en:"Bangkok districts declared disaster zones"}}],
+ news:[
+ {d:"28 Sep",s:"Nation Thailand",u:"https://www.nationthailand.com/thailand/bangkok/40071588",th:"ฝนเริ่มซาลง กทม. เร่งลดระดับน้ำในคลองสายหลัก หลังหย่อมความกดอากาศต่ำเคลื่อนออก แต่ยังมีฝนสลับจากมรสุม",en:"Rain easing in Bangkok; the city focuses on lowering canal levels as the low-pressure system moves away, though monsoon showers may continue."},
+ {d:"28 Sep",s:"Thai Enquirer",u:"https://www.thaienquirer.com/74635/thai-enquirer-news-summary-september-28-2026/",th:"ครม. ประกาศหยุดพิเศษ 28-29 ก.ย. ใน กทม. ปทุมธานี นนทบุรี สมุทรปราการ พร้อม 14 มาตรการเร่งด่วน และใช้ทางด่วนฟรีถึงเที่ยงคืน 29 ก.ย.",en:"Cabinet declares a 28-29 Sep special holiday in Bangkok, Pathum Thani, Nonthaburi and Samut Prakan, with 14 urgent measures and free expressways until midnight 29 Sep."},
+ {d:"28 Sep",s:"ฐานเศรษฐกิจ",u:"https://www.thansettakij.com/general-news/670047",th:"สำนักการระบายน้ำ กทม. รายงานถนนสายหลักท่วมขัง 81 จุด ระบายแล้ว 46 จุด เหลือ 35 จุดใน 13 เขต (08.00 น.)",en:"BMA Drainage Department: 81 main-road flood points, 46 cleared, 35 remain across 13 districts (08:00)."},
+ {d:"28 Sep",s:"Nation Thailand",u:"https://www.nationthailand.com/news/general/40071576",th:"ถนนวิภาวดีรังสิตน้ำลด รถทุกชนิดผ่านได้ ส่วนแยกบางกะปิ (นวมินทร์) รถเล็กยังผ่านไม่ได้",en:"Vibhavadi Rangsit Road is passable for all vehicles; Bang Kapi intersection (Nawamin) still blocks small cars."},
+ {d:"28 Sep",s:"ฐานเศรษฐกิจ",u:"https://www.thansettakij.com/general-news/670051",th:"กรมอุตุฯ รายงานฝนเบาถึงหนักบางแห่งใน กทม. และสมุทรปราการ คาดฝนฟ้าคะนอง 70% ของพื้นที่ กทม.-ปริมณฑล",en:"TMD reports light to locally heavy rain over Bangkok and Samut Prakan, with thunderstorms forecast over 70% of the area."},
+ {d:"27-28 Sep",s:"Chiang Rai Times",u:"https://www.chiangraitimes.com/thailand-news/floods-hit-25-provinces/",th:"ปภ. รายงานน้ำท่วม 25 จังหวัด ประชาชนได้รับผลกระทบกว่า 545,000 คน เสียชีวิต 8 ราย",en:"DDPM reports floods in 25 provinces, over 545,000 people affected and 8 deaths."},
+ {d:"26 Sep",s:"Bangkok Post",u:"https://www.bangkokpost.com/thailand/general/3326549/all-50-bangkok-districts-declared-disaster-areas",th:"กทม. ประกาศพื้นที่ภัยพิบัติทั้ง 50 เขต, ปทุมธานีประกาศเขตภัยพิบัติฉุกเฉินรังสิต, กรมชลฯ เพิ่มการระบายเขื่อนเจ้าพระยาเป็น 1,950 ลบ.ม./วินาที",en:"All 50 Bangkok districts declared disaster areas; Pathum Thani declares Rangsit an emergency zone; RID raises Chao Phraya Dam discharge to 1,950 m³/s."},
+ {d:"22 Sep",s:"Bangkok Post",u:"https://www.bangkokpost.com/thailand/general/3323454/rising-water-levels-warning-for-chao-phraya-basin-provinces",th:"กรมชลประทานคาดน้ำที่สถานี C.2 นครสวรรค์ 1,400-1,450 ลบ.ม./วินาที วันที่ 29 ก.ย. และเตือน 11 จังหวัดลุ่มเจ้าพระยา",en:"RID forecasts C.2 Nakhon Sawan flow of 1,400-1,450 m³/s by 29 Sep and warns 11 Chao Phraya provinces."}]};
+const T={
+th:{sub:"ระบบข้อมูลและเตือนภัยน้ำท่วมประเทศไทย",owner:"เจ้าของระบบ",t1:"สถานการณ์",t2:"ประเมินความเสี่ยง",t3:"ขอความช่วยเหลือ",t4:"ถาม AI",news:"ข่าวและประกาศล่าสุด",live:"ข้อมูลทางการแบบเรียลไทม์",liveN:"กดเพื่อดูข้อมูลสดจากหน่วยงาน (เปิดในแท็บใหม่)",prov:"ประเมินความเสี่ยงรายจังหวัดด้วย AI",provN:"ค่าที่ป้อนให้โมเดลประมาณจากรายงานทางการ เป็นข้อมูลประกอบเท่านั้น ไม่ใช่การพยากรณ์ทางการ",pv:"จังหวัด",rk:"ความเสี่ยง",st:"ระดับ",an:"วิเคราะห์",
+ in:"ป้อนข้อมูล",out:"ผลการประเมิน",loc:"สถานที่ (ที่ไหนในโลกก็ได้)",pre:"โหลดข้อมูลสถานการณ์จริงของจังหวัด",cus:"กำหนดเอง",f0:"ฝนสะสม 24 ชม.",f1:"ระดับแม่น้ำ (% ของตลิ่ง)",f2:"น้ำจากต้นน้ำ (% ของสูงสุด)",f3:"น้ำทะเลหนุน (%)",f4:"ความอิ่มตัวของดิน (%)",
+ risk:"ความเสี่ยงน้ำท่วมของ",act:"ข้อแนะนำ",drv:"ปัจจัยหลัก",dis:"เป็นการประเมินด้วย AI เพื่อข้อมูลเท่านั้น โปรดปฏิบัติตามประกาศของหน่วยงานทางการ",
+ hot:"เบอร์โทรฉุกเฉิน",do:"ระหว่างน้ำท่วม",after:"หลังน้ำลด",world:"ทั่วโลก",askT:"ผู้ช่วย AI น้ำท่วมและวิทยาศาสตร์",send:"ส่ง",stop:"หยุด",ph:"ถามเรื่องน้ำท่วมได้ทุกเรื่อง...",think:"กำลังคิด...",m1:"โหมด: AI ตอบสด",m0:"โหมด: ฐานความรู้ในเครื่อง",
+ upd:"อัปเดต",ago:"ที่แล้ว",min:"นาที",hr:"ชม.",day:"วัน",f:"ข้อมูลใหม่",s:"อาจไม่ใช่ข้อมูลล่าสุด - ตรวจสอบแหล่งทางการ",o:"ข้อมูลเก่า - ใช้แหล่งทางการเท่านั้น",
+ foot:"ระบบต้นแบบเพื่อข้อมูล ไม่ใช่ระบบเตือนภัยทางการ ข้อมูลรวบรวมจากรายงานข่าวที่อ้างอิงหน่วยงาน ปภ. กรมชลประทาน กรมอุตุนิยมวิทยา และ กทม.",
+ hi:"สวัสดีครับ ผมคือผู้ช่วย AI ถามได้ทุกเรื่องเกี่ยวกับน้ำท่วมและวิทยาศาสตร์ที่เกี่ยวข้อง",
+ chips:["สถานการณ์น้ำท่วมตอนนี้เป็นอย่างไร","ถนนไหนใน กทม. ยังท่วม","ฉันควรเตรียมตัวอย่างไร","ทำไมปีนี้น้ำท่วม กทม. หนัก","ไฟรั่วในบ้านน้ำท่วมทำอย่างไร"]},
+en:{sub:"Thailand Flood Information & Early-Warning Portal",owner:"Owner",t1:"Situation",t2:"Risk Calculator",t3:"Get Help",t4:"Ask AI",news:"Latest news & announcements",live:"Live official sources",liveN:"Open the agencies' own live data (new tab)",prov:"AI flood-risk estimate by province",provN:"Model inputs are estimated from official reports. For information only, not an official forecast.",pv:"Province",rk:"Risk",st:"Level",an:"Analyse",
+ in:"INPUT",out:"OUTPUT",loc:"Location (anywhere in the world)",pre:"Load real situation for a province",cus:"Custom",f0:"Rainfall, last 24 h",f1:"River level (% of bank-full)",f2:"Upstream inflow (% of max)",f3:"Tide (% of high tide)",f4:"Soil saturation (%)",
+ risk:"Flood risk for",act:"Recommended action",drv:"Main drivers",dis:"AI estimate for information only. Follow official authority announcements.",
+ hot:"Emergency numbers",do:"During a flood",after:"After the water recedes",world:"Worldwide",askT:"Flood & Science Assistant",send:"Send",stop:"Stop",ph:"Ask anything about floods...",think:"Thinking...",m1:"Mode: live AI answers",m0:"Mode: offline knowledge base",
+ upd:"Updated",ago:"ago",min:"min",hr:"h",day:"d",f:"Data fresh",s:"May not be the latest - check official sources",o:"Old data - use official sources only",
+ foot:"Prototype for information only; not an official warning system. Data compiled from news reports citing DDPM, RID, TMD and BMA.",
+ hi:"Hello! I'm the flood AI assistant. Ask me anything about floods and the science behind them.",
+ chips:["What is the flood situation now?","Which Bangkok roads are still flooded?","How should I prepare?","Why is Bangkok flooding so badly?","What if water reaches electric outlets?"]}};
+const LV={th:[["ปกติ","สถานการณ์ปกติ ติดตามประกาศต่อเนื่อง"],["เฝ้าระวัง","ติดตามประกาศ เตรียมของและเครื่องสูบน้ำ"],["เตือนภัย","ยกของขึ้นที่สูง ทำตามคำสั่งเจ้าหน้าที่ เตรียมอพยพ"],["วิกฤต","อพยพจากพื้นที่ลุ่มต่ำหากได้รับแจ้ง เลี่ยงน้ำท่วม โทร 1784 / 1669"]],
+ en:[["Normal","Normal. Keep following announcements."],["Watch","Follow announcements; prepare belongings and pumps."],["Warning","Move valuables up; follow officials; prepare to evacuate."],["Critical","Evacuate low-lying areas if told; avoid floodwater; call 1784 / 1669."]]};
+const LISTS={th:{hot:["ฉุกเฉินการแพทย์ <b>1669</b> - ตำรวจ <b>191</b>","สายด่วนนิรภัย ปภ. <b>1784</b>","สายด่วน กทม. <b>1555</b> (24 ชม.) - แจ้งผ่าน LINE Traffy Fondue","กรมอุตุนิยมวิทยา <b>1182</b>"],
+ dos:["ยกของมีค่า เอกสาร ยา ขึ้นที่สูง","ปิดสวิตช์ไฟหลักก่อนน้ำถึงปลั๊ก - ห้ามแตะไฟขณะยืนในน้ำ","อย่าเดินหรือขับรถลุยน้ำที่ไม่รู้ระดับ - น้ำสูง 30 ซม. พอลอยรถเล็กได้","เตรียมน้ำ อาหาร ไฟฉาย วิทยุ พาวเวอร์แบงก์ ยาประจำตัว","อพยพเร็วเมื่อเจ้าหน้าที่แจ้ง โดยเฉพาะผู้สูงอายุและผู้ป่วยติดเตียง"],
+ aft:["สวมรองเท้าบูต หลีกเลี่ยงแช่น้ำเมื่อมีแผล - เสี่ยงฉี่หนูและเมลิออยด์","ให้ช่างไฟตรวจระบบไฟก่อนเปิดใช้งาน","ตรวจโครงสร้างอาคารและระบบหลักก่อนกลับเข้าพัก","ดื่มน้ำต้ม/น้ำบรรจุขวด ทิ้งอาหารที่โดนน้ำ","มีไข้หรือปวดกล้ามเนื้อหลังลุยน้ำ ให้พบแพทย์"],
+ wld:["สหรัฐฯ 911 - อังกฤษ 999 - EU/อินเดีย/อินโดนีเซีย 112 - ญี่ปุ่น 119 - ออสเตรเลีย 000 - ฟิลิปปินส์ 911","ข้อมูลระดับโลก: <a href='https://gdacs.org' target='_blank' rel='noopener'>GDACS</a> - <a href='https://reliefweb.int' target='_blank' rel='noopener'>ReliefWeb</a> - <a href='https://wmo.int' target='_blank' rel='noopener'>WMO</a>","<a href='https://www.weather.gov' target='_blank' rel='noopener'>NOAA/NWS</a> - <a href='https://www.jma.go.jp' target='_blank' rel='noopener'>JMA</a> - <a href='https://www.bom.gov.au' target='_blank' rel='noopener'>BoM</a> - <a href='https://www.pagasa.dost.gov.ph' target='_blank' rel='noopener'>PAGASA</a>"]},
+en:{hot:["Medical emergency <b>1669</b> - Police <b>191</b>","DDPM disaster hotline <b>1784</b>","Bangkok BMA hotline <b>1555</b> (24 h) - or report via LINE Traffy Fondue","Thai Meteorological Department <b>1182</b>"],
+ dos:["Move valuables, documents and medicine to a high place","Switch off the main power before water reaches outlets - never touch electrics while standing in water","Don't walk or drive through water of unknown depth - 30 cm can float a small car","Keep water, food, torch, radio, power bank and personal medicine ready","Evacuate early when officials say so, especially the elderly and bedridden"],
+ aft:["Wear boots; avoid wading with open wounds - leptospirosis and melioidosis risk","Have an electrician inspect wiring before switching power on","Check the building structure and main systems before moving back","Drink boiled or bottled water; discard food touched by floodwater","See a doctor for fever or muscle pain after wading"],
+ wld:["US 911 - UK 999 - EU/India/Indonesia 112 - Japan 119 - Australia 000 - Philippines 911","Global data: <a href='https://gdacs.org' target='_blank' rel='noopener'>GDACS</a> - <a href='https://reliefweb.int' target='_blank' rel='noopener'>ReliefWeb</a> - <a href='https://wmo.int' target='_blank' rel='noopener'>WMO</a>","<a href='https://www.weather.gov' target='_blank' rel='noopener'>NOAA/NWS</a> - <a href='https://www.jma.go.jp' target='_blank' rel='noopener'>JMA</a> - <a href='https://www.bom.gov.au' target='_blank' rel='noopener'>BoM</a> - <a href='https://www.pagasa.dost.gov.ph' target='_blank' rel='noopener'>PAGASA</a>"]}};
+const LIVE=[["BMA Flood Centre / ศูนย์ป้องกันน้ำท่วม กทม.","https://dds.bangkok.go.th/"],["TMD / กรมอุตุฯ","https://www.tmd.go.th"],["RID / กรมชลประทาน","https://www.rid.go.th"],["DDPM / ปภ.","https://www.disaster.go.th"],["ThaiWater","https://www.thaiwater.net"]];
+// ================= AI model =================
+class Net{constructor(){this.w1=Array.from({length:8},()=>Array.from({length:5},()=>rnd(-.5,.5)));this.b1=Array(8).fill(0);this.w2=Array.from({length:8},()=>rnd(-.5,.5));this.b2=0}
+ fwd(x){const h=this.w1.map((w,j)=>Math.tanh(w.reduce((s,v,i)=>s+v*x[i],this.b1[j])));return{h,o:sig(h.reduce((s,v,j)=>s+v*this.w2[j],this.b2))}}
+ pred(x){return this.fwd(x).o}
+ train(x,y,lr){const{h,o}=this.fwd(x),d=o-y;for(let j=0;j<8;j++){const dh=d*this.w2[j]*(1-h[j]*h[j]);this.w2[j]-=lr*d*h[j];for(let i=0;i<5;i++)this.w1[j][i]-=lr*dh*x[i];this.b1[j]-=lr*dh}this.b2-=lr*d}}
+const truth=f=>sig(3.2*f[0]+3*f[1]+2.2*f[2]+1.5*f[3]*(f[1]+.3)+2.8*f[4]*f[0]-4.6);
+const net=new Net();for(let e=0;e<40;e++)for(let s=0;s<2000;s++){const x=[0,0,0,0,0].map(()=>rnd());net.train(x,c01(truth(x)+rnd(-.03,.03)),.05)}
+// Inputs estimated from reports (rain, river, inflow, tide, soil), 28 Sep 2026
+const P=[["Nakhon Sawan","นครสวรรค์",[.35,.8,.9,0,.85]],["Ayutthaya","พระนครศรีอยุธยา",[.4,.85,.9,0,.9]],["Pathum Thani","ปทุมธานี",[.5,.85,.8,0,.95]],["Nonthaburi","นนทบุรี",[.45,.8,.75,0,.95]],["Bangkok","กรุงเทพมหานคร",[.45,.75,.7,.5,.95]],["Samut Prakan","สมุทรปราการ",[.5,.85,.7,.6,.95]]];
+const lvl=r=>r>.75?3:r>.5?2:r>.3?1:0,col=l=>`var(--l${l})`;
+let lang="en";try{lang=localStorage.getItem("l")||((navigator.language||"").startsWith("th")?"th":"en")}catch(e){lang=(navigator.language||"").startsWith("th")?"th":"en"}
+const tr=k=>T[lang][k];
+// ================= Rendering =================
+function ageInfo(){const m=Math.max(0,(Date.now()-Date.parse(DATA.updated))/60000);const t=m<60?Math.round(m)+" "+tr("min"):m<1440?Math.round(m/60)+" "+tr("hr"):Math.round(m/1440)+" "+tr("day");
+ return m<360?[0,tr("f"),t]:m<1440?[1,tr("s"),t]:[3,tr("o"),t]}
+function render(){
+ document.documentElement.lang=lang;$("bth").classList.toggle("on",lang==="th");$("ben").classList.toggle("on",lang==="en");
+ document.querySelectorAll("[data-i]").forEach(e=>e.textContent=tr(e.dataset.i));$("q").placeholder=tr("ph");
+ $("hl").textContent=DATA.headline[lang];
+ const a=ageInfo();$("age").textContent=a[1];$("age").style.background=col(a[0]);$("ageTxt").textContent=tr("upd")+" "+new Date(DATA.updated).toLocaleString(lang==="th"?"th-TH":"en-GB",{dateStyle:"medium",timeStyle:"short"})+" ("+a[2]+" "+tr("ago")+")";
+ $("tiles").innerHTML=DATA.stats.map(s=>`<div class="tile"><b>${esc(s.v)}</b><span>${esc(s.l[lang])}</span></div>`).join("");
+ $("news").innerHTML=DATA.news.map(n=>`<li><a href="${n.u}" target="_blank" rel="noopener">${esc(n[lang])}</a><div class="m">${esc(n.d)} - ${esc(n.s)}</div></li>`).join("");
+ $("live").innerHTML=LIVE.map(l=>`<a class="btn sm" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("");
+ $("rows").innerHTML=P.map((p,i)=>{const r=net.pred(p[2]),l=lvl(r);return `<tr><td><b>${lang==="th"?p[1]:p[0]}</b></td><td><div class="bar"><i style="width:${r*100}%;background:${col(l)}"></i><span>${Math.round(r*100)}%</span></div></td><td style="color:${col(l)};font-weight:700">${LV[lang][l][0]}</td><td><button class="btn sm" onclick="load(${i})">${tr("an")}</button></td></tr>`}).join("");
+ const sel=$("pre"),cur=sel.value;sel.innerHTML=`<option value="">${tr("cus")}</option>`+P.map((p,i)=>`<option value="${i}">${lang==="th"?p[1]:p[0]}</option>`).join("");sel.value=cur;
+ ["hot","dos","aft","wld"].forEach(k=>$(k).innerHTML=LISTS[lang][k].map(x=>`<li>${x}</li>`).join(""));
+ $("chips").innerHTML="";tr("chips").forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>ask(t);$("chips").appendChild(b)});
+ setMode();calc();
+}
+function tab(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0)}
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+["th","en"].forEach(l=>$("b"+l).onclick=()=>{lang=l;try{localStorage.setItem("l",l)}catch(e){}render();$("chat").innerHTML="";add("b",tr("hi"))});
+// ================= Calculator =================
+const F=[v=>v+" mm",v=>v+"%",v=>v+"%",v=>v+"%",v=>v+"%"];
+const feats=()=>[Math.min(1,$("i0").value/200),$("i1").value/100,$("i2").value/100,$("i3").value/100,$("i4").value/100];
+function calc(){for(let i=0;i<5;i++)$("o"+i).textContent=F[i]($("i"+i).value);
+ const f=feats(),r=net.pred(f),l=lvl(r),C=2*Math.PI*66;
+ const dr=f.map((_,i)=>{const g=f.slice();g[i]=0;return[tr("f"+i).split(" (")[0],r-net.pred(g)]}).sort((a,b)=>b[1]-a[1]).slice(0,2);
+ $("out").innerHTML=`<svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="66" fill="none" stroke="var(--bd)" stroke-width="14"/><circle cx="80" cy="80" r="66" fill="none" stroke="${col(l)}" stroke-width="14" stroke-linecap="round" stroke-dasharray="${C*r} ${C}" transform="rotate(-90 80 80)"/><text x="80" y="90" text-anchor="middle" font-size="30" font-weight="700" fill="var(--text)">${Math.round(r*100)}%</text></svg>
+ <p class="muted">${tr("risk")} <b>${esc($("loc").value||"-")}</b></p><span class="badge" style="background:${col(l)}">${LV[lang][l][0]}</span>
+ <p><b>${tr("act")}:</b> ${LV[lang][l][1]}</p><p class="muted">${tr("drv")}: ${dr.map(d=>d[0]+" (+"+Math.round(d[1]*100)+")").join(", ")}</p><p class="muted">${tr("dis")}</p>`}
+function load(i){const f=P[i][2];$("loc").value=P[i][0]+", Thailand";$("pre").value=i;$("i0").value=Math.round(f[0]*200);for(let k=1;k<5;k++)$("i"+k).value=Math.round(f[k]*100);calc();tab("t2")}
+$("pre").onchange=e=>{if(e.target.value!=="")load(+e.target.value)};
+for(let i=0;i<5;i++)$("i"+i).oninput=()=>{$("pre").value="";calc()};$("loc").oninput=calc;
+// ================= Assistant =================
+const KB=[{k:["ท่วม","สาเหตุ","ทำไม","cause","why","flood"],th:"น้ำท่วมใหญ่ครั้งนี้เกิดจากหย่อมความกดอากาศต่ำกำลังแรงร่วมกับมรสุมตะวันตกเฉียงใต้ ทำให้ฝนตกหนักต่อเนื่อง ประกอบกับพื้นที่ลุ่มต่ำ ดินอิ่มน้ำ คลองระบายไม่ทัน และน้ำเหนือจากลุ่มเจ้าพระยา",en:"This flood came from a strong low-pressure system plus the southwest monsoon, causing days of heavy rain. Low-lying land, saturated soil, canals that can't drain fast enough and northern runoff down the Chao Phraya add to it."},
+{k:["ไฟ","ปลั๊ก","electric","power","outlet"],th:"ห้ามแตะเสาไฟ ปลั๊ก หรืออุปกรณ์ไฟฟ้าขณะยืนในน้ำ ปิดสวิตช์ไฟหลักจากจุดที่แห้งและปลอดภัยก่อนน้ำเข้า หากไฟรั่วหรือมีคนถูกไฟดูด โทร 1669 อย่าเข้าไปช่วยด้วยมือเปล่า และให้ช่างไฟตรวจก่อนเปิดไฟอีกครั้ง",en:"Never touch poles, outlets or electrical devices while standing in water. Switch off the main power from a dry, safe spot before water enters. If someone is shocked call 1669 and don't touch them directly; have an electrician check wiring before power is restored."},
+{k:["prepare","เตรียม","safe","ปลอดภัย","evac","อพยพ"],th:"ยกของมีค่า เอกสาร ยาขึ้นที่สูง เตรียมน้ำ อาหาร ไฟฉาย วิทยุ พาวเวอร์แบงก์ อพยพเร็วเมื่อเจ้าหน้าที่แจ้ง ห้ามลุยน้ำที่ไม่รู้ระดับ ฉุกเฉิน 1669 / 191 / 1784",en:"Move valuables, documents and medicine up; keep water, food, torch, radio and a power bank ready; evacuate early when told; never wade through water of unknown depth. Emergency: 1669 / 191 / 1784."}];
+function snap(){return DATA.headline[lang]+"\n"+DATA.stats.map(s=>s.v+" "+s.l[lang]).join("; ")+"\n"+DATA.news.slice(0,6).map(n=>"- "+n[lang]+" ("+n.s+", "+n.d+")").join("\n")}
+function offline(q){const t=q.toLowerCase();if(/ตอนนี้|สถานการณ์|ถนน|ล่าสุด|now|situation|road|latest|today/.test(t))return snap()+"\n\n"+(lang==="th"?"(ข้อมูลอัปเดต ":"(Data updated ")+DATA.updated.slice(0,16).replace("T"," ")+")";
+ let b=null,bs=0;KB.forEach(e=>{const s=e.k.filter(w=>t.includes(w)).length;if(s>bs){bs=s;b=e}});return b?b[lang]:(lang==="th"?"ขออภัย ไม่มีข้อมูลเรื่องนี้ในโหมดออฟไลน์ ลองถามเรื่องสถานการณ์ปัจจุบัน สาเหตุน้ำท่วม การเตรียมตัว หรือความปลอดภัยเรื่องไฟฟ้า":"Sorry, that isn't in offline mode. Try asking about the current situation, causes, preparation or electrical safety.")}
+const INSTR="You are the Flood & Science Assistant of Rachata Flood AI, a portal about Thailand floods. Rules: reply in the language of the user's question (Thai or English). Lead with a direct answer in 1-2 sentences, then at most 5 short bullet points starting with '- '. No headings. Be accurate and calm; use plain words. For current-situation questions use ONLY the snapshot below, name the source and date, and say it may have changed since. If the snapshot lacks the answer, say so and point to official sources (BMA dds.bangkok.go.th, TMD tmd.go.th, RID rid.go.th, DDPM disaster.go.th). For safety questions end with the emergency numbers: 1669 medical, 191 police, 1784 DDPM, 1555 BMA. For science questions (hydrology, meteorology, climate, dams, drainage) explain clearly and correctly. Never invent figures. Keep under 180 words unless asked.";
+let sf=null,turns=[],ctl=null;
+function setMode(){$("mode").textContent=sf?tr("m1"):tr("m0")}
+if(window.claude&&claude.use)claude.use("sample").then(f=>{sf=f;setMode()}).catch(()=>{});
+const fmt=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/^- /gm,"• ").replace(/\n/g,"<br>");
+function add(c,t){const d=document.createElement("div");d.className=c;if(c==="u")d.textContent=t;else d.innerHTML=fmt(t);$("chat").appendChild(d);$("chat").scrollTop=1e9;return d}
+async function ask(q){q=q.trim();if(!q)return;$("q").value="";add("u",q);const b=add("b",tr("think"));
+ if(sf){ctl=new AbortController();$("send").style.display="none";$("stop").style.display="";
+  try{const r=await sf([...turns.slice(-6),{role:"user",content:INSTR+"\n\nSNAPSHOT (updated "+DATA.updated+"):\n"+snap()+"\n\nQUESTION: "+q}],{modelTier:"quick",cache:false,signal:ctl.signal,onText:({text})=>{b.innerHTML=fmt(text);$("chat").scrollTop=1e9}});
+   b.innerHTML=fmt(r.text);turns.push({role:"user",content:q},{role:"assistant",content:r.text})}
+  catch(e){b.innerHTML=fmt(e.code==="cancelled"?(e.text||"")+" ...":(e.text?e.text+"\n\n":"")+offline(q))}
+  $("send").style.display="";$("stop").style.display="none";ctl=null}else b.innerHTML=fmt(offline(q));$("chat").scrollTop=1e9}
+$("send").onclick=()=>ask($("q").value);$("q").onkeydown=e=>{if(e.key==="Enter")ask($("q").value)};$("stop").onclick=()=>ctl&&ctl.abort();
+// ================= Auto-refresh =================
+async function refresh(){if(!LIVE_URL)return;try{const r=await fetch(LIVE_URL,{cache:"no-store"});if(r.ok){const d=await r.json();if(d&&d.updated&&d.news){DATA=d;render()}}}catch(e){}}
+setInterval(()=>{const a=ageInfo();$("age").textContent=a[1];$("age").style.background=col(a[0])},60000);
+if(LIVE_URL){refresh();setInterval(refresh,300000)}
+render();add("b",tr("hi"));
+</script>
+</body>
+</html>
