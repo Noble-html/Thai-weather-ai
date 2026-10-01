@@ -110,7 +110,7 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
 <footer><span data-i="foot"></span> &copy; 2026 <b>Rachata</b></footer>
 <div id="adm" hidden>
  <div style="display:flex;justify-content:space-between;align-items:center"><b style="letter-spacing:.3em;color:#ffd400">◈ ADMIN</b><button id="admx">CLOSE ✕</button></div>
- <div id="admlogin" class="box" style="max-width:460px;margin-top:12vh"><h2 id="admtitle">IDENTIFY</h2><div id="admmsg" class="dim">Checking channel<span class="blink">_</span></div><div id="admwho2" style="margin-top:6px"></div><div id="fbform" style="display:none;margin-top:8px"><input id="fbem" type="email" placeholder="EMAIL" autocomplete="username" style="width:100%;margin-bottom:6px"><input id="fbpw" type="password" placeholder="PASSWORD" autocomplete="current-password" style="width:100%;margin-bottom:6px"><button id="fbgo">SIGN IN</button> <button id="fbgoogle">SIGN IN WITH GOOGLE</button></div><input id="admpw" type="password" placeholder="ACCESS CODE" autocomplete="current-password" style="display:none"><button id="admgo" style="display:none">REQUEST ACCESS</button></div>
+ <div id="admlogin" class="box" style="max-width:460px;margin-top:12vh"><h2 id="admtitle">IDENTIFY</h2><div id="admmsg" class="dim">Checking channel<span class="blink">_</span></div><div id="admwho2" style="margin-top:6px"></div><div id="fbform" style="display:none;margin-top:8px"><button id="fbgoogle">SIGN IN WITH GOOGLE</button></div><input id="admpw" type="password" placeholder="ACCESS CODE" autocomplete="current-password" style="display:none"><button id="admgo" style="display:none">REQUEST ACCESS</button></div>
  <div id="admmain" hidden>
   <div class="box"><h2 id="admwho"></h2><span class="dim" id="admmode"></span> <span class="dim" id="admlive"></span></div>
   <div class="box"><h2>01 // DATA</h2><p class="dim">CSV columns: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood (0 to 1). Header row optional. One row per place and time.</p><input type="file" id="admfile" accept=".csv,.txt,text/csv"> <button id="admtpl">TEMPLATE</button><p id="admdata" class="dim"></p></div>
@@ -253,6 +253,7 @@ const FIREBASE_CONFIG={apiKey:"AIzaSyCN5wS-l4hgYRPaNvk_d4IvXvZqP_3MnHE",authDoma
 // email -> admin display name. Edit this to change who can administer the site.
 const ADMIN_NAMES={
  "thanwinnoble@gmail.com":"ADMIN:Thanawin",
+ "thanawinnoble07@gmail.com":"ADMIN:Thanawin",
  "06546@tupp.ac.th":"ADMIN:Thanawin",
  "06554@tupp.ac.th":"Admin:Rachata",
  "rachata.le@gmail.com":"Admin:Rachata"
@@ -290,7 +291,7 @@ async function openAdm(){adm.hidden=false;$("admlogin").hidden=false;$("admmain"
  if(FB){
   $("admpw").style.display=$("admgo").style.display="none";
   const u=await fbReady();
-  if(!u){$("admtitle").textContent="SIGN IN";$("admmsg").className="dim";$("admmsg").textContent="Sign in with an administrator email.";$("fbform").style.display="";return}
+  if(!u){$("admtitle").textContent="SIGN IN";$("admmsg").className="dim";$("admmsg").textContent="Sign in with your Google account.";$("fbform").style.display="";return}
   return fbCheck(u);
  }
  const me=await identify();
@@ -314,8 +315,6 @@ function fbCheck(u){
  const msg=name&&!u.emailVerified?"This email is not verified yet. Verify it, then sign in again.":"This account is not an administrator.";
  showDenied("ACCESS DENIED",[{cls:"red",parts:[msg]},{parts:["Signed in as ",(()=>{const b=document.createElement("b");b.textContent=u.email||"(no email)";return b})()]}]);
  FB.signOut();$("fbform").style.display=""}
-$("fbgo").onclick=async()=>{try{const c=await FB.signInWithEmailAndPassword($("fbem").value.trim(),$("fbpw").value);$("fbpw").value="";fbCheck(c.user)}catch(e){$("admmsg").className="red";$("admmsg").textContent="Sign-in failed: "+(e.code||e.message)}};
-$("fbpw").onkeydown=e=>{if(e.key==="Enter")$("fbgo").click()};
 $("fbgoogle").onclick=async()=>{try{const c=await FB.signInWithPopup(new firebase.auth.GoogleAuthProvider());fbCheck(c.user)}catch(e){$("admmsg").className="red";$("admmsg").textContent="Sign-in failed: "+(e.code||e.message)}};
 function enter(meta){$("admlogin").hidden=true;$("admmain").hidden=false;
  const who=$("admwho");who.textContent="";
