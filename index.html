@@ -72,4 +72,636 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
 .adm-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border:1px solid rgba(255,255,255,.12);background:rgba(8,13,21,.82);backdrop-filter:blur(14px);border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.32);position:sticky;top:12px;z-index:5}
 .adm-brand{display:flex;align-items:center;gap:12px}.adm-orb{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#f5c542,#ffec8b);display:grid;place-items:center;color:#111;font-weight:900;box-shadow:0 0 0 1px rgba(255,255,255,.2),0 10px 30px rgba(245,197,66,.2)}
 .adm-title{margin:0;font:800 14px/1.2 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.18em;color:#fff}.adm-sub{margin-top:4px;color:#8ea0b7;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace}
-.adm-actions{display:flex;gap:8px;flex-wrap:wrap}.adm-action{border:1px solid rgba(255,255,255,.15)!important;background:rgba(255,255,255,.05)!important;color:#dce8f6!important;border-radius:10px!important;padding
+.adm-actions{display:flex;gap:8px;flex-wrap:wrap}.adm-action{border:1px solid rgba(255,255,255,.15)!important;background:rgba(255,255,255,.05)!important;color:#dce8f6!important;border-radius:10px!important;padding:9px 12px!important;letter-spacing:.04em!important}.adm-action.gold{border-color:rgba(245,197,66,.7)!important;color:#ffe596!important}.adm-action.danger{border-color:rgba(255,90,90,.55)!important;color:#ff9c9c!important}
+#adm .adm-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}.adm-card{grid-column:span 6;background:rgba(7,12,20,.78);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px;box-shadow:0 15px 50px rgba(0,0,0,.20);backdrop-filter:blur(12px)}.adm-card.wide{grid-column:span 12}.adm-card.third{grid-column:span 4}
+.adm-card h3{margin:0;color:#fff;font:800 12px/1.3 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.16em}.adm-card .adm-muted{color:#8292a8;font:12px/1.55 ui-monospace,Menlo,Consolas,monospace}.adm-kpi{display:flex;align-items:end;justify-content:space-between;margin-top:16px}.adm-kpi strong{font:800 30px/1 ui-monospace,Menlo,Consolas,monospace;color:#f8fbff}.adm-kpi span{font:12px ui-monospace,Menlo,Consolas,monospace;color:#8ea0b7}
+.adm-input,#adm input[type=email],#adm input[type=password],#adm textarea{width:100%;background:rgba(0,0,0,.35)!important;color:#f5f7fb!important;border:1px solid rgba(255,255,255,.15)!important;border-radius:11px!important;padding:11px 12px!important;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace!important;outline:none}.adm-input:focus,#adm input[type=email]:focus,#adm input[type=password]:focus,#adm textarea:focus{border-color:rgba(245,197,66,.75)!important;box-shadow:0 0 0 3px rgba(245,197,66,.10)}
+.adm-btn{border:1px solid rgba(255,255,255,.15)!important;background:rgba(255,255,255,.06)!important;color:#e9f2ff!important;border-radius:10px!important;padding:10px 13px!important;font:700 12px ui-monospace,Menlo,Consolas,monospace!important;letter-spacing:.06em!important}.adm-btn:hover{background:rgba(255,255,255,.12)!important}.adm-btn.gold{background:linear-gradient(180deg,#f7cf54,#e0ae24)!important;color:#10130f!important;border-color:#ffe58a!important}.adm-btn.red{background:rgba(220,50,50,.12)!important;color:#ffb0b0!important;border-color:rgba(255,90,90,.5)!important}
+.adm-login-wrap{min-height:calc(100vh - 44px);display:grid;place-items:center;padding:60px 0}.adm-login{width:min(520px,100%);background:rgba(6,11,18,.88);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;box-shadow:0 40px 100px rgba(0,0,0,.5);backdrop-filter:blur(18px)}.adm-login h2{font-size:18px!important;letter-spacing:.10em!important}.adm-login .lock-line{display:flex;gap:10px;align-items:center;margin:14px 0 18px;color:#a8b7c9;font:12px ui-monospace,Menlo,Consolas,monospace}.adm-dot{width:8px;height:8px;border-radius:50%;background:#65e58a;box-shadow:0 0 14px #65e58a}.adm-field{margin-top:12px}.adm-field label{display:block;margin-bottom:6px;color:#8798ad;font:11px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.12em}.adm-foot{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:12px}.adm-status{min-height:20px;color:#93a2b5;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace}.adm-status.ok{color:#73eca0}.adm-status.err{color:#ff8888}.adm-status.warn{color:#ffd56a}
+.adm-manual{max-height:70vh;overflow:auto}.manual-section{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}.manual-section:last-child{border:0}.manual-section b{color:#fff}.manual-section p,.manual-section li{color:#a6b4c5;font:13px/1.65 system-ui,"Noto Sans Thai",sans-serif}.manual-section ul{margin:7px 0 0 20px}.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.adm-table{width:100%;border-collapse:collapse;margin-top:10px;font:12px ui-monospace,Menlo,Consolas,monospace}.adm-table th,.adm-table td{padding:8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}.adm-table th{color:#f4cf5b;background:rgba(255,255,255,.03)}.adm-table td{color:#9badc1}.role-pill{display:inline-flex;padding:4px 8px;border-radius:999px;background:rgba(245,197,66,.10);border:1px solid rgba(245,197,66,.30);color:#ffe596;font:700 10px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.05em}
+#sitePauseOverlay{position:fixed;inset:0;z-index:120;background:linear-gradient(180deg,rgba(6,10,16,.96),rgba(10,14,20,.98));display:none;align-items:center;justify-content:center;padding:24px}.pause-panel{max-width:650px;text-align:center;border:1px solid rgba(255,193,73,.25);background:rgba(255,255,255,.03);border-radius:22px;padding:34px;box-shadow:0 30px 100px rgba(0,0,0,.55)}.pause-icon{font-size:44px;margin-bottom:8px}.pause-panel h2{margin:0 0 8px;color:#fff}.pause-panel p{color:#aab6c5;margin:0 0 18px}.pause-panel .small{font:11px ui-monospace,Menlo,Consolas,monospace;color:#718197}
+@media(max-width:900px){#adm .adm-grid{grid-template-columns:1fr}.adm-card,.adm-card.wide,.adm-card.third{grid-column:span 1}.adm-top{position:relative;top:0}.adm-shell{padding:12px!important}}
+
+/* ===== ADMIN ROLE SYSTEM V5 ===== */
+.role-hsa{background:linear-gradient(135deg,#ffd43b,#ff5252);color:#190b00!important;border-color:#ffdb4d!important}
+.role-fsa{background:linear-gradient(135deg,#ef2b2d,#0a0a0a);color:#fff!important;border-color:#ff4b4b!important}
+.role-am{background:linear-gradient(135deg,#17663b,#0b2c1c);color:#d9ffe7!important;border-color:#328b59!important}
+.role-sar{background:linear-gradient(135deg,#ff4fb4,#ff8cd0);color:#3a0d2e!important;border-color:#ff78c7!important}
+.role-admin{background:linear-gradient(135deg,#78c8ff,#1871c9);color:#071524!important;border-color:#71bfff!important}
+.role-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);font-size:11px;font-weight:900;letter-spacing:.04em;box-shadow:0 4px 14px rgba(0,0,0,.16)}
+.adm-role-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:10px}
+.adm-role-card{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));min-height:150px}
+.adm-role-card b{display:block;font-size:12px;line-height:1.3}.adm-role-card small{display:block;color:#a7b0c0;margin-top:6px;font-size:11px;line-height:1.45}
+.adm-role-card .role-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:1000;margin-bottom:10px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.role-mark.hsa{background:linear-gradient(135deg,#ffd43b,#ff5252);color:#240400}.role-mark.fsa{background:linear-gradient(135deg,#ef2b2d,#050505);color:#fff}.role-mark.am{background:linear-gradient(135deg,#17663b,#0b2c1c);color:#e5fff0}.role-mark.sar{background:linear-gradient(135deg,#ff4fb4,#ff8cd0);color:#43103a}.role-mark.admin{background:linear-gradient(135deg,#78c8ff,#1871c9);color:#071524}
+.adm-ops-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.adm-mini{border:1px solid rgba(255,255,255,.08);background:#0b1017;color:#e8edf5;padding:9px 10px;border-radius:10px;text-align:left;cursor:pointer;font:inherit}
+.adm-mini:hover{border-color:rgba(255,255,255,.2);transform:translateY(-1px)}
+.adm-table button{font:inherit}.adm-table .danger-text{color:#ff9c9c}.adm-table .good-text{color:#8cf0b0}.adm-table .dim-text{color:#9da8b8}
+.audit-live{display:flex;align-items:center;gap:8px;font-size:11px;color:#9ca8b8}.audit-dot{width:8px;height:8px;border-radius:50%;background:#69e48e;box-shadow:0 0 0 4px rgba(105,228,142,.1);animation:auditPulse 1.8s infinite}@keyframes auditPulse{0%,100%{opacity:1}50%{opacity:.45}}
+.audit-feed{max-height:320px;overflow:auto;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#060a0f}.audit-row{display:grid;grid-template-columns:82px minmax(120px,.9fr) minmax(170px,1.6fr) 90px;gap:8px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.05);font-size:11px;align-items:center}.audit-row:last-child{border-bottom:0}.audit-action{font-weight:800}.audit-badge{display:inline-flex;justify-content:center;padding:3px 6px;border-radius:999px;font-size:9px;font-weight:900;background:rgba(255,255,255,.07)}
+.member-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.member-search{flex:1;min-width:180px;padding:9px 11px;border-radius:10px;border:1px solid rgba(255,255,255,.10);background:#0a0f15;color:#fff;font:inherit}.invite-note{margin-top:8px;padding:9px 11px;border-radius:10px;background:rgba(255,212,59,.08);border:1px solid rgba(255,212,59,.16);color:#e8dfad;font-size:11px;line-height:1.5}
+@media(max-width:1050px){.adm-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.adm-ops-grid{grid-template-columns:1fr 1fr}.audit-row{grid-template-columns:70px 1fr;}.audit-row>*:nth-child(n+3){grid-column:2}}
+@media(max-width:650px){.adm-role-grid,.adm-ops-grid{grid-template-columns:1fr}.adm-table{min-width:760px}}
+
+
+/* ===== FIREBASE CELL-BROADCAST UI ===== */
+#publicBroadcastRail{max-width:1100px;margin:8px auto 0;padding:0 14px;display:grid;gap:8px;position:sticky;top:0;z-index:40}
+.broadcast-card{position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 30px rgba(0,0,0,.10);padding:11px 42px 11px 14px;backdrop-filter:blur(10px);animation:bcastIn .28s ease-out}
+.broadcast-card.normal{background:var(--card);color:var(--text);border-color:var(--bd)}
+.broadcast-card.high{background:linear-gradient(135deg,#fff0df,#ffc37a);color:#321a00;border-color:#ef8b26}
+.broadcast-card.urgent{background:linear-gradient(135deg,#7b0505,#d51f1f);color:#fff;border-color:#ff6161;box-shadow:0 0 0 1px rgba(255,80,80,.2),0 12px 40px rgba(180,0,0,.24)}
+.broadcast-card .bc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em}
+.broadcast-card .bc-title{font-size:15px;font-weight:800;margin-top:3px}.broadcast-card .bc-body{font-size:13px;margin-top:3px;line-height:1.45}.broadcast-card .bc-meta{font-size:11px;opacity:.76;margin-top:5px}
+.broadcast-badge{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:99px;border:1px solid currentColor;font-size:10px}
+.broadcast-card.urgent .broadcast-badge{animation:urgentPulse 1.2s ease-in-out infinite}.broadcast-card .bc-close{position:absolute;right:10px;top:10px;width:28px;height:28px;border:0;border-radius:8px;background:rgba(0,0,0,.08);color:inherit;cursor:pointer;font-size:16px}.broadcast-card.urgent .bc-close{background:rgba(255,255,255,.14);color:#fff}
+.broadcast-card .bc-side{display:flex;align-items:center;gap:8px}.broadcast-card.high .bc-side .broadcast-badge{background:#ff8b1f;color:#fff;border-color:#ff8b1f}.broadcast-card.urgent .bc-side .broadcast-badge{background:#fff;color:#a40000;border-color:#fff}
+@keyframes bcastIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}@keyframes urgentPulse{50%{box-shadow:0 0 0 5px rgba(255,255,255,.12)}}
+.announcement-order-note{font-size:11px;color:var(--muted);margin:6px 0 0}
+.firebase-help{font-size:12px;line-height:1.6;color:#9bb2c5}.firebase-help b{color:#dfefff}
+</style>
+</head>
+<body>
+<header>
+ <div><h1>Rachata Flood AI</h1><small data-i="sub"></small></div>
+ <div style="display:flex;gap:14px;align-items:center"><span class="muted" style="color:#dbe6f5"><span data-i="owner"></span>: <b>Rachata</b></span><button class="adminbtn" id="admbtn" aria-label="Admin access">◈ ADMIN</button><span class="lang fs"><button id="fsm" aria-label="Smaller text">A-</button><button id="fsp" aria-label="Larger text">A+</button></span><span class="lang"><button id="bth">ไทย</button><button id="ben">EN</button></span></div>
+</header>
+<div class="demo" data-i="demo"></div>
+<div id="publicMissionBar" style="display:none;max-width:1100px;margin:10px auto 0;padding:0 14px"><div style="background:linear-gradient(135deg,#071522,#102b3c);border:1px solid #31536d;border-radius:12px;padding:12px 14px;color:#e8f5ff;box-shadow:0 8px 24px rgba(0,0,0,.08)"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><b id="publicMissionTitle">DAILY MISSION</b><span id="publicMissionMeta" class="muted"></span></div><div id="publicMissionBody" style="margin-top:5px"></div></div></div><div id="publicBroadcastRail" aria-live="polite" aria-atomic="false"></div>
+
+<nav id="tabs"><button data-t="t1" class="on" data-i="t1"></button><button data-t="t2" data-i="t2"></button><button data-t="t3" data-i="t3"></button><button data-t="t4" data-i="t4"></button></nav>
+<main>
+<section id="t1" class="on">
+ <div class="sos" id="sos"></div>
+ <div class="hero"><h2 id="hl"></h2><span class="pill" id="age"></span> <span class="muted" id="ageTxt"></span></div>
+ <div class="tiles" id="tiles"></div>
+ <p class="muted" id="note"></p>
+ <div class="grid">
+  <div><div class="card"><h3 data-i="news"></h3><ul class="news" id="news"></ul></div>
+  <div class="card rd"><h3 data-i="roads"></h3><div id="roads"></div></div></div>
+  <div><div class="card"><h3 data-i="live"></h3><div class="links" id="live"></div><p class="muted" data-i="liveN"></p></div>
+  <div class="card"><h3 data-i="prov"></h3><div class="scroll"><table><thead><tr><th data-i="pv"></th><th data-i="rk"></th><th data-i="st"></th><th></th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted" data-i="provN"></p><p class="muted" id="mbadge"></p></div></div>
+ </div>
+</section>
+<section id="t2"><div class="grid">
+ <div class="card"><h3 data-i="in"></h3>
+  <label class="f" data-i="loc"></label><input type="text" id="loc" value="Bangkok, Thailand">
+  <label class="f" data-i="pre"></label><select id="pre"></select>
+  <label class="f"><span data-i="f0"></span><output id="o0"></output></label><input type="range" id="i0" min="0" max="200" value="100">
+  <label class="f"><span data-i="f1"></span><output id="o1"></output></label><input type="range" id="i1" min="0" max="100" value="60">
+  <label class="f"><span data-i="f2"></span><output id="o2"></output></label><input type="range" id="i2" min="0" max="100" value="60">
+  <label class="f"><span data-i="f3"></span><output id="o3"></output></label><input type="range" id="i3" min="0" max="100" value="0">
+  <label class="f"><span data-i="f4"></span><output id="o4"></output></label><input type="range" id="i4" min="0" max="100" value="60"></div>
+ <div class="card res"><h3 data-i="out"></h3><div id="out"></div></div>
+</div></section>
+<section id="t3"><div class="grid">
+ <div class="card"><h3 data-i="hot"></h3><ul class="t" id="hot"></ul></div>
+ <div class="card"><h3 data-i="do"></h3><ul class="t" id="dos"></ul></div>
+ <div class="card"><h3 data-i="after"></h3><ul class="t" id="aft"></ul></div>
+ <div class="card"><h3 data-i="world"></h3><ul class="t" id="wld"></ul></div>
+</div></section>
+<section id="t4"><div class="card"><h3 data-i="askT"></h3><div id="chat"></div><div class="chips" id="chips"></div>
+ <div class="row"><input id="q" autocomplete="off"><button class="btn" id="send" data-i="send"></button><button class="btn" id="stop" style="display:none;background:var(--l3)" data-i="stop"></button></div><div class="muted" id="mode"></div></div></section>
+</main>
+<footer><span data-i="foot"></span> &copy; 2026 <b>Rachata</b></footer>
+<div id="adm" hidden>
+ <div class="adm-shell">
+  <div class="adm-top">
+   <div class="adm-brand"><div class="adm-orb">◈</div><div><div class="adm-title">RACHATA FLOOD AI / ADMIN CONTROL</div><div class="adm-sub">FIREBASE REALTIME • OFFLINE-READY • ROLE-BASED ACCESS • AUDIT READY</div></div></div>
+   <div class="adm-actions"><button class="adm-action" id="admmanual">MANUAL</button><button class="adm-action gold" id="admhealth">SYSTEM CHECK</button><button class="adm-action" id="admx">CLOSE ✕</button></div>
+  </div>
+  <div id="admlogin">
+   <div class="adm-login-wrap"><div class="adm-login">
+    <h2 id="admtitle">ADMINISTRATOR SIGN IN</h2>
+    <div class="lock-line"><span class="adm-dot"></span><span>OFFLINE AUTHENTICATION CHANNEL READY</span></div>
+    <p id="admmsg" class="adm-status">No network or server is required for administrator sign-in.</p>
+    <div class="adm-field"><label for="admemail">ADMINISTRATOR EMAIL</label><input id="admemail" type="email" inputmode="email" autocomplete="username" placeholder="name@example.com"></div>
+    <div class="adm-field"><label for="admpw">ACCESS PASSWORD</label><input id="admpw" type="password" autocomplete="current-password" placeholder="••••••"></div>
+    <div class="adm-foot"><span class="adm-status" id="admattempt"></span><button class="adm-btn gold" id="admgo">SECURE SIGN IN →</button></div>
+    <div class="adm-status" style="margin-top:12px">Tip: Press <span class="mono">Ctrl + Shift + A</span> from the public page to open Admin.</div>
+   </div></div>
+  </div>
+  <div id="admmain" hidden>
+   <div class="adm-grid">
+    <div class="adm-card wide">
+     <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><h3 id="admwho">ADMINISTRATOR</h3><div id="admmode" class="adm-muted" style="margin-top:6px"></div></div><div style="text-align:right"><div id="admlive" class="role-pill">LOCAL / OFFLINE</div><div id="admauthage" class="adm-muted" style="margin-top:6px"></div></div></div>
+    </div>
+    <div class="adm-card third"><h3>01 // STATUS</h3><div class="adm-kpi"><strong id="admKpiData">LOCAL</strong><span>DATA CHANNEL</span></div><div class="adm-muted" id="admDataStatus" style="margin-top:8px"></div></div>
+    <div class="adm-card third"><h3>02 // MODEL</h3><div class="adm-kpi"><strong id="admKpiModel">DEMO</strong><span>MODEL</span></div><div class="adm-muted" id="admModelStatus" style="margin-top:8px"></div></div>
+    <div class="adm-card third"><h3>03 // SITE</h3><div class="adm-kpi"><strong id="admKpiSite">LIVE</strong><span>PUBLIC STATE</span></div><div class="adm-muted" id="admSiteStatus" style="margin-top:8px"></div></div>
+    <div class="adm-card wide"><h3>04 // SITUATION DATA</h3><p class="adm-muted">แก้ไข JSON แล้วกด Preview ก่อน Publish. ในโหมดไฟล์เดียว ข้อมูลจะเก็บในเครื่องนี้และซิงก์กับแท็บอื่นที่เปิดไฟล์เดียวกัน.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-btn" id="admsittpl">TEMPLATE</button><button class="adm-btn" id="admsitload">LOAD CURRENT</button><button class="adm-btn" id="admsitprev">PREVIEW</button><button class="adm-btn gold" id="admsitpub">PUBLISH LOCAL</button></div>
+      <textarea id="admsit" rows="15" spellcheck="false"></textarea><div class="adm-status" id="admsitmsg"></div>
+    </div>
+    <div class="adm-card"><h3>05 // AI TRAINING</h3><p class="adm-muted">CSV: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood. ระบบแบ่ง train/holdout และคำนวณ accuracy, precision, recall.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><input type="file" id="admfile" accept=".csv,.txt,text/csv" class="adm-input"><button class="adm-btn" id="admtpl">CSV TEMPLATE</button></div><div id="admdata" class="adm-status" style="margin-top:8px"></div><button class="adm-btn gold" id="admtrain" style="margin-top:8px">TRAIN MODEL LOCALLY</button><pre id="alog" style="height:200px;overflow:auto;background:#020407;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:10px;color:#9fe7b7;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap"></pre></div>
+    <div class="adm-card"><h3>06 // MODEL CONTROL</h3><p class="adm-muted">เปิดใช้โมเดลที่ train แล้ว หรือส่งออกเป็นไฟล์ model.json เพื่อเก็บสำรอง.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admuse">USE MODEL</button><button class="adm-btn" id="admexp">EXPORT MODEL</button><button class="adm-btn" id="admmodreset">RESET MODEL</button></div><div id="admdep" class="adm-status" style="margin-top:8px"></div></div>
+    <div class="adm-card wide"><h3>07 // ADMIN OPERATIONS</h3><div class="adm-muted" style="margin:8px 0 12px">สิทธิ์ถูกแยกตามบัญชี. ปุ่มระงับเว็บไซต์ให้เฉพาะ <b style="color:#fff">rachata.le@gmail.com</b> เท่านั้น.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admlogout">LOG OUT</button><button class="adm-btn" id="admclear">CLEAR LOCAL SESSION</button><button class="adm-btn red" id="admpause" hidden>PAUSE WEBSITE — 2-STEP</button><button class="adm-btn gold" id="admresume" hidden>RESUME WEBSITE</button></div><div id="admopmsg" class="adm-status" style="margin-top:10px"></div></div>
+    <div class="adm-card wide"><h3>08 // ACCESS MATRIX</h3><table class="adm-table"><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="admusers"></tbody></table></div>
+    <div class="adm-card wide" id="roleBriefCard"><h3>09 // COMMAND STRUCTURE / ROLE BRIEF</h3><p class="adm-muted">โครงสร้าง 5 ระดับของ Rachata Flood AI — สิทธิ์จะถูกตรวจทุกครั้งก่อนทำคำสั่งสำคัญ</p>
+      <div class="adm-role-grid">
+        <div class="adm-role-card"><div class="role-mark hsa">1</div><b>HSA — HEAD SUPERVISOR OF ADMINISTRATOR</b><small>ผู้บัญชาการระบบ • เข้าถึงทุกอย่าง • เชิญ/เพิ่ม/แก้/ปลดเจ้าหน้าที่ • ไล่ออกได้ • ควบคุมฉุกเฉินระงับเว็บไซต์ (เฉพาะ rachata.le@gmail.com)</small></div>
+        <div class="adm-role-card"><div class="role-mark fsa">2</div><b>FSA — FIRST SECRETARY ADMINISTRATOR</b><small>ผู้บริหารระดับเลขานุการ • สิทธิ์งาน Admin เกือบทั้งหมด • จัดการข้อมูล/เจ้าหน้าที่/AI ได้ • ยกเว้น Emergency Site Shutdown ของ HSA</small></div>
+        <div class="adm-role-card"><div class="role-mark am">3</div><b>AM — ADMINISTRATOR MANAGER</b><small>ผู้จัดการเจ้าหน้าที่ • ตรวจสถานะสมาชิก • เปิด/ระงับบัญชีระดับปฏิบัติการ • จัดการงานและตักเตือน • ห้ามแตะ HSA Emergency Control</small></div>
+        <div class="adm-role-card"><div class="role-mark sar">4</div><b>SAR — SITE ACTION REPORTER</b><small>ผู้ตรวจการกระทำ • เฝ้าดู Audit Board • บันทึก/รายงานการกระทำผิดระเบียบ • ส่งเรื่องขึ้น HSA/FSA เพื่อพิจารณาตักเตือนหรือปลด</small></div>
+        <div class="adm-role-card"><div class="role-mark admin">5</div><b>ADMINISTRATOR</b><small>ผู้ดูแล AI/เว็บไซต์ • Train AI • ตรวจโมเดล • ตรวจ Error Center • แก้ข้อมูลด้านเทคนิคที่ได้รับมอบหมาย</small></div>
+      </div>
+    </div>
+    <div class="adm-card wide" id="staffManagerCard"><h3>10 // ADMINISTRATOR DIRECTORY / INVITE & CONTROL</h3>
+      <div class="member-toolbar"><input id="memberSearch" class="member-search" placeholder="ค้นหาอีเมล / ชื่อ / ยศ"><button class="adm-btn gold" id="addMemberBtn">＋ ADD ADMINISTRATOR</button><button class="adm-btn" id="refreshMembersBtn">↻ REFRESH</button></div>
+      <div class="invite-note"><b>ROLE CONTROL:</b> HSA/FSA สามารถดูแลสมาชิกตามสิทธิ์ของตนได้ • HSA ใช้ <b>MASTER ACCESS</b> เพื่อเปิดดู session ของสมาชิกแทนโดยไม่ต้องรู้รหัสของสมาชิก • ผู้ได้รับเชิญใหม่จะตั้งรหัสผ่านของตัวเองครั้งแรกด้วย Invite Code</div>
+      <div class="scroll" style="margin-top:10px"><table class="adm-table"><thead><tr><th>EMAIL</th><th>NAME</th><th>ROLE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="memberDirectory"></tbody></table></div>
+      <div id="memberMsg" class="adm-status" style="margin-top:10px"></div>
+    </div>
+    <div class="adm-card wide" id="auditBoardCard"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><div><h3>11 // AUDIT BOARD / SITE ACTION REPORTER</h3><div class="adm-muted">บอร์ดการกระทำของเจ้าหน้าที่ทั้งหมด • refresh อัตโนมัติ • บันทึกเหตุการณ์ในเครื่องนี้</div></div><div class="audit-live"><span class="audit-dot"></span><span id="auditLiveText">LIVE REFRESH</span></div></div>
+      <div class="adm-ops-grid"><button class="adm-mini" id="auditRefreshBtn">↻ REFRESH BOARD</button><button class="adm-mini" id="auditExportBtn">⇩ EXPORT AUDIT JSON</button><button class="adm-mini" id="auditReportBtn">⚑ REPORT SELECTED ACTION</button></div>
+      <div id="auditFeed" class="audit-feed" style="margin-top:10px"></div>
+      <div id="auditMsg" class="adm-status" style="margin-top:9px"></div>
+    </div>
+    <div class="adm-card wide" id="cloudControlCard"><h3>12 // CLOUD REAL-TIME CONTROL</h3><p class="adm-muted">เชื่อมฐานข้อมูล Firebase Cloud Firestore กลางเพื่อให้ข้อมูลสถานการณ์, สมาชิก, Audit Board, การแจ้งเตือน, ประกาศ และภารกิจประจำวันตรงกันทุกเครื่องแบบ Realtime. การเปลี่ยนแปลงจะถูกฟังด้วย listener และส่งเข้าหน้าเว็บทันทีเมื่อออนไลน์. เมื่อออฟไลน์ Firestore สามารถใช้ข้อมูล cache และซิงก์กลับเมื่ออินเทอร์เน็ตกลับมา. ใช้ Firebase Authentication + Cloud Firestore Security Rules. ต้องกรอก Firebase Web App Configuration ครั้งแรก และตั้ง Rules ตามคู่มือภายในระบบ. Firebase API key ของเว็บมีไว้ระบุโปรเจกต์ ไม่ใช่สิทธิ์เข้าถึงข้อมูล; ความปลอดภัยต้องมาจาก Authentication, Firestore Rules และ App Check.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="role-pill" id="cloudStatusPill">CLOUD: OFFLINE</span><button class="adm-btn" id="cloudSetupBtn">FIREBASE SETUP</button><button class="adm-btn" id="cloudConnectBtn">CONNECT / RECONNECT</button><button class="adm-btn" id="cloudNotifyBtn">ENABLE DESKTOP NOTIFICATIONS</button></div><div id="cloudMsg" class="adm-status" style="margin-top:10px"></div><div class="firebase-help" style="margin-top:10px"><b>การเชื่อมต่อ:</b> เปิด Firebase Console → สร้าง Web App → คัดลอก Firebase Config → กด FIREBASE SETUP แล้ววาง JSON. จากนั้นเปิด Email/Password ใน Authentication และสร้างบัญชีเจ้าหน้าที่ที่ต้องการให้เข้า Cloud. <b>การซิงก์:</b> Firestore listener จะส่งประกาศ/ภารกิจ/ข้อมูลล่าสุดไปทุกหน้าที่ออนไลน์. <b>ความปลอดภัย:</b> ตั้ง Firestore Rules จากปุ่มคู่มือก่อนเปิดใช้งานจริง.</div></div>
+    <div class="adm-card wide" id="missionBoardCard"><h3>13 // DAILY MISSION BOARD / LIVE</h3><p class="adm-muted">ประกาศภารกิจประจำวันให้เจ้าหน้าที่ทุกระดับ • ทุกเครื่องที่เชื่อม Firebase จะรับภารกิจฉบับเดียวกันทันทีผ่าน realtime listener • ประวัติการประกาศยังคงอยู่และไม่ถูกลบจากปุ่มผู้ใช้.</p><div style="display:grid;grid-template-columns:1.2fr 1.6fr .7fr auto;gap:8px;align-items:end;flex-wrap:wrap"><div><label class="adm-status">TITLE</label><input id="missionTitle" class="adm-input" placeholder="ภารกิจวันนี้"></div><div><label class="adm-status">BRIEF</label><input id="missionBody" class="adm-input" placeholder="รายละเอียดภารกิจ"></div><div><label class="adm-status">PRIORITY</label><select id="missionPriority" class="adm-input" aria-label="Mission priority"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select><div class="firebase-help" style="grid-column:1/-1"><b>NORMAL</b> = ข้อมูลทั่วไป • <b>HIGH</b> = สำคัญ/ด่วน ใช้สีส้ม • <b>URGENT</b> = แจ้งเตือนเร่งด่วนมาก ใช้สีแดงและแสดงคำเตือนชัดเจน</div></div><button class="adm-btn gold" id="missionPublishBtn">PUBLISH MISSION</button></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-mini" id="missionRefreshBtn">↻ REFRESH MISSIONS</button><button class="adm-mini" id="missionClearBtn" disabled title="ประกาศแล้วไม่สามารถยกเลิกได้">ANNOUNCEMENT CANNOT BE CANCELLED</button></div><div id="missionFeed" class="audit-feed"></div><div style="display:grid;grid-template-columns:1.1fr 1.6fr .7fr auto;gap:8px;align-items:end;margin-top:12px"><div><label class="adm-status">BROADCAST TITLE</label><input id="announcementTitle" class="adm-input" placeholder="หัวข้อประกาศที่ต้องการให้ทุกคนเห็น"></div><div><label class="adm-status">MESSAGE</label><input id="announcementBody" class="adm-input" placeholder="ข้อความที่ต้องอ่านและปฏิบัติตาม"></div><div><label class="adm-status">PRIORITY</label><select id="announcementPriority" class="adm-input"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select></div><button class="adm-btn gold" id="announcementPublishBtn">PUBLISH BROADCAST</button></div><p class="announcement-order-note">ลำดับการแสดง: URGENT สีแดง → HIGH สีส้ม → NORMAL ตามลำดับเวลา. ปุ่ม × ซ่อนเฉพาะเครื่องนั้นเท่านั้น; ไม่มีปุ่มยกเลิกประกาศ.</p><div id="missionMsg" class="adm-status" style="margin-top:9px"></div></div>
+    <div class="adm-card wide" id="notificationBoardCard"><h3>14 // REAL-TIME NOTIFICATION CENTER</h3><p class="adm-muted">แจ้งเตือนจาก Audit / รายงาน / ภารกิจ / ระบบ จะขึ้นทันทีเมื่อมี event ใหม่.</p><div id="notificationFeed" class="audit-feed"></div></div>
+    <div class="adm-card wide" id="errorCenterCard"><h3>15 // ERROR CENTER / AI OPERATIONS</h3><p class="adm-muted">Administrator ระดับ 5 รับผิดชอบหลัก • ระบบนี้ตรวจ JavaScript/global errors ที่เกิดขึ้นในหน้านี้และเก็บ log ล่าสุดเพื่อวิเคราะห์</p>
+      <div class="adm-ops-grid"><button class="adm-mini" id="runSelfTestBtn">▶ RUN SELF-TEST</button><button class="adm-mini" id="clearErrorBtn">CLEAR ERROR LOG</button><button class="adm-mini" id="exportErrorBtn">⇩ EXPORT ERROR LOG</button></div>
+      <pre id="errorFeed" style="height:180px;overflow:auto;background:#05080c;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;color:#ffb2b2;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;margin:10px 0 0"></pre>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div id="sitePauseOverlay" aria-live="polite"><div class="pause-panel"><div class="pause-icon">⏸</div><h2>เว็บไซต์อยู่ในโหมดระงับชั่วคราว</h2><p>ระบบสาธารณะกำลังอยู่ระหว่างการบำรุงรักษาหรือหยุดให้บริการชั่วคราว</p><div class="small">RACHATA FLOOD AI • ADMIN MAINTENANCE MODE</div><div style="margin-top:18px"><button class="btn" id="pauseAdminBtn">ADMIN ACCESS</button></div></div></div>
+<script>
+/* Rachata Flood AI resilient boot. Firebase is optional at page-load.
+   The public site renders without waiting for any CDN; Firebase SDK loads only
+   when Cloud mode is actually requested. This also makes file:// opening reliable. */
+const RFAI_FIREBASE_VERSION="12.19.0";
+let RFAI_FIREBASE_PROMISE=null;
+function loadFirebaseScript(src){
+  return new Promise((resolve,reject)=>{
+    const existing=document.querySelector('script[data-rfai-firebase-src="'+src+'"]');
+    if(existing){
+      if(existing.dataset.loaded==="1") return resolve();
+      existing.addEventListener("load",()=>resolve(),{once:true});
+      existing.addEventListener("error",()=>reject(new Error("Firebase CDN unavailable")),{once:true});
+      return;
+    }
+    const el=document.createElement("script");
+    el.src=src; el.async=true; el.dataset.rfaiFirebaseSrc=src;
+    let settled=false;
+    const finish=(fn,v)=>{if(settled)return;settled=true;clearTimeout(timer);fn(v)};
+    const timer=setTimeout(()=>finish(reject,new Error("Firebase CDN timeout")),12000);
+    el.onload=()=>{el.dataset.loaded="1";finish(resolve)};
+    el.onerror=()=>finish(reject,new Error("Firebase CDN unavailable"));
+    document.head.appendChild(el);
+  });
+}
+async function ensureFirebaseSDK(){
+  if(window.firebase?.initializeApp&&window.firebase?.firestore&&window.firebase?.auth)return window.firebase;
+  if(RFAI_FIREBASE_PROMISE)return RFAI_FIREBASE_PROMISE;
+  const base="https://www.gstatic.com/firebasejs/"+RFAI_FIREBASE_VERSION+"/";
+  RFAI_FIREBASE_PROMISE=Promise.all([
+    loadFirebaseScript(base+"firebase-app-compat.js"),
+    loadFirebaseScript(base+"firebase-auth-compat.js"),
+    loadFirebaseScript(base+"firebase-firestore-compat.js")
+  ]).then(()=>{
+    if(!window.firebase?.initializeApp||!window.firebase?.firestore||!window.firebase?.auth) throw new Error("Required Firebase services are unavailable");
+    return window.firebase;
+  }).catch(e=>{RFAI_FIREBASE_PROMISE=null;throw e});
+  return RFAI_FIREBASE_PROMISE;
+}
+const $=id=>document.getElementById(id),rnd=(a=0,b=1)=>a+Math.random()*(b-a),c01=x=>Math.max(0,Math.min(1,x)),sig=x=>1/(1+Math.exp(-x)),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// ================= DATA SNAPSHOT (refreshed by re-publishing; set LIVE_URL to auto-refresh when self-hosted) =================
+const LIVE_URL="";
+let DATA={updated:"2026-09-28T11:30:00+07:00","statsAsOf": "2026-09-28 11:30", "note": {"th": "ตัวเลขในแต่ละรายงานไม่ตรงกัน (เช่น ครัวเรือนใน กทม. ที่ได้รับผลกระทบมีรายงานทั้ง 52,000 และ 329,000) และเปลี่ยนแปลงต่อเนื่อง", "en": "Figures differ between reports (e.g. Bangkok households affected reported as both 52,000 and 329,000) and keep changing."}, "roads": {"as": {"th": "ศูนย์ป้องกันน้ำท่วม กทม. 07.00 น. 28 ก.ย. และ Nation Thailand 06.30 น.", "en": "BMA Flood Prevention Centre 07:00, 28 Sep, and Nation Thailand 06:30"}, "avoid": [{"th": "ถนนรามคำแหง ช่วงพระราม 9 - แยกลำสาลี และซอยรามคำแหง 24", "en": "Ramkhamhaeng Rd (Rama 9 - Lam Sali) and Soi Ramkhamhaeng 24"}, {"th": "ถนนศรีนครินทร์ ช่วงแยกลำสาลี - ถนนพัฒนาการ", "en": "Srinagarindra Rd (Lam Sali - Phatthanakan)"}, {"th": "ถนนนวมินทร์ ช่วงแยกประเสริฐมนูกิจ - แยกบางกะปิ", "en": "Nawamin Rd (Prasoet Manukit - Bang Kapi) - small cars cannot pass"}, {"th": "ถนนสุวินทวงศ์และสีหบุรานุกิจ โซนมีนบุรี", "en": "Suwinthawong and Sihaburanukit Rds, Min Buri area"}, {"th": "ถนนพหลโยธิน หน้า ม.เกษตรฯ - กรมป่าไม้", "en": "Phahonyothin Rd (Kasetsart Univ. - Forestry Dept)"}, {"th": "ซอยร่มเกล้า 24, ซอยประเสริฐมนูกิจ 27, ถนนนักกีฬาแหลมทอง", "en": "Soi Rom Klao 24, Soi Prasoet Manukit 27, Nak Kila Laem Thong Rd"}], "limited": [{"th": "ถนนศรีนครินทร์ ช่วงพัฒนาการ - สุขุมวิท 77 (รถเล็กผ่านได้)", "en": "Srinagarindra (Phatthanakan - Sukhumvit 77): small cars can pass"}, {"th": "ถนนรามคำแหง แยกลำสาลี - ซอย 129/4 (ท่วมเป็นบางแห่ง รถยนต์ผ่านได้)", "en": "Ramkhamhaeng (Lam Sali - Soi 129/4): patchy flooding, cars can pass"}, {"th": "ถนนเพชรบุรี สะพานคลองตัน (ท่วม แต่ผ่านได้)", "en": "Phetchaburi Rd, Khlong Tan bridge: flooded but passable"}, {"th": "ถนนนวมินทร์ ช่วงนวมินทร์-รัชดา-รามอินทรา ถึงแยกประเสริฐมนูกิจ (ท่วมเล็กน้อย รถเล็กผ่านได้)", "en": "Nawamin (Nawamin-Ratchada-Ramintra to Prasoet Manukit): minor flooding, small cars can pass"}], "ok": [{"th": "ถนนวิภาวดีรังสิต ผ่านได้ทุกชนิดรถ (06.30 น.)", "en": "Vibhavadi Rangsit Rd: all vehicles (06:30)"}, {"th": "ถนนเสนานิคม เริ่มสัญจรได้", "en": "Sena Nikhom Rd: starting to be passable"}], "hard": [{"th": "เคหะคลองจั่น และเคหะร่มเกล้า", "en": "Khlong Chan and Rom Klao housing estates"}]},
+ headline:{th:"ฝนเริ่มซาลง แต่น้ำท่วมขังยังอยู่ - กทม. คาดใช้เวลาระบาย 2-3 วัน หากไม่มีฝนเพิ่ม",en:"Rain is easing but flooding remains - Bangkok expects 2-3 days to drain if no more rain falls"},
+ stats:[{v:"545,000",l:{th:"ผู้ได้รับผลกระทบ (25 จังหวัด) - ปภ.",en:"People affected (25 provinces) - DDPM"}},{v:"8",l:{th:"ผู้เสียชีวิตที่รายงาน",en:"Deaths reported"}},
+  {v:"35 / 81",l:{th:"จุดถนนสายหลัก กทม. ที่ยังท่วมขัง",en:"Bangkok main-road points still flooded"}},{v:"1,950",l:{th:"ลบ.ม./วินาที เขื่อนเจ้าพระยา (26 ก.ย.)",en:"m³/s Chao Phraya Dam release (26 Sep)"}},
+  {v:"50",l:{th:"เขต กทม. ประกาศพื้นที่ภัยพิบัติ",en:"Bangkok districts declared disaster zones"}}],
+ news:[
+ {d:"28 Sep",s:"Nation Thailand",u:"https://www.nationthailand.com/thailand/bangkok/40071588",th:"ฝนเริ่มซาลง กทม. เร่งลดระดับน้ำในคลองสายหลัก หลังหย่อมความกดอากาศต่ำเคลื่อนออก แต่ยังมีฝนสลับจากมรสุม",en:"Rain easing in Bangkok; the city focuses on lowering canal levels as the low-pressure system moves away, though monsoon showers may continue."},
+ {d:"28 Sep",s:"Thai Enquirer",u:"https://www.thaienquirer.com/74635/thai-enquirer-news-summary-september-28-2026/",th:"ครม. ประกาศหยุดพิเศษ 28-29 ก.ย. ใน กทม. ปทุมธานี นนทบุรี สมุทรปราการ พร้อม 14 มาตรการเร่งด่วน และใช้ทางด่วนฟรีถึงเที่ยงคืน 29 ก.ย.",en:"Cabinet declares a 28-29 Sep special holiday in Bangkok, Pathum Thani, Nonthaburi and Samut Prakan, with 14 urgent measures and free expressways until midnight 29 Sep."},
+ {d:"28 Sep",s:"ฐานเศรษฐกิจ",u:"https://www.thansettakij.com/general-news/670047",th:"สำนักการระบายน้ำ กทม. รายงานถนนสายหลักท่วมขัง 81 จุด ระบายแล้ว 46 จุด เหลือ 35 จุดใน 13 เขต (08.00 น.)",en:"BMA Drainage Department: 81 main-road flood points, 46 cleared, 35 remain across 13 districts (08:00)."},
+ {d:"28 Sep",s:"Nation Thailand",u:"https://www.nationthailand.com/news/general/40071576",th:"ถนนวิภาวดีรังสิตน้ำลด รถทุกชนิดผ่านได้ ส่วนแยกบางกะปิ (นวมินทร์) รถเล็กยังผ่านไม่ได้",en:"Vibhavadi Rangsit Road is passable for all vehicles; Bang Kapi intersection (Nawamin) still blocks small cars."},
+ {d:"28 Sep",s:"ฐานเศรษฐกิจ",u:"https://www.thansettakij.com/general-news/670051",th:"กรมอุตุฯ รายงานฝนเบาถึงหนักบางแห่งใน กทม. และสมุทรปราการ คาดฝนฟ้าคะนอง 70% ของพื้นที่ กทม.-ปริมณฑล",en:"TMD reports light to locally heavy rain over Bangkok and Samut Prakan, with thunderstorms forecast over 70% of the area."},
+ {d:"27-28 Sep",s:"Chiang Rai Times",u:"https://www.chiangraitimes.com/thailand-news/floods-hit-25-provinces/",th:"ปภ. รายงานน้ำท่วม 25 จังหวัด ประชาชนได้รับผลกระทบกว่า 545,000 คน เสียชีวิต 8 ราย",en:"DDPM reports floods in 25 provinces, over 545,000 people affected and 8 deaths."},
+ {d:"26 Sep",s:"Bangkok Post",u:"https://www.bangkokpost.com/thailand/general/3326549/all-50-bangkok-districts-declared-disaster-areas",th:"กทม. ประกาศพื้นที่ภัยพิบัติทั้ง 50 เขต, ปทุมธานีประกาศเขตภัยพิบัติฉุกเฉินรังสิต, กรมชลฯ เพิ่มการระบายเขื่อนเจ้าพระยาเป็น 1,950 ลบ.ม./วินาที",en:"All 50 Bangkok districts declared disaster areas; Pathum Thani declares Rangsit an emergency zone; RID raises Chao Phraya Dam discharge to 1,950 m³/s."},
+ {d:"22 Sep",s:"Bangkok Post",u:"https://www.bangkokpost.com/thailand/general/3323454/rising-water-levels-warning-for-chao-phraya-basin-provinces",th:"กรมชลประทานคาดน้ำที่สถานี C.2 นครสวรรค์ 1,400-1,450 ลบ.ม./วินาที วันที่ 29 ก.ย. และเตือน 11 จังหวัดลุ่มเจ้าพระยา",en:"RID forecasts C.2 Nakhon Sawan flow of 1,400-1,450 m³/s by 29 Sep and warns 11 Chao Phraya provinces."}]};
+const T={
+th:{demo:"⚠ เว็บไซต์ข้อมูลที่ไม่เป็นทางการ - ไม่ใช่ระบบเตือนภัยของรัฐ ค่าความเสี่ยง % เป็นการประเมินของ AI แบบทดลอง โปรดปฏิบัติตามประกาศของ กรมอุตุฯ / ปภ. / กทม.",roads:"สถานะถนน กทม. (น้ำท่วมสูง / ผ่านได้)",avoid:"ท่วมสูง - ควรเลี่ยง",limited:"ผ่านได้จำกัด / ระวัง",ok:"สัญจรได้",hard:"ชุมชนที่เข้า-ออกลำบาก",rdsrc:"ที่มา",figs:"ตัวเลขสำคัญ ณ",sos:[["1669","ฉุกเฉินแพทย์"],["191","ตำรวจ"],["1784","สายด่วน ปภ."],["1555","สายด่วน กทม."]],sub:"ระบบข้อมูลและเตือนภัยน้ำท่วมประเทศไทย",owner:"เจ้าของระบบ",t1:"สถานการณ์",t2:"ประเมินความเสี่ยง",t3:"ขอความช่วยเหลือ",t4:"ถาม AI",news:"ข่าวและประกาศล่าสุด",live:"ข้อมูลทางการแบบเรียลไทม์",liveN:"กดเพื่อดูข้อมูลสดจากหน่วยงาน (เปิดในแท็บใหม่)",prov:"ประเมินความเสี่ยงโดย AI (ตัวอย่างทดลอง)",provN:"ไม่ใช่การพยากรณ์ทางการ: ผู้พัฒนาประมาณค่าจากรายงานข่าว และโมเดลฝึกด้วยข้อมูลจำลอง ห้ามใช้ตัดสินใจอพยพ ให้ทำตามประกาศทางการ",pv:"จังหวัด",rk:"ความเสี่ยง",st:"ระดับ",an:"วิเคราะห์",
+ in:"ป้อนข้อมูล",out:"ผลการประเมิน",loc:"สถานที่ (ที่ไหนในโลกก็ได้)",pre:"โหลดข้อมูลสถานการณ์จริงของจังหวัด",cus:"กำหนดเอง",f0:"ฝนสะสม 24 ชม.",f1:"ระดับแม่น้ำ (% ของตลิ่ง)",f2:"น้ำจากต้นน้ำ (% ของสูงสุด)",f3:"น้ำทะเลหนุน (%)",f4:"ความอิ่มตัวของดิน (%)",
+ risk:"ความเสี่ยงน้ำท่วมของ",act:"ข้อแนะนำ",drv:"ปัจจัยหลัก",dis:"เป็นการประเมินด้วย AI เพื่อข้อมูลเท่านั้น โปรดปฏิบัติตามประกาศของหน่วยงานทางการ",
+ hot:"เบอร์โทรฉุกเฉิน",do:"ระหว่างน้ำท่วม",after:"หลังน้ำลด",world:"ทั่วโลก",askT:"ผู้ช่วย AI น้ำท่วมและวิทยาศาสตร์",send:"ส่ง",stop:"หยุด",ph:"ถามเรื่องน้ำท่วมได้ทุกเรื่อง...",think:"กำลังคิด...",m1:"โหมด: AI ตอบสด",m0:"โหมด: ฐานความรู้ในเครื่อง",
+ upd:"อัปเดต",ago:"ที่แล้ว",min:"นาที",hr:"ชม.",day:"วัน",f:"ข้อมูลใหม่",s:"อาจไม่ใช่ข้อมูลล่าสุด - ตรวจสอบแหล่งทางการ",o:"ข้อมูลเก่า - ใช้แหล่งทางการเท่านั้น",
+ foot:"ระบบต้นแบบเพื่อข้อมูล ไม่ใช่ระบบเตือนภัยทางการ ข้อมูลรวบรวมจากรายงานข่าวที่อ้างอิงหน่วยงาน ปภ. กรมชลประทาน กรมอุตุนิยมวิทยา และ กทม.",
+ hi:"สวัสดีครับ ผมคือผู้ช่วย AI ถามได้ทุกเรื่องเกี่ยวกับน้ำท่วมและวิทยาศาสตร์ที่เกี่ยวข้อง",
+ chips:["สถานการณ์น้ำท่วมตอนนี้เป็นอย่างไร","ถนนไหนใน กทม. ยังท่วม","ฉันควรเตรียมตัวอย่างไร","ทำไมปีนี้น้ำท่วม กทม. หนัก","ไฟรั่วในบ้านน้ำท่วมทำอย่างไร"]},
+en:{demo:"⚠ UNOFFICIAL information portal - not a government warning system. Risk % figures are demo estimates by an AI model. Follow TMD / DDPM / BMA announcements.",roads:"Bangkok road status (flooded / passable)",avoid:"Deep water - avoid",limited:"Limited / use caution",ok:"Passable",hard:"Communities hard to enter or leave",rdsrc:"Source",figs:"Key figures as of",sos:[["1669","Medical"],["191","Police"],["1784","DDPM"],["1555","Bangkok BMA"]],sub:"Thailand Flood Information & Early-Warning Portal",owner:"Owner",t1:"Situation",t2:"Risk Calculator",t3:"Get Help",t4:"Ask AI",news:"Latest news & announcements",live:"Live official sources",liveN:"Open the agencies' own live data (new tab)",prov:"AI flood-risk estimate (DEMO)",provN:"Not an official forecast: inputs were estimated by the developer from news reports and the model is trained on simulated data. Do not use it to decide whether to evacuate - follow official announcements.",pv:"Province",rk:"Risk",st:"Level",an:"Analyse",
+ in:"INPUT",out:"OUTPUT",loc:"Location (anywhere in the world)",pre:"Load real situation for a province",cus:"Custom",f0:"Rainfall, last 24 h",f1:"River level (% of bank-full)",f2:"Upstream inflow (% of max)",f3:"Tide (% of high tide)",f4:"Soil saturation (%)",
+ risk:"Flood risk for",act:"Recommended action",drv:"Main drivers",dis:"AI estimate for information only. Follow official authority announcements.",
+ hot:"Emergency numbers",do:"During a flood",after:"After the water recedes",world:"Worldwide",askT:"Flood & Science Assistant",send:"Send",stop:"Stop",ph:"Ask anything about floods...",think:"Thinking...",m1:"Mode: live AI answers",m0:"Mode: offline knowledge base",
+ upd:"Updated",ago:"ago",min:"min",hr:"h",day:"d",f:"Data fresh",s:"May not be the latest - check official sources",o:"Old data - use official sources only",
+ foot:"Prototype for information only; not an official warning system. Data compiled from news reports citing DDPM, RID, TMD and BMA.",
+ hi:"Hello! I'm the flood AI assistant. Ask me anything about floods and the science behind them.",
+ chips:["What is the flood situation now?","Which Bangkok roads are still flooded?","How should I prepare?","Why is Bangkok flooding so badly?","What if water reaches electric outlets?"]}};
+const LV={th:[["ปกติ","สถานการณ์ปกติ ติดตามประกาศต่อเนื่อง"],["เฝ้าระวัง","ติดตามประกาศ เตรียมของและเครื่องสูบน้ำ"],["เตือนภัย","ยกของขึ้นที่สูง ทำตามคำสั่งเจ้าหน้าที่ เตรียมอพยพ"],["วิกฤต","อพยพจากพื้นที่ลุ่มต่ำหากได้รับแจ้ง เลี่ยงน้ำท่วม โทร 1784 / 1669"]],
+ en:[["Normal","Normal. Keep following announcements."],["Watch","Follow announcements; prepare belongings and pumps."],["Warning","Move valuables up; follow officials; prepare to evacuate."],["Critical","Evacuate low-lying areas if told; avoid floodwater; call 1784 / 1669."]]};
+const LISTS={th:{hot:["ฉุกเฉินการแพทย์ <a class='tel' href='tel:1669'>1669</a> - ตำรวจ <a class='tel' href='tel:191'>191</a>","สายด่วนนิรภัย ปภ. <a class='tel' href='tel:1784'>1784</a>","สายด่วน กทม. <a class='tel' href='tel:1555'>1555</a> (24 ชม.) - แจ้งผ่าน LINE Traffy Fondue","กรมอุตุนิยมวิทยา <a class='tel' href='tel:1182'>1182</a>"],
+ dos:["ยกของมีค่า เอกสาร ยา ขึ้นที่สูง","ปิดสวิตช์ไฟหลักก่อนน้ำถึงปลั๊ก - ห้ามแตะไฟขณะยืนในน้ำ","อย่าเดินหรือขับรถลุยน้ำที่ไม่รู้ระดับ - น้ำสูง 30 ซม. พอลอยรถเล็กได้","เตรียมน้ำ อาหาร ไฟฉาย วิทยุ พาวเวอร์แบงก์ ยาประจำตัว","อพยพเร็วเมื่อเจ้าหน้าที่แจ้ง โดยเฉพาะผู้สูงอายุและผู้ป่วยติดเตียง"],
+ aft:["สวมรองเท้าบูต หลีกเลี่ยงแช่น้ำเมื่อมีแผล - เสี่ยงฉี่หนูและเมลิออยด์","ให้ช่างไฟตรวจระบบไฟก่อนเปิดใช้งาน","ตรวจโครงสร้างอาคารและระบบหลักก่อนกลับเข้าพัก","ดื่มน้ำต้ม/น้ำบรรจุขวด ทิ้งอาหารที่โดนน้ำ","มีไข้หรือปวดกล้ามเนื้อหลังลุยน้ำ ให้พบแพทย์"],
+ wld:["สหรัฐฯ 911 - อังกฤษ 999 - EU/อินเดีย/อินโดนีเซีย 112 - ญี่ปุ่น 119 - ออสเตรเลีย 000 - ฟิลิปปินส์ 911","ข้อมูลระดับโลก: <a href='https://gdacs.org' target='_blank' rel='noopener'>GDACS</a> - <a href='https://reliefweb.int' target='_blank' rel='noopener'>ReliefWeb</a> - <a href='https://wmo.int' target='_blank' rel='noopener'>WMO</a>","<a href='https://www.weather.gov' target='_blank' rel='noopener'>NOAA/NWS</a> - <a href='https://www.jma.go.jp' target='_blank' rel='noopener'>JMA</a> - <a href='https://www.bom.gov.au' target='_blank' rel='noopener'>BoM</a> - <a href='https://www.pagasa.dost.gov.ph' target='_blank' rel='noopener'>PAGASA</a>"]},
+en:{hot:["Medical emergency <a class='tel' href='tel:1669'>1669</a> - Police <a class='tel' href='tel:191'>191</a>","DDPM disaster hotline <a class='tel' href='tel:1784'>1784</a>","Bangkok BMA hotline <a class='tel' href='tel:1555'>1555</a> (24 h) - or report via LINE Traffy Fondue","Thai Meteorological Department <a class='tel' href='tel:1182'>1182</a>"],
+ dos:["Move valuables, documents and medicine to a high place","Switch off the main power before water reaches outlets - never touch electrics while standing in water","Don't walk or drive through water of unknown depth - 30 cm can float a small car","Keep water, food, torch, radio, power bank and personal medicine ready","Evacuate early when officials say so, especially the elderly and bedridden"],
+ aft:["Wear boots; avoid wading with open wounds - leptospirosis and melioidosis risk","Have an electrician inspect wiring before switching power on","Check the building structure and main systems before moving back","Drink boiled or bottled water; discard food touched by floodwater","See a doctor for fever or muscle pain after wading"],
+ wld:["US 911 - UK 999 - EU/India/Indonesia 112 - Japan 119 - Australia 000 - Philippines 911","Global data: <a href='https://gdacs.org' target='_blank' rel='noopener'>GDACS</a> - <a href='https://reliefweb.int' target='_blank' rel='noopener'>ReliefWeb</a> - <a href='https://wmo.int' target='_blank' rel='noopener'>WMO</a>","<a href='https://www.weather.gov' target='_blank' rel='noopener'>NOAA/NWS</a> - <a href='https://www.jma.go.jp' target='_blank' rel='noopener'>JMA</a> - <a href='https://www.bom.gov.au' target='_blank' rel='noopener'>BoM</a> - <a href='https://www.pagasa.dost.gov.ph' target='_blank' rel='noopener'>PAGASA</a>"]}};
+const LIVE=[["BMA Flood Centre / ศูนย์ป้องกันน้ำท่วม กทม.","https://dds.bangkok.go.th/"],["TMD / กรมอุตุฯ","https://www.tmd.go.th"],["RID / กรมชลประทาน","https://www.rid.go.th"],["DDPM / ปภ.","https://www.disaster.go.th"],["ThaiWater","https://www.thaiwater.net"]];
+// ================= AI model =================
+class Net{constructor(){this.w1=Array.from({length:8},()=>Array.from({length:5},()=>rnd(-.5,.5)));this.b1=Array(8).fill(0);this.w2=Array.from({length:8},()=>rnd(-.5,.5));this.b2=0}
+ fwd(x){const h=this.w1.map((w,j)=>Math.tanh(w.reduce((s,v,i)=>s+v*x[i],this.b1[j])));return{h,o:sig(h.reduce((s,v,j)=>s+v*this.w2[j],this.b2))}}
+ pred(x){return this.fwd(x).o}
+ train(x,y,lr){const{h,o}=this.fwd(x),d=o-y;for(let j=0;j<8;j++){const dh=d*this.w2[j]*(1-h[j]*h[j]);this.w2[j]-=lr*d*h[j];for(let i=0;i<5;i++)this.w1[j][i]-=lr*dh*x[i];this.b1[j]-=lr*dh}this.b2-=lr*d}}
+const truth=f=>sig(3.2*f[0]+3*f[1]+2.2*f[2]+1.5*f[3]*(f[1]+.3)+2.8*f[4]*f[0]-4.6);
+const net=new Net();
+// FAST BOOT: do not run a large training loop during page startup.
+// A deterministic baseline model is used immediately; user-trained models can
+// still be loaded from localStorage or trained from the Admin Training Lab.
+(()=>{
+  const w=[
+    [2.2,0,0,0,0],[-0.2,2.1,0,0,0],[0,-0.2,2.0,0,0],[0,0,0,1.2,0],[0,0,0,0,2.0],
+    [1.0,0.8,0.7,0,0],[0,0.9,1.1,0.3,0.8],[1.2,0.4,0,0.7,1.0]
+  ];
+  net.w1=w; net.b1=[-1,-1,-1,-1,-1,-1.1,-1.2,-1.5];
+  net.w2=[0.55,0.58,0.52,0.30,0.62,0.72,0.80,0.85]; net.b2=-1.9;
+})();
+// Inputs estimated from reports (rain, river, inflow, tide, soil), 28 Sep 2026
+const P=[["Nakhon Sawan","นครสวรรค์",[.15,.55,.6,0,.7]],["Ayutthaya","พระนครศรีอยุธยา",[.25,.65,.7,0,.8]],["Pathum Thani","ปทุมธานี",[.35,.72,.65,0,.9]],["Nonthaburi","นนทบุรี",[.3,.68,.6,0,.85]],["Bangkok","กรุงเทพมหานคร",[.3,.65,.6,.4,.9]],["Samut Prakan","สมุทรปราการ",[.4,.75,.65,.6,.9]]];
+const lvl=r=>r>.75?3:r>.5?2:r>.3?1:0,col=l=>`var(--l${l})`;
+let lang="en";try{lang=localStorage.getItem("l")||((navigator.language||"").startsWith("th")?"th":"en")}catch(e){lang=(navigator.language||"").startsWith("th")?"th":"en"}
+const tr=k=>T[lang][k];
+// ================= Rendering =================
+function ageInfo(){let t0=DATA.statsAsOf?Date.parse(String(DATA.statsAsOf).replace(" ","T")+"+07:00"):NaN;if(isNaN(t0))t0=Date.parse(DATA.updated);const m=Math.max(0,(Date.now()-t0)/60000);const t=m<60?Math.round(m)+" "+tr("min"):m<1440?Math.round(m/60)+" "+tr("hr"):Math.round(m/1440)+" "+tr("day");
+ return m<360?[0,tr("f"),t]:m<1440?[1,tr("s"),t]:[3,tr("o"),t]}
+function render(){
+ document.documentElement.lang=lang;$("bth").classList.toggle("on",lang==="th");$("ben").classList.toggle("on",lang==="en");
+ document.querySelectorAll("[data-i]").forEach(e=>e.textContent=tr(e.dataset.i));$("q").placeholder=tr("ph");
+ $("hl").textContent=DATA.headline[lang];
+ const a=ageInfo();$("age").textContent=a[1];$("age").style.background=col(a[0]);$("ageTxt").textContent=(DATA.statsAsOf?tr("figs")+" "+DATA.statsAsOf+" ("+a[2]+" "+tr("ago")+") | ":"")+tr("upd")+" "+new Date(DATA.updated).toLocaleString(lang==="th"?"th-TH":"en-GB",{dateStyle:"medium",timeStyle:"short"});
+ $("tiles").innerHTML=DATA.stats.map(s=>`<div class="tile"><b>${esc(s.v)}</b><span>${esc(s.l[lang])}</span></div>`).join("");
+ $("note").textContent=DATA.note?DATA.note[lang]:"";
+ $("sos").innerHTML=tr("sos").map(x=>`<a href="tel:${x[0]}"><b>${x[0]}</b>${x[1]}</a>`).join("");
+ const R=DATA.roads;$("roads").innerHTML=R?[["avoid",3],["limited",2],["ok",0],["hard",1]].map(([k,l])=>R[k]&&R[k].length?`<h4 style="color:${col(l)}">${tr(k)}</h4><ul>${R[k].map(x=>"<li>"+esc(x[lang])+"</li>").join("")}</ul>`:"").join("")+`<p class="muted">${tr("rdsrc")}: ${esc(R.as[lang])}</p>`:"";
+ $("news").innerHTML=(Array.isArray(DATA.news)?DATA.news:[]).map(n=>`<li><a href="${esc(n.u||"#")}" target="_blank" rel="noopener">${esc(n[lang]||n.th||n.en||"Untitled")}</a>${n.lang&&n.lang!==lang?`<span class="pillx">${esc(n.lang.toUpperCase())}</span>`:""}<div class="m">${esc(n.d||"")} - ${esc(n.s||"")}</div></li>`).join("");
+ $("live").innerHTML=LIVE.map(l=>`<a class="btn sm" href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("");
+ $("rows").innerHTML=P.map((p,i)=>{const r=net.pred(p[2]),l=lvl(r);return `<tr><td><b>${lang==="th"?p[1]:p[0]}</b></td><td><div class="bar"><i style="width:${r*100}%;background:${col(l)}"></i><span>${Math.round(r*100)}%</span></div></td><td style="color:${col(l)};font-weight:700">${LV[lang][l][0]}</td><td><button class="btn sm" onclick="load(${i})">${tr("an")}</button></td></tr>`}).join("");
+ const sel=$("pre"),cur=sel.value;sel.innerHTML=`<option value="">${tr("cus")}</option>`+P.map((p,i)=>`<option value="${i}">${lang==="th"?p[1]:p[0]}</option>`).join("");sel.value=cur;
+ ["hot","dos","aft","wld"].forEach(k=>$(k).innerHTML=LISTS[lang][k].map(x=>`<li>${x}</li>`).join(""));
+ $("chips").innerHTML="";tr("chips").forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>ask(t);$("chips").appendChild(b)});
+ setMode();badge();calc();updateMaintenanceUI();updateAdminKPIs();
+}
+function tab(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0)}
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+["th","en"].forEach(l=>$("b"+l).onclick=()=>{lang=l;try{localStorage.setItem("l",l)}catch(e){}render();$("chat").innerHTML="";add("b",tr("hi"))});
+// ================= Calculator =================
+const F=[v=>v+" mm",v=>v+"%",v=>v+"%",v=>v+"%",v=>v+"%"];
+const feats=()=>[Math.min(1,$("i0").value/200),$("i1").value/100,$("i2").value/100,$("i3").value/100,$("i4").value/100];
+function calc(){for(let i=0;i<5;i++)$("o"+i).textContent=F[i]($("i"+i).value);
+ const f=feats(),r=net.pred(f),l=lvl(r),C=2*Math.PI*66;
+ const dr=f.map((_,i)=>{const g=f.slice();g[i]=0;return[tr("f"+i).split(" (")[0],r-net.pred(g)]}).sort((a,b)=>b[1]-a[1]).slice(0,2);
+ $("out").innerHTML=`<svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="66" fill="none" stroke="var(--bd)" stroke-width="14"/><circle cx="80" cy="80" r="66" fill="none" stroke="${col(l)}" stroke-width="14" stroke-linecap="round" stroke-dasharray="${C*r} ${C}" transform="rotate(-90 80 80)"/><text x="80" y="90" text-anchor="middle" font-size="30" font-weight="700" fill="var(--text)">${Math.round(r*100)}%</text></svg>
+ <p class="muted">${tr("risk")} <b>${esc($("loc").value||"-")}</b></p><span class="badge" style="background:${col(l)}">${LV[lang][l][0]}</span>
+ <p><b>${tr("act")}:</b> ${LV[lang][l][1]}</p><p class="muted">${tr("drv")}: ${dr.map(d=>d[0]+" (+"+Math.round(d[1]*100)+")").join(", ")}</p><p class="muted">${tr("dis")}</p>`}
+function load(i){const f=P[i][2];$("loc").value=P[i][0]+", Thailand";$("pre").value=i;$("i0").value=Math.round(f[0]*200);for(let k=1;k<5;k++)$("i"+k).value=Math.round(f[k]*100);calc();tab("t2")}
+$("pre").onchange=e=>{if(e.target.value!=="")load(+e.target.value)};
+for(let i=0;i<5;i++)$("i"+i).oninput=()=>{$("pre").value="";calc()};$("loc").oninput=calc;
+// ================= Assistant =================
+const KB=[{k:["ท่วม","สาเหตุ","ทำไม","cause","why","flood"],th:"น้ำท่วมใหญ่ครั้งนี้เกิดจากหย่อมความกดอากาศต่ำกำลังแรงร่วมกับมรสุมตะวันตกเฉียงใต้ ทำให้ฝนตกหนักต่อเนื่อง ประกอบกับพื้นที่ลุ่มต่ำ ดินอิ่มน้ำ คลองระบายไม่ทัน และน้ำเหนือจากลุ่มเจ้าพระยา",en:"This flood came from a strong low-pressure system plus the southwest monsoon, causing days of heavy rain. Low-lying land, saturated soil, canals that can't drain fast enough and northern runoff down the Chao Phraya add to it."},
+{k:["ไฟ","ปลั๊ก","electric","power","outlet"],th:"ห้ามแตะเสาไฟ ปลั๊ก หรืออุปกรณ์ไฟฟ้าขณะยืนในน้ำ ปิดสวิตช์ไฟหลักจากจุดที่แห้งและปลอดภัยก่อนน้ำเข้า หากไฟรั่วหรือมีคนถูกไฟดูด โทร 1669 อย่าเข้าไปช่วยด้วยมือเปล่า และให้ช่างไฟตรวจก่อนเปิดไฟอีกครั้ง",en:"Never touch poles, outlets or electrical devices while standing in water. Switch off the main power from a dry, safe spot before water enters. If someone is shocked call 1669 and don't touch them directly; have an electrician check wiring before power is restored."},
+{k:["prepare","เตรียม","safe","ปลอดภัย","evac","อพยพ"],th:"ยกของมีค่า เอกสาร ยาขึ้นที่สูง เตรียมน้ำ อาหาร ไฟฉาย วิทยุ พาวเวอร์แบงก์ อพยพเร็วเมื่อเจ้าหน้าที่แจ้ง ห้ามลุยน้ำที่ไม่รู้ระดับ ฉุกเฉิน 1669 / 191 / 1784",en:"Move valuables, documents and medicine up; keep water, food, torch, radio and a power bank ready; evacuate early when told; never wade through water of unknown depth. Emergency: 1669 / 191 / 1784."}];
+function roadsText(l=lang){const R=DATA.roads;if(!R)return"";return ["avoid","limited","ok","hard"].map(k=>R[k]&&R[k].length?T[l][k]+": "+R[k].map(x=>x[l]).join("; "):"").filter(Boolean).join("\n")+"\n("+R.as[l]+")"}
+function snap(l=lang){return DATA.headline[l]+"\n"+DATA.stats.map(s=>s.v+" "+s.l[l]).join("; ")+"\n"+DATA.news.slice(0,6).map(n=>"- "+n[l]+" ("+n.s+", "+n.d+")").join("\n")}
+function offline(q){
+ const t=String(q||"").trim().toLowerCase(),L=/[\u0E00-\u0E7F]/.test(q)?"th":lang;
+ const say=(th,en)=>L==="th"?th:en;
+ const currentRisk=()=>{const p=P.find(x=>/bangkok|กรุงเทพ/.test(x[0]+" "+x[1]));return p?net.pred(p[2]):0};
+ if(/road|route|traffic|ถนน|เส้นทาง|รถติด|น้ำท่วมขัง/.test(t)&&DATA.roads)return roadsText(L);
+ if(/ตอนนี้|สถานการณ์|ล่าสุด|now|situation|latest|today|อัปเดต|update/.test(t))return snap(L)+"\n\n"+say("ข้อมูล ณ "+new Date(DATA.updated).toLocaleString("th-TH")+" — ข้อมูลอาจเปลี่ยนได้ โปรดตรวจประกาศทางการอีกครั้ง","Snapshot time: "+new Date(DATA.updated).toLocaleString("en-GB")+" — conditions may change; check official notices again.");
+ if(/เสี่ยง|ความเสี่ยง|risk|probability|โอกาส/.test(t)){
+   const r=currentRisk(),l=lvl(r);return say(`แบบจำลองออฟไลน์ของระบบประเมินค่าความเสี่ยงเชิงข้อมูลสำหรับกรุงเทพฯ ที่ประมาณ ${Math.round(r*100)}% ระดับ ${LV.th[l][0]}\n\nค่านี้เป็นผลจากโมเดลในเครื่อง ไม่ใช่คำเตือนทางการ และควรดูฝน ระดับน้ำ และประกาศล่าสุดประกอบ`,`The local model estimates Bangkok at about ${Math.round(r*100)}% on its current risk index (${LV.en[l][0]}). This is an on-device model estimate, not an official warning; use current rain, water levels and official notices too.`);
+ }
+ if(/ฝน|rain|rainfall|มรสุม|monsoon|พายุ|storm/.test(t))return say("ฝนสะสมมีผลต่อความเสี่ยงน้ำท่วมโดยเฉพาะเมื่อดินอิ่มน้ำ ระบบระบายและคลองรับน้ำไม่ทัน และมีน้ำจากพื้นที่ต้นน้ำเพิ่มเข้ามา","Accumulated rainfall raises flood risk especially when soil is saturated, drainage capacity is exceeded, and upstream inflow adds water.");
+ if(/สาเหตุ|ทำไม|cause|why|hydrology|อุทก|ระบายน้ำ|drainage|เขื่อน|dam/.test(t))return say("สาเหตุของน้ำท่วมมักเกิดจากหลายปัจจัยร่วมกัน เช่น ฝนตกหนักต่อเนื่อง พื้นที่รับน้ำต่ำ ดินอิ่มน้ำ น้ำจากต้นน้ำ ระดับน้ำในคลอง/แม่น้ำ และความสามารถในการระบายน้ำที่จำกัด","Flooding usually comes from several interacting factors: sustained heavy rain, low-lying areas, saturated soil, upstream inflow, river/canal levels, and limited drainage capacity.");
+ if(/ไฟ|ปลั๊ก|electric|power|outlet|ไฟฟ้า/.test(t))return say("อย่าแตะปลั๊กหรืออุปกรณ์ไฟฟ้าขณะยืนอยู่ในน้ำ และอย่าเปิดไฟกลับจนกว่าจุดจ่ายและระบบจะได้รับการตรวจอย่างปลอดภัย","Never touch outlets or electrical equipment while standing in floodwater, and do not restore power until the system has been safely inspected.");
+ if(/เตรียม|prepare|safe|ปลอดภัย|อพยพ|evac/.test(t))return say("เตรียมเอกสาร ยา น้ำ อาหาร ไฟฉาย พาวเวอร์แบงก์ และย้ายของสำคัญขึ้นที่สูง ติดตามคำสั่งเจ้าหน้าที่และหลีกเลี่ยงน้ำที่ไม่ทราบระดับ","Prepare documents, medicine, water, food, a torch and a power bank; move valuables higher, follow official instructions, and avoid water of unknown depth.");
+ let b=null,bs=0;KB.forEach(e=>{const score=e.k.filter(w=>t.includes(w)).length;if(score>bs){bs=score;b=e}});if(b)return b[L];
+ return say("โหมดออฟไลน์ยังไม่มีข้อมูลเฉพาะเรื่องนี้ ลองถามเกี่ยวกับสถานการณ์ล่าสุด ถนน ความเสี่ยง สาเหตุน้ำท่วม การเตรียมตัว หรือความปลอดภัยไฟฟ้า","Offline mode does not have a specific answer for that yet. Try asking about the current situation, roads, risk, flood causes, preparation, or electrical safety.");
+}
+
+const INSTR="You are the Flood & Science Assistant of Rachata Flood AI, a portal about Thailand floods. Rules: reply in the language of the user's question (Thai or English). Lead with a direct answer in 1-2 sentences, then at most 5 short bullet points starting with '- '. No headings. Be accurate and calm; use plain words. For current-situation questions use ONLY the snapshot below, name the source and date, and say it may have changed since. If the snapshot lacks the answer, say so and point to official sources (BMA dds.bangkok.go.th, TMD tmd.go.th, RID rid.go.th, DDPM disaster.go.th). For safety questions end with the emergency numbers: 1669 medical, 191 police, 1784 DDPM, 1555 BMA. For science questions (hydrology, meteorology, climate, dams, drainage) explain clearly and correctly. Never invent figures. Keep under 180 words unless asked.";
+let sf=null,turns=[],ctl=null;
+function setMode(){$("mode").textContent=sf?tr("m1"):tr("m0")}
+function badge(){const b=$("mbadge");if(!b)return;b.textContent=MODEL_META?`Model trained on local data: ${MODEL_META.n||0} records • holdout ${MODEL_META.acc||0}%`:"Built-in fast baseline model • ready instantly";}
+if(window.claude&&claude.use)claude.use("sample").then(f=>{sf=f;setMode()}).catch(()=>{});
+const fmt=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/^- /gm,"• ").replace(/\n/g,"<br>");
+function add(c,t){const d=document.createElement("div");d.className=c;if(c==="u")d.textContent=t;else d.innerHTML=fmt(t);$("chat").appendChild(d);$("chat").scrollTop=1e9;return d}
+async function ask(q){q=q.trim();if(!q)return;$("q").value="";add("u",q);const b=add("b",tr("think"));
+ if(sf){ctl=new AbortController();$("send").style.display="none";$("stop").style.display="";
+  try{const r=await sf([...turns.slice(-6),{role:"user",content:INSTR+"\n\nSNAPSHOT (updated "+DATA.updated+"):\n"+snap()+"\nROADS:\n"+roadsText()+"\n\nQUESTION: "+q}],{modelTier:"quick",cache:false,signal:ctl.signal,onText:({text})=>{b.innerHTML=fmt(text);$("chat").scrollTop=1e9}});
+   b.innerHTML=fmt(r.text);turns.push({role:"user",content:q},{role:"assistant",content:r.text})}
+  catch(e){b.innerHTML=fmt(e.code==="cancelled"?(e.text||"")+" ...":(e.text?e.text+"\n\n":"")+offline(q))}
+  $("send").style.display="";$("stop").style.display="none";ctl=null}else b.innerHTML=fmt(offline(q));$("chat").scrollTop=1e9}
+$("send").onclick=()=>ask($("q").value);$("q").onkeydown=e=>{if(e.key==="Enter")ask($("q").value)};$("stop").onclick=()=>ctl&&ctl.abort();
+// ================= Auto-refresh =================
+async function refresh(){if(!LIVE_URL)return;try{const r=await fetch(LIVE_URL,{cache:"no-store"});if(r.ok){const d=await r.json();if(d&&d.updated&&d.news){DATA=d;render()}}}catch(e){}}
+setInterval(()=>{const a=ageInfo();$("age").textContent=a[1];$("age").style.background=col(a[0])},60000);
+if(LIVE_URL){refresh();setInterval(refresh,300000)}
+// ================= Admin console + real-data training =================
+// ================= PRO OFFLINE ADMIN SYSTEM =================
+const MODEL_KEY="rfai:model:v4",DATA_KEY="rfai:data:v4",PAUSE_KEY="rfai:pause:v1",SESSION_KEY="rfai:admin-session:v5",MEMBERS_KEY="rfai:members:v5",AUDIT_KEY="rfai:audit:v5",ERROR_KEY="rfai:errors:v5";
+const AUTH_SALT="rfai-2026-offline-auth-v5";
+const MASTER_HASH="f3f3da5e1d21cf3ed90c0b208ef85ec49f9c54553b15e630ee9db6e34f663039";
+const MASTER_BACKUP_HASH="f7e5d3396d2f1baee0867ea6de2ca2c54528ea1f620c174180fc9bd57e96440a";
+const LEGACY_PRIMARY_HASH="aaa49ed4ba2d7a9a4c57df2ba73ea86d48503b8d2b63f2005fe27a9770a99aaa"; const LEGACY_BACKUP_HASH="7fbd13e97977024f8ea8c03c2ab235b82e64fbd7a6c21cb70f580b97acd290f6";
+const DEFAULT_EMAILS=["rachata.le@gmail.com","06554@tupp.ac.th","thanawinnoble07@gmail.com","06546@tupp.ac.th"];
+const DEFAULT_MEMBER_NAMES={"rachata.le@gmail.com":"Rachata","06554@tupp.ac.th":"FSA/HSA Staff","thanawinnoble07@gmail.com":"Secretary Staff","06546@tupp.ac.th":"Secretary Staff"};
+const ROLE_DEFS={
+ HSA:{id:"HSA",label:"HEAD SUPERVISOR OF ADMINISTRATOR",short:"HSA",className:"role-hsa",level:1,brief:"ผู้บัญชาการระบบ • ทุกสิทธิ์ • เชิญ/ปลดเจ้าหน้าที่ • Emergency Site Control"},
+ FSA:{id:"FSA",label:"FIRST SECRETARY ADMINISTRATOR",short:"FSA",className:"role-fsa",level:2,brief:"สิทธิ์บริหารเกือบทั้งหมด • ยกเว้น Emergency Site Shutdown ของ HSA"},
+ AM:{id:"AM",label:"ADMINISTRATOR MANAGER",short:"AM",className:"role-am",level:3,brief:"บริหารเจ้าหน้าที่ • จัดสถานะ/งาน/ตักเตือนระดับปฏิบัติการ"},
+ SAR:{id:"SAR",label:"SITE ACTION REPORTER",short:"SAR",className:"role-sar",level:4,brief:"เฝ้าดู Audit Board • รายงานการกระทำผิดระเบียบต่อผู้บังคับบัญชา"},
+ ADMIN:{id:"ADMIN",label:"ADMINISTRATOR",short:"ADMIN",className:"role-admin",level:5,brief:"Train AI • ตรวจ Error • ดูแลระบบด้านเทคนิค"}
+};
+const BASE_MEMBERS=[
+ {email:"rachata.le@gmail.com",name:"Rachata",role:"HSA",active:true,master:true,createdAt:Date.now()},
+ {email:"06554@tupp.ac.th",name:"HSA Staff",role:"HSA",active:true,master:false,createdAt:Date.now()},
+ {email:"thanawinnoble07@gmail.com",name:"Secretary Staff",role:"FSA",active:true,master:false,createdAt:Date.now()},
+ {email:"06546@tupp.ac.th",name:"Secretary Staff",role:"FSA",active:true,master:false,createdAt:Date.now()}
+];
+const FIRST_SUPERVISOR="rachata.le@gmail.com";
+let MODEL_META=null,TRAINED=null,ROWS=[],ADMIN_OK=false,CURRENT_ADMIN="",AUTH_AT=0,FAILS=0,BUSY=false,LOCK_UNTIL=0,MEMSTORE={},IMPERSONATING="",ACTING_ADMIN="";
+const adm=$("adm"),alog=t=>{const l=$("alog");if(l){l.textContent+=t+"\n";l.scrollTop=l.scrollHeight}};
+const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+function dl(name,text,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},100)}
+function fallbackHash(salt,text){const input=new TextEncoder().encode(salt+"|"+text);let h=2166136261>>>0;for(const b of input){h^=b;h=Math.imul(h,16777619)>>>0}return h.toString(16).padStart(8,"0")}
+async function hashText(salt,text){const input=new TextEncoder().encode(salt+"|"+text);if(window.crypto&&crypto.subtle){const buf=await crypto.subtle.digest("SHA-256",input);return [...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,"0")).join("")}return fallbackHash(salt,text)}
+function safeGet(k,d=null){try{const v=localStorage.getItem(k);if(v!=null)return JSON.parse(v)}catch(e){}return Object.prototype.hasOwnProperty.call(MEMSTORE,k)?MEMSTORE[k]:d}
+function safeSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){MEMSTORE[k]=v;return true}}
+function safeDel(k){try{localStorage.removeItem(k)}catch(e){}delete MEMSTORE[k]}
+function cloudConfig(){
+  try{const raw=localStorage.getItem("rfai-firebase-config");const c=raw?JSON.parse(raw):{};return c||{}}
+  catch(e){return {}}
+}
+let CLOUD=null,FIREBASE_APP=null,FIREBASE_AUTH=null,CLOUD_READY=false,CLOUD_BOOT=false,CLOUD_UNSUB=[];
+const FB_COLLECTIONS={data:"rfai_public_data",missions:"rfai_daily_missions",notifications:"rfai_notifications",site:"rfai_site_state",audit:"rfai_audit",members:"rfai_members",invites:"rfai_invites",reports:"rfai_reports",announcements:"rfai_announcements"};
+const PRIORITY_RANK={URGENT:3,HIGH:2,NORMAL:1};
+function cloudConfigured(){const c=cloudConfig();return !!(c&&c.apiKey&&c.projectId&&c.appId)}
+function firebaseDocData(snap){const d=snap?.data?.();return d?{id:snap.id,...d}:null}
+function firebaseCollectionQuery(name){
+  const ref=CLOUD.collection(name); let query=ref;
+  return {
+    select(){return this},
+    eq(field,value){query=query.where(field,"==",value);return this},
+    order(field,opts={}){query=query.orderBy(field,opts.ascending!==false?"asc":"desc");return this},
+    limit(n){query=query.limit(n);return this},
+    async maybeSingle(){try{const snap=await query.limit(1).get();return {data:snap.empty?null:firebaseDocData(snap.docs[0]),error:null}}catch(error){return {data:null,error}}},
+    async insert(row){try{const ref=await query.add(row);return {data:{id:ref.id,...row},error:null}}catch(error){return {data:null,error}}},
+    async upsert(row,opts={}){try{
+      let target=null;if(opts.onConflict){const snap=await ref.where(opts.onConflict,"==",row[opts.onConflict]).limit(1).get();if(!snap.empty)target=snap.docs[0].ref}
+      if(target){await target.set(row,{merge:true});return {data:{id:target.id,...row},error:null}}
+      const r=await ref.add(row);return {data:{id:r.id,...row},error:null}
+    }catch(error){return {data:null,error}}},
+    async update(patch){return {whereThen:async()=>{try{const snap=await query.get();await Promise.all(snap.docs.map(d=>d.ref.update(patch)));return {data:null,error:null}}catch(error){return {data:null,error}}}}},
+    async delete(){return {whereThen:async()=>{try{const snap=await query.get();await Promise.all(snap.docs.map(d=>d.ref.delete()));return {data:null,error:null}}catch(error){return {data:null,error}}}}},
+    async get(){try{const snap=await query.get();return {data:snap.docs.map(firebaseDocData),error:null}}catch(error){return {data:null,error}}}
+  }
+}
+// Firebase Firestore compatibility adapter for the existing admin functions.
+// It is intentionally backed by Firestore, not a network Security Rules layer.
+function cloudFrom(name){
+  const base=firebaseCollectionQuery(name);
+  const wrap=(q)=>({
+    select:(...a)=>wrap(q.select(...a)),
+    eq:(...a)=>wrap(q.eq(...a)),
+    order:(...a)=>wrap(q.order(...a)),
+    limit:(...a)=>wrap(q.limit(...a)),
+    maybeSingle:()=>q.maybeSingle(),
+    insert:(row)=>q.insert(row),
+    upsert:(row,opts)=>q.upsert(row,opts),
+    get:()=>q.get(),
+    update:(patch)=>({eq:async(field,value)=>{const r=wrap(q.eq(field,value));return r._update(patch)},_update:async(p)=>{try{const snap=await CLOUD.collection(name).get();await Promise.all(snap.docs.map(d=>d.ref.update(p)));return {data:null,error:null}}catch(error){return {data:null,error}}}}),
+    delete:()=>({eq:async(field,value)=>{const r=wrap(q.eq(field,value));return r._delete()},_delete:async()=>{try{const snap=await q.get();await Promise.all(snap.data.map(x=>CLOUD.collection(name).doc(x.id).delete()));return {data:null,error:null}}catch(error){return {data:null,error}}}}),
+    _update:async(p)=>{try{const snap=await q.get();await Promise.all(snap.data.map(x=>CLOUD.collection(name).doc(x.id).update(p)));return {data:null,error:null}}catch(error){return {data:null,error}}},
+    _delete:async()=>{try{const snap=await q.get();await Promise.all(snap.data.map(x=>CLOUD.collection(name).doc(x.id).delete()));return {data:null,error:null}}catch(error){return {data:null,error}}}
+  });return wrap(base)}
+
+async function initCloud(){
+  if(CLOUD_BOOT)return CLOUD_READY;
+  CLOUD_BOOT=true;
+  try{
+    const c=cloudConfig();
+    if(!cloudConfigured()){setCloudStatus(false,"Firebase ยังไม่ได้ตั้งค่า • ระบบ Local ยังคงใช้งานได้");CLOUD_READY=false;CLOUD_BOOT=false;return false}
+    await ensureFirebaseSDK();
+    FIREBASE_APP=window.firebase.apps?.length?window.firebase.app():window.firebase.initializeApp(c);
+    FIREBASE_AUTH=window.firebase.auth();CLOUD=window.firebase.firestore();CLOUD.from=cloudFrom;
+    try{await CLOUD.enablePersistence({synchronizeTabs:true})}catch(e){/* another tab or unsupported: realtime still works */}
+    CLOUD_READY=true;setCloudStatus(true,"Firebase connected • Firestore realtime ready");
+    await cloudLoadPublic();setupRealtime();
+    if(FIREBASE_AUTH){FIREBASE_AUTH.onAuthStateChanged(async u=>{if(u?.email){try{await syncCloudAdmin()}catch(e){}}else{safeDel("rfai:cloud-member")}})}
+    return true;
+  }catch(e){CLOUD_READY=false;CLOUD_BOOT=false;setCloudStatus(false,"Firebase connection failed: "+(e?.message||e));logError(e,"firebase.init");return false}
+}
+function setCloudStatus(ok,msg=""){const p=$("cloudStatusPill"),m=$("cloudMsg");if(p){p.textContent=ok?"FIREBASE: CONNECTED":"FIREBASE: OFFLINE";p.style.color=ok?"#6de59a":"#ff9c9c"}if(m)m.textContent=msg||"";if($("admlive"))$("admlive").textContent=ok?"FIRESTORE REALTIME":"LOCAL / OFFLINE"}
+async function cloudLoadPublic(){if(!CLOUD_READY)return;try{
+  const d1=await cloudFrom(FB_COLLECTIONS.data).eq("id","main").maybeSingle();
+  const m1=await cloudFrom(FB_COLLECTIONS.missions).eq("active",true).limit(50).get();
+  const n1=await cloudFrom(FB_COLLECTIONS.notifications).limit(100).get();
+  const s1=await cloudFrom(FB_COLLECTIONS.site).eq("id","main").maybeSingle();
+  const a1=await cloudFrom(FB_COLLECTIONS.announcements).limit(50).get();
+  if(d1?.data?.payload?.updated){DATA={...DATA,...d1.data.payload};saveLocalDataNoCloud(DATA)}
+  if(m1?.data) safeSet("rfai:missions:cloud",m1.data.filter(x=>x.active!==false).sort(prioritySort));
+  if(n1?.data) safeSet("rfai:notifs:cloud",n1.data.sort((a,b)=>prioritySort(a,b)));
+  if(a1?.data) safeSet("rfai:announcements:cloud",a1.data.filter(x=>x.cancelled!==true).sort(prioritySort));
+  if(s1?.data){if(s1.data.paused)safeSet(PAUSE_KEY,s1.data);else safeDel(PAUSE_KEY)}
+  render();updateMaintenanceUI();renderMissionBoard();renderNotifications();renderBroadcasts();
+ }catch(e){logError(e,"firebase.loadPublic")}}
+function prioritySort(a,b){const p=(PRIORITY_RANK[String(b?.priority||b?.type||"NORMAL").toUpperCase()]||1)-(PRIORITY_RANK[String(a?.priority||a?.type||"NORMAL").toUpperCase()]||1);if(p)return p;return (Date.parse(b?.created_at||b?.published_at||b?.createdAt||0)||0)-(Date.parse(a?.created_at||a?.published_at||a?.createdAt||0)||0)}
+function setupRealtime(){if(!CLOUD_READY||!CLOUD)return;for(const u of CLOUD_UNSUB)try{u()}catch(e){}CLOUD_UNSUB=[];
+  const listen=(name,cb)=>{try{const u=CLOUD.collection(name).onSnapshot(s=>cb(s),e=>logError(e,"firebase.listen."+name));CLOUD_UNSUB.push(u)}catch(e){logError(e,"firebase.listen."+name)}};
+  listen(FB_COLLECTIONS.data,s=>{const d=s.docs.find(x=>x.id==="main")?.data();if(d?.payload?.updated){DATA={...DATA,...d.payload};saveLocalDataNoCloud(DATA);render();showRealtimePulse("สถานการณ์อัปเดตแล้ว")}});
+  listen(FB_COLLECTIONS.missions,s=>{safeSet("rfai:missions:cloud",s.docs.map(firebaseDocData).filter(x=>x.active!==false).sort(prioritySort));renderMissionBoard();renderBroadcasts();showRealtimePulse("มีภารกิจใหม่")});
+  listen(FB_COLLECTIONS.notifications,s=>{safeSet("rfai:notifs:cloud",s.docs.map(firebaseDocData).sort(prioritySort).slice(0,100));renderNotifications();renderBroadcasts();showRealtimePulse("มีการแจ้งเตือนใหม่")});
+  listen(FB_COLLECTIONS.announcements,s=>{safeSet("rfai:announcements:cloud",s.docs.map(firebaseDocData).filter(x=>x.cancelled!==true).sort(prioritySort).slice(0,50));renderBroadcasts();showRealtimePulse("มีประกาศใหม่")});
+  listen(FB_COLLECTIONS.site,s=>{const x=s.docs.find(d=>d.id==="main")?.data();if(x?.paused)safeSet(PAUSE_KEY,x);else safeDel(PAUSE_KEY);updateMaintenanceUI()});
+  if(FIREBASE_AUTH?.currentUser){
+    listen(FB_COLLECTIONS.audit,s=>{safeSet(AUDIT_KEY,s.docs.map(firebaseDocData).sort((a,b)=>(Date.parse(b.at||b.created_at||0)||0)-(Date.parse(a.at||a.created_at||0)||0)).slice(0,500));renderAuditBoard()});
+    listen(FB_COLLECTIONS.members,s=>{safeSet(MEMBERS_KEY,s.docs.map(firebaseDocData));renderMemberDirectory();userTable();updateAdminKPIs()});
+  }
+}
+async function cloudAuthLogin(email,password){if(!CLOUD_READY||!FIREBASE_AUTH)throw new Error("Firebase Auth not configured");
+  const cred=await FIREBASE_AUTH.signInWithEmailAndPassword(email,password);const me=cred.user;if(!me?.email)throw new Error("No authenticated user");
+  const snap=await CLOUD.collection(FB_COLLECTIONS.members).doc(me.email.toLowerCase()).get();const member=snap.exists?firebaseDocData(snap):null;
+  if(!member||member.active===false){await FIREBASE_AUTH.signOut();throw new Error("Account is not active in administrator registry")}
+  safeSet("rfai:cloud-member",member);return member;
+}
+async function cloudLogout(){try{if(FIREBASE_AUTH)await FIREBASE_AUTH.signOut()}catch(e){}}
+async function syncCloudAdmin(){if(!FIREBASE_AUTH)return;try{const user=FIREBASE_AUTH.currentUser;if(!user?.email)return;const snap=await CLOUD.collection(FB_COLLECTIONS.members).doc(user.email.toLowerCase()).get();if(snap.exists){const m=firebaseDocData(snap);safeSet("rfai:cloud-member",m);safeSet("rfai:cloud-session",{email:m.email,at:Date.now()})}}catch(e){} }
+async function refreshMembersCloud(){if(!CLOUD_READY)return;const r=await cloudFrom(FB_COLLECTIONS.members).get();if(r.error)throw r.error;safeSet(MEMBERS_KEY,r.data||[])}
+async function refreshAuditCloud(){if(!CLOUD_READY)return;const r=await cloudFrom(FB_COLLECTIONS.audit).get();if(r.error)throw r.error;safeSet(AUDIT_KEY,(r.data||[]).sort(prioritySort).slice(0,500))}
+async function refreshMissionsCloud(){if(!CLOUD_READY)return;const r=await cloudFrom(FB_COLLECTIONS.missions).get();if(r.error)throw r.error;safeSet("rfai:missions:cloud",(r.data||[]).filter(x=>x.active!==false).sort(prioritySort))}
+async function refreshNotificationsCloud(showToast=false){if(!CLOUD_READY)return;const r=await cloudFrom(FB_COLLECTIONS.notifications).get();if(r.error)throw r.error;const ns=(r.data||[]).sort(prioritySort).slice(0,100);safeSet("rfai:notifs:cloud",ns);if(showToast){const x=ns[0];if(x&&Date.now()-Date.parse(x.created_at||0)<15000)desktopNotify(x.title||"Rachata Flood AI",x.body||"")}}
+async function refreshAnnouncementsCloud(){if(!CLOUD_READY)return;const r=await cloudFrom(FB_COLLECTIONS.announcements).get();if(r.error)throw r.error;safeSet("rfai:announcements:cloud",(r.data||[]).filter(x=>x.cancelled!==true).sort(prioritySort).slice(0,50));renderBroadcasts()}
+function saveLocalDataNoCloud(o){safeSet(DATA_KEY,o);safeSet(DATA_KEY+":meta",{at:Date.now(),source:CLOUD_READY?"firebase":"local"})}
+function getMembers(){const m=safeGet(MEMBERS_KEY);if(Array.isArray(m)&&m.length)return m;safeSet(MEMBERS_KEY,BASE_MEMBERS);return BASE_MEMBERS.slice()}
+function putMembers(m){safeSet(MEMBERS_KEY,m);broadcast({type:"members",members:m})}
+async function cloudUpsertMember(m){if(!CLOUD_READY)return;const row={email:m.email.toLowerCase(),name:m.name||null,role:m.role,active:!!m.active,master:!!m.master,updated_at:new Date().toISOString()};await CLOUD.collection(FB_COLLECTIONS.members).doc(m.email.toLowerCase()).set(row,{merge:true})}
+async function cloudUpdateMember(email,patch){if(!CLOUD_READY)return;await CLOUD.collection(FB_COLLECTIONS.members).doc(email.toLowerCase()).set({...patch,email:email.toLowerCase(),updated_at:new Date().toISOString()},{merge:true})}
+async function cloudDeleteMember(email){if(!CLOUD_READY)return;await CLOUD.collection(FB_COLLECTIONS.members).doc(email.toLowerCase()).delete()}
+function getMember(email){return getMembers().find(m=>String(m.email||"").toLowerCase()===String(email||"").toLowerCase())||null}
+function getRole(email){const m=getMember(email);return m?m.role:null}
+function roleDef(role){return ROLE_DEFS[role]||ROLE_DEFS.ADMIN}
+function roleOf(email){const m=getMember(email);return m?roleDef(m.role).label:"UNAUTHORISED"}
+function currentRoleId(){return getMember(CURRENT_ADMIN)?.role||""}
+function isHSA(){return currentRoleId()==="HSA"}
+function isFSA(){return currentRoleId()==="FSA"}
+function isAM(){return currentRoleId()==="AM"}
+function isSAR(){return currentRoleId()==="SAR"}
+function isADMIN(){return currentRoleId()==="ADMIN"}
+function canManageStaff(){return isHSA()||isFSA()||isAM()}
+function canInviteRole(role){const r=String(role||"").toUpperCase();if(!(isHSA()||isFSA()))return false;if(isFSA()&&r==="HSA")return false;return !!ROLE_DEFS[r]}
+function canPromoteTo(role){return canInviteRole(role)}
+function canRemoveStaff(target){const t=getMember(target);if(!t)return false;if(isHSA())return target!==CURRENT_ADMIN; if(isFSA())return t.role!=="HSA"&&target!==CURRENT_ADMIN; return false}
+function canControlTarget(target){const t=getMember(target);if(!t)return false;if(target===FIRST_SUPERVISOR)return false;if(isHSA()||isFSA())return target!==CURRENT_ADMIN;return isAM()&&t.role!=="HSA"}
+function sessionSave(){safeSet(SESSION_KEY,{email:CURRENT_ADMIN,at:AUTH_AT,impersonating:IMPERSONATING||"",acting:ACTING_ADMIN||""})}
+function sessionLoad(){const s=safeGet(SESSION_KEY);if(!s||!s.email)return false;const m=getMember(String(s.email).toLowerCase());if(!m||!m.active)return false;if(Date.now()-(+s.at||0)>30*60*1000){safeDel(SESSION_KEY);return false}CURRENT_ADMIN=String(s.email).toLowerCase();AUTH_AT=+s.at||Date.now();IMPERSONATING=s.impersonating||"";ACTING_ADMIN=s.acting||"";ADMIN_OK=true;return true}
+function sessionGuard(){if(!ADMIN_OK)return false;if(Date.now()-AUTH_AT>30*60*1000){logOut();return false}AUTH_AT=Date.now();sessionSave();updateAdminKPIs();return true}
+function setLoginStatus(msg,type=""){$("admmsg").textContent=msg;$('admmsg').className="adm-status "+type}
+function broadcast(msg){try{const bc=new BroadcastChannel("rfai-live-v5");bc.postMessage(msg);bc.close()}catch(e){}}
+async function audit(action,detail,actor=CURRENT_ADMIN){const row={id:cryptoSafeId(),at:Date.now(),actor:actor||"SYSTEM",actorRole:getRole(actor)||"SYSTEM",action:String(action),detail:String(detail||"")};const arr=safeGet(AUDIT_KEY,[]);arr.unshift(row);safeSet(AUDIT_KEY,arr.slice(0,500));broadcast({type:"audit"});renderAuditBoard();if(CLOUD_READY&&ADMIN_OK){try{await CLOUD.from("rfai_audit").insert({id:row.id,actor_email:row.actor,actor_role:row.actorRole,action:row.action,detail:row.detail,at:new Date(row.at).toISOString()})}catch(e){logError(e,"cloud.audit")}}}
+function cryptoSafeId(){try{return crypto.randomUUID()}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2)}}
+function logError(err,context="runtime"){const row={at:Date.now(),context:String(context),message:String(err?.message||err||"Unknown error")};const a=safeGet(ERROR_KEY,[]);a.unshift(row);safeSet(ERROR_KEY,a.slice(0,200));renderErrorCenter()}
+function cryptoSafeId(){try{return crypto.randomUUID()}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2)}}
+function logError(err,context="runtime"){const row={at:Date.now(),context:String(context),message:String(err?.message||err||"Unknown error")};const a=safeGet(ERROR_KEY,[]);a.unshift(row);safeSet(ERROR_KEY,a.slice(0,200));renderErrorCenter()}
+function userTable(){const body=$("admusers");if(!body)return;body.innerHTML=getMembers().map(m=>{const d=roleDef(m.role);return `<tr><td>${esc(m.email)}</td><td><span class="role-pill ${d.className}">${esc(d.label)}</span></td><td>${m.email===CURRENT_ADMIN?'<span class="good-text">SIGNED IN</span>':m.active?'<span class="good-text">ACTIVE</span>':'<span class="danger-text">DISABLED</span>'}</td><td>${m.email===FIRST_SUPERVISOR?'SITE EMERGENCY CONTROL':m.role==='SAR'?'AUDIT / REPORT':'ADMIN FUNCTIONS'}</td></tr>`}).join("")}
+function updateAdminKPIs(){if(!$('admKpiSite'))return;const paused=!!safeGet(PAUSE_KEY,false);$('admKpiSite').textContent=paused?'PAUSED':'LIVE';$('admKpiSite').style.color=paused?'#ff9c9c':'#73eca0';$('admKpiData').textContent=safeGet(DATA_KEY)?'SAVED':'LOCAL';$('admDataStatus').textContent=`local revision: ${safeGet(DATA_KEY+':meta',{at:0}).at?new Date(safeGet(DATA_KEY+':meta',{at:0}).at).toLocaleString():'not saved'}`;$('admKpiModel').textContent=MODEL_META?'TRAINED':'DEMO';$('admModelStatus').textContent=MODEL_META?`${MODEL_META.n||0} records • ${MODEL_META.acc||0}% holdout accuracy`:'using built-in baseline model';$('admSiteStatus').textContent=paused?'Public page is temporarily suspended on this browser/file profile.':'Public page is available.';const rd=roleDef(currentRoleId());$('admauthage').textContent=CURRENT_ADMIN?`session 30 min • ${rd.label}${IMPERSONATING?' • MASTER VIEW':''}`:'';if($('admpause'))$('admpause').hidden=!(CURRENT_ADMIN===FIRST_SUPERVISOR&&ADMIN_OK&&!IMPERSONATING)||paused;if($('admresume'))$('admresume').hidden=!(CURRENT_ADMIN===FIRST_SUPERVISOR&&ADMIN_OK&&!IMPERSONATING)||!paused;userTable();updateRoleVisibility();renderMemberDirectory();renderAuditBoard();renderErrorCenter()}
+function updateMaintenanceUI(){const paused=!!safeGet(PAUSE_KEY,false),o=$("sitePauseOverlay");if(o)o.style.display=paused?"flex":"none";updateAdminKPIs()}
+function openAdm(){adm.hidden=false;$('admlogin').hidden=false;$('admmain').hidden=true;setLoginStatus("Offline authentication ready. No network or server is required.");$('admemail').value="";$('admpw').value="";$('admattempt').textContent="";if(sessionLoad())enter();else setTimeout(()=>$('admemail').focus(),50)}
+function closeAdm(){adm.hidden=true;$('admlogin').hidden=false;$('admmain').hidden=true}
+function enter(){if(!ADMIN_OK||!CURRENT_ADMIN)return;$('admlogin').hidden=true;$('admmain').hidden=false;const d=roleDef(currentRoleId());$('admwho').innerHTML=`<span class="role-pill ${d.className}">${esc(d.short)}</span> ${esc(d.label)} <span style="color:#8e9bad">• ${esc(CURRENT_ADMIN)}</span>${IMPERSONATING?` <span class="danger-text">• MASTER VIEW OF ${esc(IMPERSONATING)}</span>`:''}`;$('admmode').textContent="OFFLINE-FIRST ADMIN CONSOLE • ROLE-BASED ACCESS • LOCAL AUDIT";$('admlive').textContent=IMPERSONATING?"MASTER ACCESS / STAFF VIEW":"LOCAL / OFFLINE";$('admsitload').click();updateAdminKPIs();audit("LOGIN","Access granted"+(IMPERSONATING?` / master-view ${IMPERSONATING}`:""),ACTING_ADMIN||CURRENT_ADMIN)}
+async function doLogin(){if(BUSY)return;if(Date.now()<LOCK_UNTIL){const sec=Math.ceil((LOCK_UNTIL-Date.now())/1000);setLoginStatus(`Temporarily locked — try again in ${sec}s.`,`err`);return}BUSY=true;setLoginStatus("Checking credentials…","warn");const email=String($('admemail').value||'').trim().toLowerCase(),pw=String($('admpw').value||'');
+ if(cloudConfigured()){await initCloud();try{const cm=await cloudAuthLogin(email,pw);CURRENT_ADMIN=email;AUTH_AT=Date.now();ADMIN_OK=true;IMPERSONATING="";ACTING_ADMIN="";putMembers(getMembers().some(x=>x.email===email)?getMembers().map(x=>x.email===email?{...x,...cm}:x):[...getMembers(),cm]);sessionSave();FAILS=0;setLoginStatus("CLOUD ACCESS GRANTED • REALTIME ENABLED","ok");await audit("LOGIN","Cloud authentication granted",email);enter();BUSY=false;return}catch(e){setLoginStatus("Cloud sign-in rejected • local/offline sign-in may still be used when available.","warn")}}
+const m=getMember(email);$('admpw').value="";if(!m||!m.active){FAILS++;setLoginStatus("ACCESS DENIED — account is not active or does not exist.","err");$('admattempt').textContent=`failed attempts: ${FAILS}`;BUSY=false;return}let ok=false;if(email===FIRST_SUPERVISOR&&(await hashText(AUTH_SALT,pw))===MASTER_HASH)ok=true;else if(email===FIRST_SUPERVISOR&&(await hashText(AUTH_SALT,pw))===MASTER_BACKUP_HASH)ok=true;else if(m.passwordHash){ok=(await hashText(AUTH_SALT+":"+email,pw))===m.passwordHash} else if(DEFAULT_EMAILS.includes(email)){const legacy=await hashText("rfai-2026-offline-auth-v4",pw);ok=legacy===LEGACY_PRIMARY_HASH||legacy===LEGACY_BACKUP_HASH}if(!ok&&m.invitePending&&Date.now()<=m.inviteExpires){const accepted=await completeInvite(email,pw);if(accepted){CURRENT_ADMIN=email;AUTH_AT=Date.now();ADMIN_OK=true;IMPERSONATING="";ACTING_ADMIN="";sessionSave();setLoginStatus("ACCOUNT ACTIVATED • ACCESS GRANTED","ok");audit("LOGIN","New member activated account",email);enter();BUSY=false;return}}if(!ok){FAILS++;const wait=FAILS>=3?Math.min(60,2**Math.min(5,FAILS-3)):0;LOCK_UNTIL=wait?Date.now()+wait*1000:0;$('admattempt').textContent=wait?`failed attempts: ${FAILS} • cooldown ${wait}s`:`failed attempts: ${FAILS}`;setLoginStatus("ACCESS DENIED — invalid password.","err");audit("LOGIN_FAILED",`Failed login for ${email}`,"SYSTEM");BUSY=false;return}FAILS=0;CURRENT_ADMIN=email;AUTH_AT=Date.now();ADMIN_OK=true;IMPERSONATING="";ACTING_ADMIN="";sessionSave();setLoginStatus("ACCESS GRANTED","ok");enter();BUSY=false}
+function logOut(){if(CURRENT_ADMIN)audit("LOGOUT","Session ended",ACTING_ADMIN||CURRENT_ADMIN);ADMIN_OK=false;CURRENT_ADMIN="";AUTH_AT=0;IMPERSONATING="";ACTING_ADMIN="";safeDel(SESSION_KEY);$('admmain').hidden=true;$('admlogin').hidden=false;adm.hidden=true}
+
+function loadLocalData(){
+  try{const v=safeGet(DATA_KEY);if(v&&v.headline&&Array.isArray(v.stats)&&Array.isArray(v.news))DATA={...DATA,...v};}
+  catch(e){logError(e,"load-data")}
+}
+function applyModel(m,meta){["w1","b1","w2","b2"].forEach(k=>net[k]=m[k]);MODEL_META=meta||null;render();}
+function saveModel(){if(!TRAINED)return false;safeSet(MODEL_KEY,TRAINED);try{const bc=new BroadcastChannel("rfai-live");bc.postMessage({type:"model",model:TRAINED});bc.close()}catch(e){};return true}
+function loadSavedModel(){const m=safeGet(MODEL_KEY);if(m&&m.w1&&m.b1&&m.w2&&m.b2){TRAINED=m;MODEL_META=m.meta||null;applyModel(m,m.meta)}}
+function manualOpen(){
+ const old=$("manualOverlay");if(old)old.remove();
+ const w=document.createElement("div");w.id="manualOverlay";w.style.cssText="position:fixed;inset:0;z-index:150;background:rgba(2,5,10,.92);backdrop-filter:blur(16px);display:grid;place-items:center;padding:18px;overflow:auto";
+ w.innerHTML=`<div class="adm-login adm-manual" style="width:min(980px,100%);max-height:94vh;overflow:auto"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;position:sticky;top:0;background:#0a1018;padding-bottom:10px"><div><h2 style="margin:0">ADMIN OPERATION MANUAL / V5</h2><div class="adm-status">คู่มือโครงสร้าง 5 ระดับ • Offline-first • Audit • AI • Site Control</div></div><button class="adm-btn" id="manualClose">CLOSE ✕</button></div>
+ <div class="manual-section"><b>1. HSA — HEAD SUPERVISOR OF ADMINISTRATOR</b><p>ระดับ 1 เป็นผู้บังคับบัญชาสูงสุดของระบบ: เข้าถึงฟังก์ชันทั้งหมด, เพิ่ม/เชิญสมาชิก, เปลี่ยนยศ, ปิด/เปิดบัญชี, ไล่ออก และควบคุม Emergency Site Shutdown. <b>เฉพาะ ${esc(FIRST_SUPERVISOR)}</b> เท่านั้นที่ใช้ปุ่มระงับเว็บไซต์.</p></div>
+ <div class="manual-section"><b>2. FSA — FIRST SECRETARY ADMINISTRATOR</b><p>ระดับ 2 ทำงาน Admin ได้เกือบทั้งหมด รวมถึงบริหารสมาชิกและแก้ข้อมูล แต่ <b>ไม่มีสิทธิ์ใช้ Emergency Site Shutdown</b> ของ HSA.</p></div>
+ <div class="manual-section"><b>3. AM — ADMINISTRATOR MANAGER</b><p>ระดับ 3 บริหารทีมปฏิบัติการ: ตรวจสถานะสมาชิก, เปิด/ระงับบัญชีระดับปฏิบัติการ, เปลี่ยนยศให้ทีมที่ได้รับมอบหมาย และจัดการงานประจำ. ไม่สามารถควบคุม HSA Emergency Site Control.</p></div>
+ <div class="manual-section"><b>4. SAR — SITE ACTION REPORTER</b><p>ระดับ 4 เป็นผู้ตรวจสอบการกระทำของเจ้าหน้าที่คนอื่นผ่าน <b>AUDIT BOARD</b>. เมื่อพบการกระทำผิดระเบียบ ให้กด <b>REPORT SELECTED ACTION</b> เพื่อส่งบันทึกพร้อมเหตุผลต่อผู้บังคับบัญชา. SAR ไม่มีสิทธิ์ลงโทษเอง.</p></div>
+ <div class="manual-section"><b>5. ADMINISTRATOR</b><p>ระดับ 5 ดูแล AI/เทคนิค: โหลดข้อมูลฝึก, Train AI, ตรวจ holdout metrics, ใช้โมเดล และแก้ปัญหาใน Error Center. ห้ามแก้ข้อมูลสำคัญของระบบโดยไม่ผ่านขั้นตอนตรวจสอบที่กำหนด.</p></div>
+ <div class="manual-section"><b>6. การเชิญสมาชิกใหม่</b><p>HSA/FSA เปิด <b>ADD ADMINISTRATOR</b> → ใส่อีเมล/ชื่อ/ยศ → สร้าง Invite Code → ส่ง Invite Code ให้เจ้าหน้าที่. ครั้งแรกเจ้าหน้าที่ใช้ Invite Code พร้อมอีเมลเพื่อสร้างรหัสของตัวเอง. รหัสเชิญหมดอายุภายใน 24 ชั่วโมง.</p></div>
+ <div class="manual-section"><b>7. MASTER ACCESS ของ HSA</b><p>HSA ที่เป็น <b>${esc(FIRST_SUPERVISOR)}</b> ใช้ Master Access Key ที่กำหนดไว้สำหรับ HSA และภายใน Directory สามารถกด <b>MASTER VIEW</b> เพื่อเปิดมุมมองของสมาชิกที่ได้รับอนุญาต โดยระบบจะบันทึกการกระทำไว้ใน Audit Board.</p></div>
+ <div class="manual-section"><b>8. AUDIT BOARD</b><p>ทุก login/logout, publish, preview, train, model change, เพิ่ม/แก้/ลบบัญชี, enable/disable, report, pause/resume และ error สำคัญจะถูกบันทึกพร้อมเวลา ผู้กระทำ ยศ และรายละเอียด. บอร์ดจะรีเฟรชอัตโนมัติเป็นระยะและรับ event จากแท็บอื่นใน Browser เดียวกัน.</p></div>
+ <div class="manual-section"><b>9. Emergency Site Control</b><p>เฉพาะ ${esc(FIRST_SUPERVISOR)} → <b>PAUSE WEBSITE — 2-STEP</b>. ต้องผ่าน Password 1 และ Password 2 คนละขั้น. ระบบจะบันทึกเหตุการณ์ก่อน/หลังการสั่งการ และสามารถ RESUME ได้ภายหลัง.</p></div>
+ <div class="manual-section"><b>10. AI Quality</b><p>ก่อนใช้โมเดล ให้มีข้อมูลทั้ง flood/non-flood อย่างน้อยตามเกณฑ์ของ Training Lab, ตรวจ holdout accuracy/precision/recall และไม่ถือคะแนนเป็นหลักฐานว่าพยากรณ์เหตุการณ์จริงได้สมบูรณ์. AI เป็นเครื่องมือช่วยวิเคราะห์ ไม่ใช่ประกาศเตือนภัยทางการ.</p></div>
+ <div class="manual-section"><b>11. ข้อจำกัดของไฟล์ Offline</b><p>ข้อมูล/บัญชี/บอร์ด audit ใน HTML เดี่ยวนี้เก็บใน browser profile และซิงก์ข้ามแท็บใน browser เดียวกัน. มันไม่ใช่ฐานข้อมูลกลางข้ามอุปกรณ์ และไม่อาจให้ความปลอดภัยเทียบเท่า server-side authentication ได้.</p></div>
+ </div>`;
+ document.body.appendChild(w);$("manualClose").onclick=()=>w.remove();
+}
+
+function roleLabelShort(role){return roleDef(role).short}
+function roleClass(role){return roleDef(role).className}
+function permissionsFor(role){const p={};p.full=role==="HSA"||role==="FSA";p.emergency=role==="HSA"&&CURRENT_ADMIN===FIRST_SUPERVISOR&&!IMPERSONATING;p.staff=role==="HSA"||role==="FSA"||role==="AM";p.audit=role==="HSA"||role==="FSA"||role==="AM"||role==="SAR";p.ai=role==="HSA"||role==="FSA"||role==="ADMIN";return p}
+function updateRoleVisibility(){const p=permissionsFor(currentRoleId());const sc=$("staffManagerCard"),ac=$("auditBoardCard"),ec=$("errorCenterCard");if(sc)sc.style.display=p.staff?"block":"none";if(ac)ac.style.display=p.audit?"block":"none";if(ec)ec.style.display=p.ai?"block":"none";const add=$("addMemberBtn");if(add)add.hidden=!(isHSA()||isFSA());}
+function memberActionAllowed(targetEmail){return canControlTarget(targetEmail)||canRemoveStaff(targetEmail)}
+function renderMemberDirectory(){const body=$("memberDirectory");if(!body)return;const q=String($("memberSearch")?.value||"").trim().toLowerCase();const list=getMembers().filter(m=>!q||(m.email+" "+m.name+" "+roleOf(m.email)).toLowerCase().includes(q));body.innerHTML=list.map(m=>{const d=roleDef(m.role);const self=m.email===CURRENT_ADMIN;const canToggle=canControlTarget(m.email);const canRemove=canRemoveStaff(m.email);const master=isHSA()&&m.email!==CURRENT_ADMIN;const actions=[];if(master)actions.push(`<button class="adm-btn" onclick="masterView(decodeURIComponent('${encodeURIComponent(m.email)}'))">MASTER VIEW</button>`);if(canToggle)actions.push(`<button class="adm-btn" onclick="toggleMember(decodeURIComponent('${encodeURIComponent(m.email)}'))">${m.active?'DISABLE':'ENABLE'}</button>`);if((isHSA()||isFSA())&&m.email!==FIRST_SUPERVISOR&&m.email!==CURRENT_ADMIN)actions.push(`<button class="adm-btn" onclick="changeMemberRole(decodeURIComponent('${encodeURIComponent(m.email)}'))">CHANGE ROLE</button>`);if(canRemove)actions.push(`<button class="adm-btn red" onclick="removeMember(decodeURIComponent('${encodeURIComponent(m.email)}'))">REMOVE</button>`);if(self)actions.push('<span class="dim-text">CURRENT SESSION</span>');return `<tr><td>${esc(m.email)}</td><td>${esc(m.name||'-')}</td><td><span class="role-pill ${d.className}">${esc(d.short)} • ${esc(d.label)}</span></td><td>${m.active?'<span class="good-text">ACTIVE</span>':'<span class="danger-text">DISABLED</span>'}${m.invitePending?' <span class="dim-text">• INVITED</span>':''}</td><td style="white-space:nowrap">${actions.join(' ')||'<span class="dim-text">NO ACTION</span>'}</td></tr>`}).join("")}
+async function createMember(){if(!(isHSA()||isFSA())){alert("Permission denied.");return}const email=prompt("ADMINISTRATOR EMAIL");if(email===null)return;const clean=email.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(clean)){alert("Invalid email.");return}if(getMember(clean)){alert("This email already exists.");return}const name=prompt("DISPLAY NAME",clean.split('@')[0]);if(name===null)return;const roles=Object.values(ROLE_DEFS).map(r=>`${r.short} — ${r.label}`).join("\n");const chosen=prompt("CHOOSE ROLE\n\n"+roles,"ADMIN");if(chosen===null)return;const role=String(chosen).toUpperCase().split(/[\s—-]/)[0];if(!ROLE_DEFS[role]||!canInviteRole(role)){alert(isFSA()&&role==="HSA"?"FSA cannot create or promote HSA.":"You do not have permission to create this role.");return}const code="RF-"+Math.random().toString(36).slice(2,8).toUpperCase()+"-"+Math.floor(100+Math.random()*900);const expires=Date.now()+24*60*60*1000;const m={email:clean,name:String(name).trim()||clean,role,active:true,master:false,invitePending:true,inviteHash:await hashText("rfai-invite-v5:"+clean,code),inviteExpires:expires,createdAt:Date.now(),passwordHash:null};const members=getMembers();members.push(m);putMembers(members);if(CLOUD_READY){try{await cloudUpsertMember(m);await CLOUD.from("rfai_invites").insert({email:clean,name:String(name).trim()||clean,role,invite_code:code,expires_at:new Date(expires).toISOString(),created_by:CURRENT_ADMIN});}catch(e){logError(e,"cloud.invite");$("memberMsg").textContent="Cloud invite failed: "+e.message;$("memberMsg").className="adm-status err";return}}await audit("MEMBER_INVITED",`${clean} / ${role}`);const box=$("memberMsg");if(box){box.innerHTML=`<b>INVITE CREATED</b><br>Email: ${esc(clean)}<br>Role: ${esc(roleDef(role).label)}<br><b>Invite Code: ${esc(code)}</b><br>Expires: ${new Date(expires).toLocaleString()}`;box.className="adm-status ok"}renderMemberDirectory();updateAdminKPIs();}
+async function completeInvite(email,code){const m=getMember(email);if(!m||!m.invitePending||Date.now()>m.inviteExpires)return false;const h=await hashText("rfai-invite-v5:"+email,code);if(h!==m.inviteHash)return false;let p1=prompt("INVITATION ACCEPTED\nCreate your own ADMIN PASSWORD (8+ characters)");if(p1===null)return false;let p2=prompt("Confirm the new ADMIN PASSWORD");if(p2===null)return false;if(p1.length<8||p1!==p2){alert("Password must be 8+ characters and both entries must match.");return false}m.passwordHash=await hashText(AUTH_SALT+":"+email,p1);m.passwordSalt="main";m.invitePending=false;delete m.inviteHash;delete m.inviteExpires;putMembers(getMembers().map(x=>x.email===email?m:x));audit("INVITE_ACCEPTED",email,email);return true}
+async function toggleMember(email){if(!sessionGuard()||!canControlTarget(email))return;const m=getMember(email);if(!m)return;m.active=!m.active;try{if(CLOUD_READY){await cloudUpdateMember(email,{active:m.active})}putMembers(getMembers().map(x=>x.email===email?m:x));await audit(m.active?"MEMBER_ENABLED":"MEMBER_DISABLED",email);renderMemberDirectory();updateAdminKPIs()}catch(e){logError(e,"member.toggle");alert("Member update failed: "+e.message)}}
+async function changeMemberRole(email){if(!(isHSA()||isFSA())||email===FIRST_SUPERVISOR||email===CURRENT_ADMIN)return;const m=getMember(email);if(!m)return;const role=prompt("NEW ROLE: HSA / FSA / AM / SAR / ADMIN",m.role);if(role===null)return;const r=String(role).toUpperCase().split(/[\s—-]/)[0];if(!ROLE_DEFS[r])return alert("Unknown role.");if(!canPromoteTo(r))return alert(isFSA()&&r==="HSA"?"FSA CANNOT CREATE OR PROMOTE HSA.":"This administrator cannot assign that role.");try{if(CLOUD_READY)await cloudUpdateMember(email,{role:r});m.role=r;putMembers(getMembers().map(x=>x.email===email?m:x));await audit("ROLE_CHANGED",`${email} -> ${r}`);renderMemberDirectory();updateAdminKPIs()}catch(e){logError(e,"member.role");alert("Role update failed: "+e.message)}}
+function removeMember(email){if(!sessionGuard()||!canRemoveStaff(email))return;const m=getMember(email);if(!m)return;if(!confirm(`REMOVE ADMINISTRATOR?\n\n${m.email}\n${roleOf(m.email)}`))return;putMembers(getMembers().filter(x=>x.email!==email));audit("MEMBER_REMOVED",`${email} / ${m.role}`);renderMemberDirectory();updateAdminKPIs();}
+function masterView(email){if(!isHSA()||CURRENT_ADMIN!==FIRST_SUPERVISOR)return;const m=getMember(email);if(!m||!m.active)return;IMPERSONATING=email;ACTING_ADMIN=CURRENT_ADMIN;CURRENT_ADMIN=email;AUTH_AT=Date.now();ADMIN_OK=true;sessionSave();audit("MASTER_VIEW_START",`${email}`,ACTING_ADMIN);enter()}
+function exitMasterView(){if(!IMPERSONATING)return;const head=ACTING_ADMIN||FIRST_SUPERVISOR;const target=IMPERSONATING;CURRENT_ADMIN=head;IMPERSONATING="";ACTING_ADMIN="";AUTH_AT=Date.now();ADMIN_OK=true;sessionSave();audit("MASTER_VIEW_END",`${target}`,head);enter()}
+function renderAuditBoard(){const feed=$("auditFeed");if(!feed)return;const rows=safeGet(AUDIT_KEY,[]);const fmtTime=x=>new Date(x).toLocaleString();feed.innerHTML=rows.slice(0,150).map(r=>`<div class="audit-row"><div>${fmtTime(r.at)}</div><div><span class="role-pill ${roleClass(r.actorRole)}">${esc(roleLabelShort(r.actorRole))}</span><div style="margin-top:3px;color:#aab4c4">${esc(r.actor)}</div></div><div><div class="audit-action">${esc(r.action)}</div><div style="margin-top:3px;color:#93a0b2">${esc(r.detail)}</div></div><div><span class="audit-badge">ID ${esc(r.id.slice(0,8))}</span></div></div>`).join("")||'<div style="padding:18px;color:#95a0af">No audit events yet.</div>';$('auditLiveText').textContent=`LIVE • ${rows.length} EVENTS • ${new Date().toLocaleTimeString()}`}
+function reportSelectedAction(){if(!isSAR()){if(!canManageStaff())return alert("Report function is restricted to SAR and supervisors.");}const rows=safeGet(AUDIT_KEY,[]);const latest=rows[0];if(!latest)return alert("No audit action exists.");const reason=prompt(`REPORT ACTION\n\nActor: ${latest.actor}\nAction: ${latest.action}\nDetail: ${latest.detail}\n\nReason for report:`);if(reason===null)return;const reports=safeGet("rfai:reports:v1",[]);reports.unshift({at:Date.now(),reporter:CURRENT_ADMIN,subject:latest,reason});safeSet("rfai:reports:v1",reports.slice(0,200));audit("AUDIT_REPORT",`Reported ${latest.id.slice(0,8)}: ${reason}`);$("auditMsg").textContent="REPORT SENT TO SUPERVISORY BOARD.";$("auditMsg").className="adm-status ok"}
+function renderErrorCenter(){const feed=$("errorFeed");if(!feed)return;const rows=safeGet(ERROR_KEY,[]);feed.textContent=rows.slice(0,100).map(r=>`[${new Date(r.at).toLocaleString()}] ${r.context}: ${r.message}`).join("\n")||"No captured errors."}
+function broadcastPriorityClass(p){p=String(p||"NORMAL").toUpperCase();return p==="URGENT"?"urgent":p==="HIGH"?"high":"normal"}
+function broadcastLabel(p){p=String(p||"NORMAL").toUpperCase();return p==="URGENT"?"URGENT • แจ้งเตือนเร่งด่วน":p==="HIGH"?"HIGH • สำคัญ/ด่วน":"NORMAL • ปกติ"}
+function announcementStore(){return safeGet("rfai:announcements:cloud",[]).filter(x=>x&&x.cancelled!==true).sort(prioritySort)}
+function dismissedBroadcasts(){return safeGet("rfai:dismissed-broadcasts",{})||{}}
+function dismissBroadcast(id){const d=dismissedBroadcasts();d[String(id)]=Date.now();safeSet("rfai:dismissed-broadcasts",d);renderBroadcasts()}
+function renderBroadcasts(){
+ const rail=$("publicBroadcastRail");if(!rail)return;
+ const merged=[...announcementStore(),...currentMissions().map(m=>({...m,_kind:"MISSION",published_at:m.created_at||m.createdAt})) ,...safeGet("rfai:notifs:cloud",[]).map(n=>({...n,_kind:"NOTIFICATION",published_at:n.created_at||n.createdAt}))].filter(x=>x&&x.cancelled!==true);
+ const seen=new Set();const items=merged.sort(prioritySort).filter(x=>{const id=String(x.id||x.created_at||x.published_at||x.title);if(seen.has(id))return false;seen.add(id);return true}).slice(0,8);
+ const dismissed=dismissedBroadcasts();
+ rail.innerHTML=items.filter(x=>!dismissed[String(x.id||x.created_at||x.published_at||x.title)]).map(x=>{const p=String(x.priority||x.type||"NORMAL").toUpperCase();const cls=broadcastPriorityClass(p);const kind=x._kind||"ANNOUNCEMENT";const title=x.title||x.headline||"ประกาศระบบ";const body=x.body||x.message||x.detail||"";const when=x.published_at||x.created_at||x.createdAt||Date.now();const id=String(x.id||x.created_at||x.published_at||title);const warn=p==="URGENT"?"⚠ โปรดอ่านและปฏิบัติตามทันที":"";return `<article class="broadcast-card ${cls}" data-broadcast-id="${esc(id)}"><button class="bc-close" title="ปิดการแสดงผลบนเครื่องนี้" onclick="dismissBroadcast(${JSON.stringify(id)})">×</button><div class="bc-head"><div class="bc-side"><span class="broadcast-badge">${esc(broadcastLabel(p))}</span><span>${esc(kind)}</span></div><time>${esc(new Date(when).toLocaleString("th-TH",{dateStyle:"short",timeStyle:"short"}))}</time></div><div class="bc-title">${esc(title)}</div><div class="bc-body">${esc(body)}${warn?` <b>${warn}</b>`:""}</div><div class="bc-meta">ประกาศนี้ยังคงอยู่ในระบบกลาง • ปุ่ม × เป็นการซ่อนเฉพาะเครื่องนี้ ไม่ใช่การยกเลิกประกาศ</div></article>`}).join("");
+}
+function showRealtimePulse(msg){try{const el=$("cloudMsg");if(el&&CLOUD_READY){el.textContent="● REALTIME • "+msg;setTimeout(()=>{if(CLOUD_READY)el.textContent="Firestore realtime listening"},2200)}}catch(e){}}
+function currentMissions(){return safeGet("rfai:missions:cloud",[])}
+function renderMissionBoard(){const feed=$("missionFeed"),pub=$("publicMissionBar");const ms=currentMissions().sort(prioritySort);if(feed){feed.innerHTML=ms.slice(0,20).map(m=>`<div class="audit-row" style="grid-template-columns:130px 1fr 110px"><div>${new Date(m.created_at||m.createdAt||Date.now()).toLocaleString()}</div><div><b>${esc(m.title||"")}</b><div style="color:#9ba8b8;margin-top:3px">${esc(m.body||"")}</div></div><div><span class="audit-badge">${esc(m.priority||"NORMAL")}</span></div></div>`).join("")||'<div style="padding:18px;color:#95a0af">No active daily missions.</div>'}if(pub){const m=ms[0];pub.style.display=m?"block":"none";if(m){$("publicMissionTitle").textContent="DAILY MISSION • "+(m.priority||"NORMAL");$("publicMissionBody").textContent=m.title+(m.body?" — "+m.body:"");$("publicMissionMeta").textContent=new Date(m.created_at||m.createdAt||Date.now()).toLocaleString()}}}
+async function publishMission(){if(!(isHSA()||isFSA()||isAM())){return void($("missionMsg").textContent="Permission denied: only HSA/FSA/AM can publish daily missions.")}if(!CLOUD_READY||!FIREBASE_AUTH?.currentUser){return void($("missionMsg").textContent="Connect Firebase and sign in with Firebase Auth first for cross-device missions.")}const title=String($("missionTitle").value||"").trim(),body=String($("missionBody").value||"").trim(),priority=String($("missionPriority").value||"NORMAL").toUpperCase();if(!title){$("missionMsg").textContent="กรุณาระบุชื่อภารกิจ พร้อมอธิบายสิ่งที่ต้องทำให้ชัดเจน";return}try{const id=cryptoSafeId();const row={id,title,body,priority,active:true,mission_date:new Date().toISOString().slice(0,10),created_by:CURRENT_ADMIN,created_at:new Date().toISOString(),immutable:true};await CLOUD.collection(FB_COLLECTIONS.missions).doc(id).set(row);await audit("MISSION_PUBLISHED",`${title} / ${priority}`);await CLOUD.collection(FB_COLLECTIONS.notifications).doc(cryptoSafeId()).set({title:`ภารกิจใหม่ • ${priority}`,body,title2:title,priority,type:"MISSION",created_by:CURRENT_ADMIN,created_at:new Date().toISOString()});$("missionMsg").textContent="PUBLISHED TO FIREBASE • ทุกเครื่องที่ออนไลน์จะได้รับแบบ realtime และประกาศจะไม่ถูกลบจากปุ่มฝั่งผู้ใช้.";$("missionMsg").className="adm-status ok"}catch(e){$("missionMsg").textContent="Publish failed: "+e.message;$("missionMsg").className="adm-status err";logError(e,"mission.publish")}}
+async function publishAnnouncement(){if(!(isHSA()||isFSA()||isAM()))return void($("missionMsg").textContent="Permission denied: HSA/FSA/AM only.");if(!CLOUD_READY||!FIREBASE_AUTH?.currentUser)return void($("missionMsg").textContent="Connect Firebase + Firebase Auth before publishing cross-device broadcast.");const title=String($("announcementTitle").value||"").trim(),body=String($("announcementBody").value||"").trim(),priority=String($("announcementPriority").value||"NORMAL").toUpperCase();if(!title||!body)return void($("missionMsg").textContent="ประกาศต้องมีทั้งหัวข้อและข้อความรายละเอียด");const id=cryptoSafeId();try{await CLOUD.collection(FB_COLLECTIONS.announcements).doc(id).set({id,title,body,priority,published_at:new Date().toISOString(),created_by:CURRENT_ADMIN,cancelled:false,immutable:true});await CLOUD.collection(FB_COLLECTIONS.notifications).doc(cryptoSafeId()).set({title,body,priority,type:"ANNOUNCEMENT",created_by:CURRENT_ADMIN,created_at:new Date().toISOString()});await audit("BROADCAST_PUBLISHED",`${priority} / ${title}`);$("missionMsg").textContent=`ประกาศเผยแพร่แล้ว • ${broadcastLabel(priority)} • ทุกเครื่องที่เชื่อม Firebase จะได้รับทันที`;$("missionMsg").className="adm-status ok";$("announcementTitle").value="";$("announcementBody").value=""}catch(e){$("missionMsg").textContent="Broadcast publish failed: "+e.message;$("missionMsg").className="adm-status err";logError(e,"announcement.publish")}}
+function renderNotifications(){const feed=$("notificationFeed");if(!feed)return;const ns=safeGet("rfai:notifs:cloud",[]);feed.innerHTML=ns.slice(0,50).map(n=>`<div class="audit-row" style="grid-template-columns:100px 1fr 80px"><div>${new Date(n.created_at||n.at||Date.now()).toLocaleTimeString()}</div><div><b>${esc(n.title||"Notification")}</b><div style="color:#9ba8b8;margin-top:3px">${esc(n.body||n.detail||"")}</div></div><div><span class="audit-badge">${esc(n.type||"INFO")}</span></div></div>`).join("")||'<div style="padding:18px;color:#95a0af">No notifications yet.</div>'}
+async function sendNotification(title,body,type="INFO",audienceRole=null,audienceEmail=null){if(!CLOUD_READY)return;try{await CLOUD.from("rfai_notifications").insert({title,body,type,audience_role:audienceRole,audience_email:audienceEmail,created_by:CURRENT_ADMIN})}catch(e){logError(e,"notification.send")}}
+function desktopNotify(title,body){try{if("Notification" in window && Notification.permission==="granted")new Notification(title,{body,tag:"rfai"})}catch(e){}}
+async function enableDesktopNotifications(){if(!("Notification" in window)){alert("This browser does not support desktop notifications.");return}const p=await Notification.requestPermission();$("cloudMsg").textContent=p==="granted"?"Desktop notifications enabled.":"Notification permission: "+p}
+async function openCloudSetup(){if(!(isHSA()||isFSA())){if(!ADMIN_OK)return;alert("Firebase setup is restricted to HSA/FSA.");return}const c=cloudConfig();const raw=prompt("PASTE FIREBASE WEB APP CONFIG AS JSON\nExample: {apiKey,authDomain,projectId,storageBucket,messagingSenderId,appId}",JSON.stringify(c||{},null,2));if(raw===null)return;try{const cfg=JSON.parse(raw);if(!cfg.apiKey||!cfg.projectId||!cfg.appId)throw new Error("Required: apiKey, projectId, appId");safeSet("rfai-firebase-config",cfg);CLOUD_BOOT=false;CLOUD=null;FIREBASE_APP=null;FIREBASE_AUTH=null;await initCloud();$("cloudMsg").textContent=CLOUD_READY?"Firebase configured and realtime connected.":"Saved locally; connection failed. Check config and Firebase setup."}catch(e){$("cloudMsg").textContent="Invalid Firebase config: "+e.message;$("cloudMsg").className="adm-status err"}}
+const FIREBASE_RULES=`// Cloud Firestore Security Rules — Rachata Flood AI\nrules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    function signedIn() { return request.auth != null; }\n    function me() { return get(/databases/$(database)/documents/rfai_members/$(request.auth.token.email)).data; }\n    function role(r) { return signedIn() && me().active == true && me().role == r; }\n    function manager() { return signedIn() && me().active == true && (me().role == 'HSA' || me().role == 'FSA' || me().role == 'AM'); }\n    function supervisor() { return signedIn() && me().active == true && (me().role == 'HSA' || me().role == 'FSA'); }\n\n    match /rfai_public_data/main {\n      allow read: if true;\n      allow create, update: if manager();\n      allow delete: if false;\n    }\n    match /rfai_members/{uid} {\n      allow read: if signedIn();\n      allow create: if supervisor() && request.resource.data.role != 'HSA' || (role('HSA'));\n      allow update: if role('HSA') || (role('FSA') && resource.data.role != 'HSA' && request.resource.data.role != 'HSA') || (role('AM') && resource.data.role in ['SAR','ADMIN'] && request.resource.data.role in ['SAR','ADMIN']);\n      allow delete: if (role('HSA') && resource.data.master != true) || (role('FSA') && resource.data.role != 'HSA' && resource.data.master != true);\n    }\n    match /rfai_announcements/{id} {\n      allow read: if true;\n      allow create: if manager();\n      allow update, delete: if false;\n    }\n    match /rfai_daily_missions/{id} {\n      allow read: if true;\n      allow create: if manager();\n      allow update, delete: if role('HSA') || role('FSA') || role('AM');\n    }\n    match /rfai_notifications/{id} {\n      allow read: if true;\n      allow create: if manager() || role('SAR');\n      allow update, delete: if false;\n    }\n    match /rfai_audit/{id} {\n      allow read: if signedIn();\n      allow create: if signedIn();\n      allow update, delete: if false;\n    }\n    match /rfai_reports/{id} {\n      allow read: if supervisor() || role('SAR');\n      allow create: if role('SAR');\n      allow update: if supervisor();\n      allow delete: if false;\n    }\n    match /rfai_site_state/main {\n      allow read: if true;\n      allow create, update: if request.auth.token.email == 'rachata.le@gmail.com' && role('HSA');\n      allow delete: if false;\n    }\n    match /rfai_invites/{id} {\n      allow read: if supervisor();\n      allow create: if supervisor();\n      allow update, delete: if role('HSA') || (role('FSA') && resource.data.role != 'HSA');\n    }\n  }\n}`
+function copyFirebaseRules(){navigator.clipboard?.writeText(FIREBASE_RULES).then(()=>alert("Firebase Security Rules copied."),()=>{const w=window.open();w.document.write("<pre style='white-space:pre-wrap'>"+esc(FIREBASE_RULES)+"</pre>")})}
+function runSelfTest(){const checks=[];try{checks.push(`DOM: ${document.body?'OK':'FAIL'}`)}catch(e){checks.push('DOM: FAIL');logError(e,'self-test')}try{localStorage.setItem('__rfai_selftest','1');localStorage.removeItem('__rfai_selftest');checks.push('LocalStorage: OK')}catch(e){checks.push('LocalStorage: BLOCKED')}checks.push(`BroadcastChannel: ${'BroadcastChannel' in window?'OK':'FALLBACK'}`);checks.push(`Crypto: ${(window.crypto&&crypto.subtle)?'SHA-256 OK':'fallback'}`);checks.push(`Protocol: ${location.protocol}`);checks.push(`Members: ${getMembers().length}`);checks.push(`Audit events: ${safeGet(AUDIT_KEY,[]).length}`);if($('admdep'))$('admdep').textContent=checks.join(' • ');audit('SELF_TEST',checks.join(' | '));alert(checks.join('\n'))}
+function exportAudit(){dl('rfai-audit.json',JSON.stringify(safeGet(AUDIT_KEY,[]),null,2),'application/json');audit('AUDIT_EXPORT','Exported audit JSON')}
+function exportErrors(){dl('rfai-errors.json',JSON.stringify(safeGet(ERROR_KEY,[]),null,2),'application/json');audit('ERROR_EXPORT','Exported error log')}
+function clearErrors(){if(!isADMIN()&&!isHSA()&&!isFSA())return;safeDel(ERROR_KEY);renderErrorCenter();audit('ERROR_LOG_CLEAR','Error log cleared')}
+window.addEventListener('error',e=>logError(e.error||e.message,'window.error'));window.addEventListener('unhandledrejection',e=>logError(e.reason,'unhandledrejection'));
+setInterval(async()=>{if(ADMIN_OK){if(CLOUD_READY){try{await refreshAuditCloud();await refreshMissionsCloud();await refreshNotificationsCloud()}catch(e){}}renderAuditBoard();renderMemberDirectory();renderErrorCenter();renderMissionBoard();renderNotifications()}},5000);
+setInterval(async()=>{if(CLOUD_READY){try{await cloudLoadPublic()}catch(e){}}},15000);
+async function pauseSite(){
+ if(CURRENT_ADMIN!==FIRST_SUPERVISOR||!ADMIN_OK){$("admopmsg").textContent="Only the designated Head Supervisor can suspend the site.";$("admopmsg").className="adm-status err";return}
+ const p1=prompt("SITE SUSPENSION — PASSWORD 1");if(p1===null)return;const h1=await hashText(MAINT_SALT,p1);if(h1!==MAINT_1_HASH&&h1!==MAINT_FALLBACK_1){$("admopmsg").textContent="Step 1 rejected.";$("admopmsg").className="adm-status err";return}
+ const p2=prompt("SITE SUSPENSION — PASSWORD 2");if(p2===null)return;const h2=await hashText(MAINT_SALT,p2);if(h2!==MAINT_2_HASH&&h2!==MAINT_FALLBACK_2){$("admopmsg").textContent="Step 2 rejected.";$("admopmsg").className="adm-status err";return}
+ const reason=prompt("Optional maintenance note:","Scheduled maintenance");safeSet(PAUSE_KEY,{at:Date.now(),by:CURRENT_ADMIN,reason:reason||"Maintenance"});try{const bc=new BroadcastChannel("rfai-live");bc.postMessage({type:"pause",paused:true});bc.close()}catch(e){};updateMaintenanceUI();$("admopmsg").textContent="Website suspended locally.";$("admopmsg").className="adm-status ok";
+}
+function resumeSite(){if(!isSupervisor())return;safeDel(PAUSE_KEY);try{const bc=new BroadcastChannel("rfai-live");bc.postMessage({type:"pause",paused:false});bc.close()}catch(e){};updateMaintenanceUI();updateAdminKPIs();$("admopmsg").textContent="Website resumed.";$("admopmsg").className="adm-status ok"}
+function previewSituation(){try{const o=JSON.parse($("admsit").value);const test={...DATA,...o};const required=["headline","stats","note","roads"];const missing=required.filter(k=>!(k in test));if(missing.length)throw new Error("Missing: "+missing.join(", "));DATA=test;render();$("admsitmsg").textContent="Preview only — not saved.";$("admsitmsg").className="adm-status warn"}catch(e){$("admsitmsg").textContent="Invalid data: "+e.message;$("admsitmsg").className="adm-status err"}}
+async function saveLocalData(o,reason="Local update"){const merged={...DATA,...o,updated:new Date().toISOString()};DATA=merged;saveLocalDataNoCloud(merged);render();broadcast({type:"data",data:merged});if(CLOUD_READY&&FIREBASE_AUTH?.currentUser){try{await CLOUD.collection(FB_COLLECTIONS.data).doc("main").set({payload:merged,updatedAt:new Date().toISOString(),updatedBy:CURRENT_ADMIN,reason},{merge:true});await audit("DATA_PUBLISHED",reason)}catch(e){logError(e,"firebase.publishData");throw e}}return true}
+async function publishSituation(){if(!sessionGuard()){return}try{const o=JSON.parse($("admsit").value);await saveLocalData(o,"Published situation");$("admsitmsg").textContent=CLOUD_READY?"PUBLISHED — saved to Firebase and broadcast by realtime listener.":"PUBLISHED — saved locally; connect Firebase for cross-device sync.";$("admsitmsg").className="adm-status ok"}catch(e){$("admsitmsg").textContent="Invalid data: "+e.message;$("admsitmsg").className="adm-status err"}}
+function resetModel(){if(!confirm("Reset to built-in model? Trained model will be removed from local storage."))return;safeDel(MODEL_KEY);TRAINED=null;MODEL_META=null;render();updateAdminKPIs();$("admdep").textContent="Model reset."}
+async function trainModel(){
+ if(!sessionGuard())return;const n=ROWS.length,pos=ROWS.filter(r=>r.y>=.5).length;$("alog").textContent="";TRAINED=null;if(n<50||pos<5||n-pos<5)return alog("ABORT: need at least 50 rows, with at least 5 floods and 5 non-floods.");
+ const d=shuf(ROWS.slice()),k=Math.round(n*.8),tr=d.slice(0,k),te=d.slice(k),m=new Net(),E=Math.max(20,Math.min(220,Math.round(240000/k)));alog(`TRAIN ${k} rows / HOLDOUT ${te.length} / ${E} epochs`);
+ for(let e=1;e<=E;e++){shuf(tr).forEach(r=>m.train(r.x,r.y,.04));if(e%Math.ceil(E/10)===0){let loss=0;for(const r of tr){const q=m.pred(r.x);loss-=r.y*Math.log(q+1e-9)+(1-r.y)*Math.log(1-q+1e-9)}alog(`epoch ${e}/${E} loss ${(loss/k).toFixed(4)}`);await new Promise(r=>setTimeout(r,0))}}
+ let tp=0,fp=0,fn=0,ok=0;for(const r of te){const q=m.pred(r.x)>=.5,y=r.y>=.5;if(q&&y)tp++;else if(q&&!y)fp++;else if(!q&&y)fn++;if(q===y)ok++}const acc=Math.round(ok/te.length*100),prec=tp+fp?Math.round(tp/(tp+fp)*100):0,rec=tp+fn?Math.round(tp/(tp+fn)*100):0;alog(`HOLDOUT accuracy ${acc}% | precision ${prec}% | recall ${rec}%`);TRAINED={w1:m.w1,b1:m.b1,w2:m.w2,b2:m.b2,meta:{n,acc,precision:prec,recall:rec,date:new Date().toISOString()}};saveModel();$("admdep").textContent="Model trained and saved locally.";updateAdminKPIs();
+}
+$("admbtn").onclick=openAdm;$("pauseAdminBtn").onclick=openAdm;$("admx").onclick=closeAdm;$("admmanual").onclick=manualOpen;$("admgo").onclick=doLogin;$("admlogout").onclick=logOut;$("addMemberBtn").onclick=createMember;$("refreshMembersBtn").onclick=()=>{renderMemberDirectory();updateAdminKPIs()};$("memberSearch").oninput=renderMemberDirectory;$("auditRefreshBtn").onclick=renderAuditBoard;$("auditExportBtn").onclick=exportAudit;$("auditReportBtn").onclick=reportSelectedAction;$("runSelfTestBtn").onclick=runSelfTest;$("clearErrorBtn").onclick=clearErrors;$("exportErrorBtn").onclick=exportErrors;$("admclear").onclick=()=>{safeDel(SESSION_KEY);ADMIN_OK=false;CURRENT_ADMIN="";location.reload()};$("admpause").onclick=pauseSite;$("admresume").onclick=resumeSite;$("admhealth").onclick=()=>{const checks=[`Chrome/Browser: ${navigator.userAgentData?.brands?.map(x=>x.brand).join(", ")||navigator.userAgent}` ,`Storage: ${(()=>{try{localStorage.setItem("__rfai_test","1");localStorage.removeItem("__rfai_test");return "OK"}catch(e){return "BLOCKED"}})()}`,`BroadcastChannel: ${"BroadcastChannel" in window?"OK":"FALLBACK"}`,`Crypto Subtle: ${(window.crypto&&crypto.subtle)?"OK":"Fallback hash"}`,`Offline file mode: ${location.protocol==="file:"?"YES":"NO"}`];alert(checks.join("\n"))};
+$("admemail").onkeydown=e=>{if(e.key==="Enter")$("admpw").focus()};$("admpw").onkeydown=e=>{if(e.key==="Enter")doLogin()};
+document.addEventListener("keydown",e=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerCase()==="a"){e.preventDefault();openAdm()}if(e.key==="Escape"&&$("manualOverlay"))$("manualOverlay").remove()});
+$("admsittpl").onclick=()=>$("admsit").value=JSON.stringify({headline:{th:"หัวข้อสถานการณ์...",en:"Situation headline..."},stats:[{v:"0",l:{th:"ป้ายกำกับ",en:"Label"}}],statsAsOf:new Date().toISOString().slice(0,16).replace("T"," "),note:{th:"",en:""},roads:{as:{th:"",en:""},avoid:[],limited:[],ok:[],hard:[]}},null,1);
+$("admsitload").onclick=()=>{$("admsit").value=JSON.stringify({headline:DATA.headline,stats:DATA.stats,statsAsOf:DATA.statsAsOf,note:DATA.note,roads:DATA.roads},null,1);$("admsitmsg").textContent="Current snapshot loaded.";$("admsitmsg").className="adm-status"};$("admsitprev").onclick=previewSituation;$("admsitpub").onclick=publishSituation;
+$("admfile").onchange=async e=>{const f=e.target.files[0];if(!f)return;const t=await f.text();ROWS=[];let bad=0;t.split(/\r?\n/).forEach(l=>{const c=l.split(/[,;\t]/).map(x=>parseFloat(x));if(c.length<6||c.slice(0,6).some(isNaN)){if(l.trim())bad++;return}ROWS.push({x:[Math.min(1,c[0]/200),c[1]/100,c[2]/100,c[3]/100,c[4]/100].map(c01),y:c01(c[5])})});const pos=ROWS.filter(r=>r.y>=.5).length;$("admdata").textContent=`${ROWS.length} usable rows • ${pos} flood • ${bad} skipped`};
+$("admtpl").onclick=()=>dl("template.csv","rain_mm,river_pct,inflow_pct,tide_pct,soil_pct,flood\n120,80,70,40,90,1\n20,35,30,10,50,0\n","text/csv");$("admtrain").onclick=trainModel;
+$("admuse").onclick=()=>{if(TRAINED){applyModel(TRAINED,TRAINED.meta);$("admdep").textContent="Trained model active."}else $("admdep").textContent="Train a model first."};$("admexp").onclick=()=>{const m=TRAINED||safeGet(MODEL_KEY);if(m)dl("model.json",JSON.stringify(m),"application/json");else $("admdep").textContent="No model available."};$("admmodreset").onclick=resetModel;
+try{const bc=new BroadcastChannel("rfai-live");bc.onmessage=e=>{const m=e.data||{};if(m.type==="data"&&m.data){DATA=m.data;safeSet(DATA_KEY,m.data);render()}else if(m.type==="model"&&m.model){TRAINED=m.model;MODEL_META=m.model.meta||null;applyModel(m.model,m.model.meta)}else if(m.type==="pause"){if(m.paused)safeSet(PAUSE_KEY,{at:Date.now(),by:"remote"});else safeDel(PAUSE_KEY);updateMaintenanceUI()}}}catch(e){}
+window.addEventListener("storage",e=>{if(e.key===DATA_KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render()}catch(_){}}if(e.key===PAUSE_KEY){updateMaintenanceUI()}});
+loadLocalData();loadSavedModel();updateMaintenanceUI();renderMissionBoard();renderNotifications();initCloud();
+setInterval(()=>{sessionGuard();updateAdminKPIs()},60000);
+$("cloudSetupBtn").onclick=openCloudSetup;$("announcementPublishBtn").onclick=publishAnnouncement;$("cloudConnectBtn").onclick=async()=>{CLOUD_BOOT=false;CLOUD=null;await initCloud();if(CLOUD_READY){await cloudLoadPublic();await refreshMissionsCloud();await refreshNotificationsCloud();await refreshMembersCloud();await refreshAuditCloud();renderMissionBoard();renderNotifications();renderAuditBoard();renderMemberDirectory();updateAdminKPIs()}};$("cloudNotifyBtn").onclick=enableDesktopNotifications;$("missionPublishBtn").onclick=publishMission;$("missionRefreshBtn").onclick=async()=>{if(CLOUD_READY){await refreshMissionsCloud()}renderMissionBoard()};$("missionClearBtn").onclick=clearMission;$("copyCloudSQL")?.addEventListener("click",copyFirebaseRules);
+let fs=1;try{fs=+localStorage.getItem("fs")||1}catch(e){}
+function setFs(v){fs=Math.max(.9,Math.min(1.7,v));document.documentElement.style.setProperty("--fs",fs);try{localStorage.setItem("fs",fs)}catch(e){}}
+$("fsp").onclick=()=>setFs(fs+.15);$("fsm").onclick=()=>setFs(fs-.15);setFs(fs);
+render();add("b",tr("hi"));
+window.addEventListener("error",e=>{
+  try{const box=document.getElementById("rfaiBootError");if(box){box.style.display="block";box.textContent="SYSTEM NOTICE: "+(e.message||"A non-critical script error occurred. Offline mode remains available.")}}catch(_){}
+});
+window.addEventListener("unhandledrejection",e=>{try{console.warn("RFAI non-critical rejection",e.reason)}catch(_){}});
+</script>
+<div id="rfaiBootError" style="display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:9999;background:#2a1111;color:#ffdede;border:1px solid #ff6b6b;border-radius:10px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.3)"></div>
+</body>
+</html>
