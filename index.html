@@ -110,7 +110,7 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
 <footer><span data-i="foot"></span> &copy; 2026 <b>Rachata</b></footer>
 <div id="adm" hidden>
  <div style="display:flex;justify-content:space-between;align-items:center"><b style="letter-spacing:.3em;color:#ffd400">◈ ADMIN</b><button id="admx">CLOSE ✕</button></div>
- <div id="admlogin" class="box" style="max-width:460px;margin-top:12vh"><h2 id="admtitle">IDENTIFY</h2><div id="admmsg" class="dim">Checking channel<span class="blink">_</span></div><div id="admwho2" style="margin-top:6px"></div><input id="admpw" type="password" placeholder="ACCESS CODE" autocomplete="current-password" style="display:none"><button id="admgo" style="display:none">REQUEST ACCESS</button></div>
+ <div id="admlogin" class="box" style="max-width:460px;margin-top:12vh"><h2 id="admtitle">IDENTIFY</h2><div id="admmsg" class="dim">Checking channel<span class="blink">_</span></div><div id="admwho2" style="margin-top:6px"></div><div id="fbform" style="display:none;margin-top:8px"><input id="fbem" type="email" placeholder="EMAIL" autocomplete="username" style="width:100%;margin-bottom:6px"><input id="fbpw" type="password" placeholder="PASSWORD" autocomplete="current-password" style="width:100%;margin-bottom:6px"><button id="fbgo">SIGN IN</button> <button id="fbgoogle">SIGN IN WITH GOOGLE</button></div><input id="admpw" type="password" placeholder="ACCESS CODE" autocomplete="current-password" style="display:none"><button id="admgo" style="display:none">REQUEST ACCESS</button></div>
  <div id="admmain" hidden>
   <div class="box"><h2 id="admwho"></h2><span class="dim" id="admmode"></span> <span class="dim" id="admlive"></span></div>
   <div class="box"><h2>01 // DATA</h2><p class="dim">CSV columns: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood (0 to 1). Header row optional. One row per place and time.</p><input type="file" id="admfile" accept=".csv,.txt,text/csv"> <button id="admtpl">TEMPLATE</button><p id="admdata" class="dim"></p></div>
@@ -123,6 +123,8 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
   <div class="box" style="border:0"><button id="admout">LOG OUT</button></div>
  </div>
 </div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script>
 const $=id=>document.getElementById(id),rnd=(a=0,b=1)=>a+Math.random()*(b-a),c01=x=>Math.max(0,Math.min(1,x)),sig=x=>1/(1+Math.exp(-x)),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 // ================= DATA SNAPSHOT (refreshed by re-publishing; set LIVE_URL to auto-refresh when self-hosted) =================
@@ -246,7 +248,19 @@ let MODEL_META=null,TRAINED=null,ROWS=[],ADM={server:false};
 function useModel(m,meta){["w1","b1","w2","b2"].forEach(k=>net[k]=m[k]);MODEL_META=meta;render()}
 function badge(){$("mbadge").textContent=MODEL_META?`Model trained on REAL data: ${MODEL_META.n} records, holdout accuracy ${MODEL_META.acc}% (${MODEL_META.date||"-"})`:"Model: DEMO - trained on simulated data"}
 fetch("model.json",{cache:"no-store"}).then(r=>r.status===200?r.json():null).then(j=>{if(j&&j.meta&&j.w1&&j.w1.length===8)useModel(j,j.meta)}).catch(()=>{});
-const ADMIN_EMAILS=["rachata.le@gmail.com","06546@tupp.ac.th"]; // edit this list to change who can administer the site
+// ---- Firebase config: paste yours from Firebase Console > Project settings > Your apps > Web app ----
+const FIREBASE_CONFIG={apiKey:"AIzaSyCN5wS-l4hgYRPaNvk_d4IvXvZqP_3MnHE",authDomain:"thai-weather-ai.firebaseapp.com",projectId:"thai-weather-ai",storageBucket:"thai-weather-ai.firebasestorage.app",messagingSenderId:"36583551248",appId:"1:36583551248:web:fe6388cf43dd27943b7595",measurementId:"G-0LPK5NEB4P"};
+// email -> admin display name. Edit this to change who can administer the site.
+const ADMIN_NAMES={
+ "thanwinnoble@gmail.com":"ADMIN:Thanawin",
+ "06546@tupp.ac.th":"ADMIN:Thanawin",
+ "06554@tupp.ac.th":"Admin:Rachata",
+ "rachata.le@gmail.com":"Admin:Rachata"
+};
+const adminNameFor=e=>ADMIN_NAMES[(e||"").trim().toLowerCase()]||null;
+let FB=null;
+try{if(window.firebase&&FIREBASE_CONFIG.apiKey&&FIREBASE_CONFIG.apiKey!=="YOUR_API_KEY"){firebase.initializeApp(FIREBASE_CONFIG);FB=firebase.auth()}}catch(e){FB=null}
+const fbReady=()=>new Promise(r=>{const u=FB.onAuthStateChanged(x=>{u();r(x)})});
 let SELFHOSTED=false,DB=null,es=null,ADMIN_OK=false;
 const healthzP=fetch("/healthz",{cache:"no-store"}).then(r=>r.ok).catch(()=>false);
 healthzP.then(ok=>{if(ok){SELFHOSTED=true;connectSSE()}});
@@ -273,6 +287,12 @@ async function openAdm(){adm.hidden=false;$("admlogin").hidden=false;$("admmain"
   }catch(e){$("admmsg").innerHTML='<span class="red">SERVER ERROR</span>'}
   return;
  }
+ if(FB){
+  $("admpw").style.display=$("admgo").style.display="none";
+  const u=await fbReady();
+  if(!u){$("admtitle").textContent="SIGN IN";$("admmsg").className="dim";$("admmsg").textContent="Sign in with an administrator email.";$("fbform").style.display="";return}
+  return fbCheck(u);
+ }
  const me=await identify();
  if(me===null){ // no claude.ai identity system reachable here (e.g. viewed outside claude.ai) - unverified local preview only
   $("admmsg").textContent="No identity system detected here.";
@@ -280,16 +300,27 @@ async function openAdm(){adm.hidden=false;$("admlogin").hidden=false;$("admmain"
   return enter({mode:"none",label:"Local preview"});
  }
  const email=(me.email||"").toLowerCase();
- const granted=me.isOwner||me.canEdit||(email&&ADMIN_EMAILS.includes(email));
+ const granted=me.isOwner||me.canEdit||!!adminNameFor(email);
  if(granted)return enter({mode:"id",label:me.name||(me.isOwner?"Owner":"Editor"),email:me.email,who:me.isOwner?"OWNER":me.canEdit?"EDITOR":"ALLOWLIST"});
  showDenied("ACCESS DENIED",[
   {cls:"red",parts:["This account is not the owner or an editor of this page, so it is not an administrator."]},
   {parts:["Signed in as ",(()=>{const b=document.createElement("b");b.textContent=me.name||"(name not shared)";return b})(),me.email?" <"+me.email+">":""]},
   {cls:"dim",parts:["Ask the owner to add you as an editor via the Share button to become an admin."]}]);
 }
+function fbCheck(u){
+ $("fbform").style.display="none";
+ const email=(u.email||"").toLowerCase(),name=adminNameFor(email);
+ if(name&&u.emailVerified)return enter({mode:"id",fb:true,label:name,email:u.email,who:"FIREBASE"});
+ const msg=name&&!u.emailVerified?"This email is not verified yet. Verify it, then sign in again.":"This account is not an administrator.";
+ showDenied("ACCESS DENIED",[{cls:"red",parts:[msg]},{parts:["Signed in as ",(()=>{const b=document.createElement("b");b.textContent=u.email||"(no email)";return b})()]}]);
+ FB.signOut();$("fbform").style.display=""}
+$("fbgo").onclick=async()=>{try{const c=await FB.signInWithEmailAndPassword($("fbem").value.trim(),$("fbpw").value);$("fbpw").value="";fbCheck(c.user)}catch(e){$("admmsg").className="red";$("admmsg").textContent="Sign-in failed: "+(e.code||e.message)}};
+$("fbpw").onkeydown=e=>{if(e.key==="Enter")$("fbgo").click()};
+$("fbgoogle").onclick=async()=>{try{const c=await FB.signInWithPopup(new firebase.auth.GoogleAuthProvider());fbCheck(c.user)}catch(e){$("admmsg").className="red";$("admmsg").textContent="Sign-in failed: "+(e.code||e.message)}};
 function enter(meta){$("admlogin").hidden=true;$("admmain").hidden=false;
  const who=$("admwho");who.textContent="";
- if(meta.mode==="id")who.append("ADMINISTRATOR: ",(()=>{const b=document.createElement("b");b.textContent=meta.label;return b})(),meta.email?" <"+meta.email+">":""," // "+meta.who+" ACCESS");
+ if(meta.fb)who.append((()=>{const b=document.createElement("b");b.textContent=meta.label;return b})()," <"+meta.email+">");
+ else if(meta.mode==="id")who.append("ADMINISTRATOR: ",(()=>{const b=document.createElement("b");b.textContent=meta.label;return b})(),meta.email?" <"+meta.email+">":""," // "+meta.who+" ACCESS");
  else if(meta.mode==="pw")who.textContent="ADMINISTRATOR ACCESS GRANTED (password session)";
  else who.textContent="LOCAL PREVIEW // IDENTITY NOT VERIFIED";
  ADMIN_OK=(meta.mode==="id"||meta.mode==="pw");
@@ -302,7 +333,7 @@ document.addEventListener("keydown",e=>{if(e.ctrlKey&&e.shiftKey&&e.key==="A")op
 $("admgo").onclick=async()=>{const r=await fetch("/admin/login",{method:"POST",credentials:"same-origin",headers:{"content-type":"application/json"},body:JSON.stringify({password:$("admpw").value})});$("admpw").value="";
  if(r.ok)enter({mode:"pw",label:"Administrator"});else $("admmsg").innerHTML='<span class="red">ACCESS DENIED</span>'+(r.status===429?" - too many attempts, wait 15 minutes":"")};
 $("admpw").onkeydown=e=>{if(e.key==="Enter")$("admgo").click()};
-$("admout").onclick=async()=>{if(SELFHOSTED)await fetch("/admin/logout",{method:"POST",credentials:"same-origin"});ADMIN_OK=false;adm.hidden=true};
+$("admout").onclick=async()=>{if(SELFHOSTED)await fetch("/admin/logout",{method:"POST",credentials:"same-origin"});ADMIN_OK=false;if(FB)try{await FB.signOut()}catch(e){};adm.hidden=true};
 $("admsittpl").onclick=()=>$("admsit").value=JSON.stringify({headline:{th:"หัวข้อสถานการณ์...",en:"Situation headline..."},stats:[{v:"0",l:{th:"ป้ายกำกับ",en:"Label"}}],statsAsOf:"YYYY-MM-DD HH:MM",note:{th:"",en:""},roads:{as:{th:"",en:""},avoid:[],limited:[],ok:[],hard:[]}},null,1);
 $("admsitload").onclick=()=>{$("admsit").value=JSON.stringify({headline:DATA.headline,stats:DATA.stats,statsAsOf:DATA.statsAsOf,note:DATA.note,roads:DATA.roads},null,1);$("admsitmsg").textContent="Loaded current live data."};
 $("admsitprev").onclick=()=>{try{const o=JSON.parse($("admsit").value);DATA={...DATA,...o};render();$("admsitmsg").textContent="Previewed in this browser only - not published."}catch(e){$("admsitmsg").innerHTML='<span class="red">Invalid JSON: '+e.message+'</span>'}};
