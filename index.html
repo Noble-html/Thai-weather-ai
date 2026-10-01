@@ -105,6 +105,25 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
 @media(max-width:1050px){.adm-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.adm-ops-grid{grid-template-columns:1fr 1fr}.audit-row{grid-template-columns:70px 1fr;}.audit-row>*:nth-child(n+3){grid-column:2}}
 @media(max-width:650px){.adm-role-grid,.adm-ops-grid{grid-template-columns:1fr}.adm-table{min-width:760px}}
 
+
+/* ===== TMD LIVE RAIN MAP ===== */
+.rainmap-card{background:var(--card);border:1px solid var(--bd);border-radius:4px;padding:12px 14px;margin-bottom:12px}
+.rainmap-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.rainmap-head h3{margin:0;font-size:1rem}
+.rainmap-status{font-size:.75rem;color:var(--muted)}
+.rainmap-wrap{position:relative;margin-top:10px;background:#e9eef3;border:1px solid var(--bd);border-radius:8px;overflow:hidden;aspect-ratio:814/968}
+.rainmap-wrap img{display:block;width:100%;height:100%;object-fit:contain;background:#fff}
+.rainmap-badge{position:absolute;left:10px;top:10px;background:rgba(5,12,20,.82);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 9px;font:700 11px ui-monospace,monospace}
+.rainmap-legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;font-size:.72rem;color:var(--muted)}
+.rainmap-legend span{display:inline-flex;align-items:center;gap:4px}
+.rainmap-legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.admin-map{position:relative;margin-top:10px;border:1px solid rgba(255,255,255,.10);border-radius:12px;overflow:hidden;background:#fff;aspect-ratio:814/968}
+.admin-map img{width:100%;height:100%;object-fit:contain;display:block}
+.ai-dot{position:absolute;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.55);cursor:pointer}
+.ai-dot:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid currentColor;opacity:.35;animation:aiPulse 1.8s infinite}
+@keyframes aiPulse{50%{transform:scale(1.5);opacity:.05}}
+.ai-map-label{position:absolute;transform:translate(8px,-8px);font:700 10px ui-monospace,monospace;color:#111;background:rgba(255,255,255,.88);padding:2px 4px;border-radius:4px;white-space:nowrap}
+.ai-map-overlay{position:absolute;left:10px;top:10px;background:rgba(4,8,14,.84);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:7px 9px;font:11px/1.4 ui-monospace,monospace}
 </style>
 </head>
 <body>
@@ -120,6 +139,28 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
  <div class="hero"><h2 id="hl"></h2><span class="pill" id="age"></span> <span class="muted" id="ageTxt"></span></div>
  <div class="tiles" id="tiles"></div>
  <p class="muted" id="note"></p>
+ <div class="rainmap-card">
+  <div class="rainmap-head">
+   <h3>🌧️ TMD LIVE RAIN MAP — THAILAND</h3>
+   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <span class="rainmap-status" id="tmdMapStatus">Loading TMD radar…</span>
+    <button class="btn sm" id="tmdMapRefreshBtn">↻ Refresh</button>
+    <a class="btn sm" href="https://satda.tmd.go.th/" target="_blank" rel="noopener">TMD ↗</a>
+   </div>
+  </div>
+  <div class="rainmap-wrap">
+   <img id="tmdRainMap" alt="TMD live Thailand radar composite rain map" loading="eager">
+   <div class="rainmap-badge">TMD RADAR • LIVE COMPOSITE</div>
+  </div>
+  <div class="rainmap-legend">
+   <span><i style="background:#00bfff"></i>Light</span>
+   <span><i style="background:#00ff66"></i>Moderate</span>
+   <span><i style="background:#ffff00"></i>Heavy</span>
+   <span><i style="background:#ff6600"></i>Very heavy</span>
+   <span><i style="background:#ff0033"></i>Extreme</span>
+  </div>
+  <p class="muted" style="margin:8px 0 0">Source: Thailand Meteorological Department (TMD). Radar imagery updates as new composite frames become available.</p>
+ </div>
  <div class="grid">
   <div><div class="card"><h3 data-i="news"></h3><ul class="news" id="news"></ul></div>
   <div class="card rd"><h3 data-i="roads"></h3><div id="roads"></div></div></div>
@@ -178,6 +219,19 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
       <textarea id="admsit" rows="15" spellcheck="false"></textarea><div class="adm-status" id="admsitmsg"></div>
     </div>
     <div class="adm-card"><h3>05 // AI TRAINING</h3><p class="adm-muted">CSV: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood. ระบบแบ่ง train/holdout และคำนวณ accuracy, precision, recall.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><input type="file" id="admfile" accept=".csv,.txt,text/csv" class="adm-input"><button class="adm-btn" id="admtpl">CSV TEMPLATE</button></div><div id="admdata" class="adm-status" style="margin-top:8px"></div><button class="adm-btn gold" id="admtrain" style="margin-top:8px">TRAIN MODEL LOCALLY</button><pre id="alog" style="height:200px;overflow:auto;background:#020407;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:10px;color:#9fe7b7;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap"></pre></div>
+
+    <div class="adm-card wide" id="aiTrainingMapCard">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div><h3>05B // AI TRAINING MAP / TMD RAIN LAYER</h3>
+        <div class="adm-muted" style="margin-top:6px">TMD radar composite + current on-device model output. Province points use the same five inputs as the Training Lab.</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="aiMapRefresh">↻ REFRESH MAP</button><button class="adm-btn" id="aiMapOpenTmd">OPEN TMD ↗</button></div>
+      </div>
+      <div class="admin-map" id="aiTrainingMap">
+        <img id="adminTmdMap" alt="TMD radar composite for AI training map">
+        <div class="ai-map-overlay" id="aiMapStats">MODEL: BUILT-IN • MAP: LIVE</div>
+      </div>
+      <div id="aiMapLegend" class="adm-status" style="margin-top:9px"></div>
+    </div>
     <div class="adm-card"><h3>06 // MODEL CONTROL</h3><p class="adm-muted">เปิดใช้โมเดลที่ train แล้ว หรือส่งออกเป็นไฟล์ model.json เพื่อเก็บสำรอง.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admuse">USE MODEL</button><button class="adm-btn" id="admexp">EXPORT MODEL</button><button class="adm-btn" id="admmodreset">RESET MODEL</button></div><div id="admdep" class="adm-status" style="margin-top:8px"></div></div>
     <div class="adm-card wide"><h3>07 // ADMIN OPERATIONS</h3><div class="adm-muted" style="margin:8px 0 12px">สิทธิ์ถูกแยกตามบัญชี. ปุ่มระงับเว็บไซต์ให้เฉพาะ <b style="color:#fff">rachata.le@gmail.com</b> เท่านั้น.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admlogout">LOG OUT</button><button class="adm-btn" id="admclear">CLEAR LOCAL SESSION</button><button class="adm-btn red" id="admpause" hidden>PAUSE WEBSITE — 2-STEP</button><button class="adm-btn gold" id="admresume" hidden>RESUME WEBSITE</button></div><div id="admopmsg" class="adm-status" style="margin-top:10px"></div></div>
     <div class="adm-card wide"><h3>08 // ACCESS MATRIX</h3><table class="adm-table"><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="admusers"></tbody></table></div>
@@ -297,7 +351,7 @@ function render(){
  const sel=$("pre"),cur=sel.value;sel.innerHTML=`<option value="">${tr("cus")}</option>`+P.map((p,i)=>`<option value="${i}">${lang==="th"?p[1]:p[0]}</option>`).join("");sel.value=cur;
  ["hot","dos","aft","wld"].forEach(k=>$(k).innerHTML=LISTS[lang][k].map(x=>`<li>${x}</li>`).join(""));
  $("chips").innerHTML="";tr("chips").forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>ask(t);$("chips").appendChild(b)});
- setMode();badge();calc();updateMaintenanceUI();updateAdminKPIs();
+ setMode();badge();calc();updateMaintenanceUI();updateAdminKPIs();renderAiTrainingMap();
 }
 function tab(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0)}
 document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
@@ -351,10 +405,74 @@ async function ask(q){q=q.trim();if(!q)return;$("q").value="";add("u",q);const b
   catch(e){b.innerHTML=fmt(e.code==="cancelled"?(e.text||"")+" ...":(e.text?e.text+"\n\n":"")+offline(q))}
   $("send").style.display="";$("stop").style.display="none";ctl=null}else b.innerHTML=fmt(offline(q));$("chat").scrollTop=1e9}
 $("send").onclick=()=>ask($("q").value);$("q").onkeydown=e=>{if(e.key==="Enter")ask($("q").value)};$("stop").onclick=()=>ctl&&ctl.abort();
-// ================= Auto-refresh =================
+// ================= AI TRAINING MAP =================
+const PROVINCE_COORDS={
+  "Nakhon Sawan":[15.7047,100.1372],"นครสวรรค์":[15.7047,100.1372],
+  "Ayutthaya":[14.3532,100.5684],"พระนครศรีอยุธยา":[14.3532,100.5684],
+  "Pathum Thani":[14.0208,100.5250],"ปทุมธานี":[14.0208,100.5250],
+  "Nonthaburi":[13.8621,100.5144],"นนทบุรี":[13.8621,100.5144],
+  "Bangkok":[13.7563,100.5018],"กรุงเทพมหานคร":[13.7563,100.5018],
+  "Samut Prakan":[13.5991,100.5998],"สมุทรปราการ":[13.5991,100.5998]
+};
+function mapPct(lat,lon){
+  return {left:((lon-94)/(108-94))*100,top:((23-lat)/(23-3))*100};
+}
+function renderAiTrainingMap(){
+  const box=$("aiTrainingMap"); if(!box)return;
+  box.querySelectorAll(".ai-dot,.ai-map-label").forEach(x=>x.remove());
+  const trained=TRAINED||safeGet(MODEL_KEY);
+  let min=1,max=0;
+  P.forEach(p=>{
+    const c=PROVINCE_COORDS[p[0]]||PROVINCE_COORDS[p[1]]; if(!c)return;
+    const r=net.pred(p[2]); min=Math.min(min,r);max=Math.max(max,r);
+    const pos=mapPct(c[0],c[1]);
+    const dot=document.createElement("button");dot.className="ai-dot";dot.type="button";
+    dot.style.left=pos.left+"%";dot.style.top=pos.top+"%";
+    const l=lvl(r);dot.style.background=getComputedStyle(document.documentElement).getPropertyValue("--l"+l).trim()||"#ff0";
+    dot.style.color=dot.style.background;
+    dot.title=`${p[0]}: ${Math.round(r*100)}%`;
+    dot.onclick=()=>alert(`${lang==="th"?p[1]:p[0]}\nAI risk index: ${Math.round(r*100)}%\nInputs: rain ${Math.round(p[2][0]*200)} mm, river ${Math.round(p[2][1]*100)}%, inflow ${Math.round(p[2][2]*100)}%, tide ${Math.round(p[2][3]*100)}%, soil ${Math.round(p[2][4]*100)}%`);
+    box.appendChild(dot);
+    const label=document.createElement("span");label.className="ai-map-label";label.style.left=pos.left+"%";label.style.top=pos.top+"%";label.textContent=lang==="th"?p[1]:p[0];box.appendChild(label);
+  });
+  const modelName=trained?.meta?.date?"TRAINED MODEL":"BUILT-IN BASELINE";
+  if($("aiMapStats"))$("aiMapStats").textContent=`MODEL: ${modelName} • ${P.length} PROVINCES • RANGE ${Math.round(min*100)}–${Math.round(max*100)}%`;
+  if($("aiMapLegend"))$("aiMapLegend").textContent=`${trained?.meta?.n?`Training records: ${trained.meta.n} • Holdout: ${trained.meta.acc}% • `:""}TMD radar image refreshes every 15 minutes. AI points are model estimates, not official warnings.`;
+}
+// ================= TMD LIVE RAIN MAP + DATA AUTO-REFRESH =================
+const TMD_RADAR_BASE="https://satda.tmd.go.th/wp-content/uploads/data/radar_composite/max/";
+let tmdMapTimer=null;
+function tmdStamp(d=new Date()){
+  const z=n=>String(n).padStart(2,"0");
+  const m=Math.floor(d.getMinutes()/15)*15;
+  return `${d.getFullYear()}${z(d.getMonth()+1)}${z(d.getDate())}${z(d.getHours())}${z(m)}`;
+}
+function setTmdImage(id,statusId){
+  const img=$(id); if(!img)return;
+  const stamp=tmdStamp();
+  const url=TMD_RADAR_BASE+stamp+".png?live="+Date.now();
+  img.onload=()=>{if($(statusId))$(statusId).textContent=`TMD radar: ${stamp.slice(0,4)}-${stamp.slice(4,6)}-${stamp.slice(6,8)} ${stamp.slice(8,10)}:${stamp.slice(10,12)} • refreshed ${new Date().toLocaleTimeString()}`};
+  img.onerror=()=>{
+    img.onerror=null;
+    img.src=TMD_RADAR_BASE+"composite_th.png?live="+Date.now();
+    if($(statusId))$(statusId).textContent="TMD latest timestamp unavailable; showing the current composite image.";
+  };
+  img.src=url;
+}
+function refreshTmdMaps(){
+  setTmdImage("tmdRainMap","tmdMapStatus");
+  setTmdImage("adminTmdMap",null);
+  // Do not render the AI overlay here: TRAINED/MODEL_KEY are declared later.
+  // The normal render() call runs after those declarations and renders the overlay safely.
+}
 async function refresh(){if(!LIVE_URL)return;try{const r=await fetch(LIVE_URL,{cache:"no-store"});if(r.ok){const d=await r.json();if(d&&d.updated&&d.news){DATA=d;render()}}}catch(e){}}
 setInterval(()=>{const a=ageInfo();$("age").textContent=a[1];$("age").style.background=col(a[0])},60000);
 if(LIVE_URL){refresh();setInterval(refresh,300000)}
+refreshTmdMaps();
+setInterval(refreshTmdMaps,15*60*1000);
+// Main public TMD map refresh button
+$("tmdMapRefreshBtn").onclick=refreshTmdMaps;
+
 // ================= Admin console + real-data training =================
 // ================= PRO OFFLINE ADMIN SYSTEM =================
 const MODEL_KEY="rfai:model:v4",DATA_KEY="rfai:data:v4",PAUSE_KEY="rfai:pause:v1",SESSION_KEY="rfai:admin-session:v5",MEMBERS_KEY="rfai:members:v5",AUDIT_KEY="rfai:audit:v5",ERROR_KEY="rfai:errors:v5";
@@ -476,14 +594,14 @@ async function pauseSite(){
 function resumeSite(){if(!isSupervisor())return;safeDel(PAUSE_KEY);try{const bc=new BroadcastChannel("rfai-live");bc.postMessage({type:"pause",paused:false});bc.close()}catch(e){};updateMaintenanceUI();updateAdminKPIs();$("admopmsg").textContent="Website resumed.";$("admopmsg").className="adm-status ok"}
 function previewSituation(){try{const o=JSON.parse($("admsit").value);const test={...DATA,...o};const required=["headline","stats","note","roads"];const missing=required.filter(k=>!(k in test));if(missing.length)throw new Error("Missing: "+missing.join(", "));DATA=test;render();$("admsitmsg").textContent="Preview only — not saved.";$("admsitmsg").className="adm-status warn"}catch(e){$("admsitmsg").textContent="Invalid data: "+e.message;$("admsitmsg").className="adm-status err"}}
 function publishSituation(){if(!sessionGuard()){return}try{const o=JSON.parse($("admsit").value);saveLocalData(o,"Published situation");$("admsitmsg").textContent="PUBLISHED — saved locally and synced to open tabs.";$("admsitmsg").className="adm-status ok"}catch(e){$("admsitmsg").textContent="Invalid data: "+e.message;$("admsitmsg").className="adm-status err"}}
-function resetModel(){if(!confirm("Reset to built-in model? Trained model will be removed from local storage."))return;safeDel(MODEL_KEY);TRAINED=null;MODEL_META=null;render();updateAdminKPIs();$("admdep").textContent="Model reset."}
+function resetModel(){if(!confirm("Reset to built-in model? Trained model will be removed from local storage."))return;safeDel(MODEL_KEY);TRAINED=null;MODEL_META=null;render();updateAdminKPIs();renderAiTrainingMap();$("admdep").textContent="Model reset."}
 async function trainModel(){
  if(!sessionGuard())return;const n=ROWS.length,pos=ROWS.filter(r=>r.y>=.5).length;$("alog").textContent="";TRAINED=null;if(n<50||pos<5||n-pos<5)return alog("ABORT: need at least 50 rows, with at least 5 floods and 5 non-floods.");
  const d=shuf(ROWS.slice()),k=Math.round(n*.8),tr=d.slice(0,k),te=d.slice(k),m=new Net(),E=Math.max(20,Math.min(220,Math.round(240000/k)));alog(`TRAIN ${k} rows / HOLDOUT ${te.length} / ${E} epochs`);
  for(let e=1;e<=E;e++){shuf(tr).forEach(r=>m.train(r.x,r.y,.04));if(e%Math.ceil(E/10)===0){let loss=0;for(const r of tr){const q=m.pred(r.x);loss-=r.y*Math.log(q+1e-9)+(1-r.y)*Math.log(1-q+1e-9)}alog(`epoch ${e}/${E} loss ${(loss/k).toFixed(4)}`);await new Promise(r=>setTimeout(r,0))}}
- let tp=0,fp=0,fn=0,ok=0;for(const r of te){const q=m.pred(r.x)>=.5,y=r.y>=.5;if(q&&y)tp++;else if(q&&!y)fp++;else if(!q&&y)fn++;if(q===y)ok++}const acc=Math.round(ok/te.length*100),prec=tp+fp?Math.round(tp/(tp+fp)*100):0,rec=tp+fn?Math.round(tp/(tp+fn)*100):0;alog(`HOLDOUT accuracy ${acc}% | precision ${prec}% | recall ${rec}%`);TRAINED={w1:m.w1,b1:m.b1,w2:m.w2,b2:m.b2,meta:{n,acc,precision:prec,recall:rec,date:new Date().toISOString()}};saveModel();$("admdep").textContent="Model trained and saved locally.";updateAdminKPIs();
+ let tp=0,fp=0,fn=0,ok=0;for(const r of te){const q=m.pred(r.x)>=.5,y=r.y>=.5;if(q&&y)tp++;else if(q&&!y)fp++;else if(!q&&y)fn++;if(q===y)ok++}const acc=Math.round(ok/te.length*100),prec=tp+fp?Math.round(tp/(tp+fp)*100):0,rec=tp+fn?Math.round(tp/(tp+fn)*100):0;alog(`HOLDOUT accuracy ${acc}% | precision ${prec}% | recall ${rec}%`);TRAINED={w1:m.w1,b1:m.b1,w2:m.w2,b2:m.b2,meta:{n,acc,precision:prec,recall:rec,date:new Date().toISOString()}};saveModel();$("admdep").textContent="Model trained and saved locally.";updateAdminKPIs();renderAiTrainingMap();
 }
-$("admbtn").onclick=openAdm;$("pauseAdminBtn").onclick=openAdm;$("admx").onclick=closeAdm;$("admmanual").onclick=manualOpen;$("admgo").onclick=doLogin;$("admlogout").onclick=logOut;$("addMemberBtn").onclick=createMember;$("refreshMembersBtn").onclick=()=>{renderMemberDirectory();updateAdminKPIs()};$("memberSearch").oninput=renderMemberDirectory;$("auditRefreshBtn").onclick=renderAuditBoard;$("auditExportBtn").onclick=exportAudit;$("auditReportBtn").onclick=reportSelectedAction;$("runSelfTestBtn").onclick=runSelfTest;$("clearErrorBtn").onclick=clearErrors;$("exportErrorBtn").onclick=exportErrors;$("admclear").onclick=()=>{safeDel(SESSION_KEY);ADMIN_OK=false;CURRENT_ADMIN="";location.reload()};$("admpause").onclick=pauseSite;$("admresume").onclick=resumeSite;$("admhealth").onclick=()=>{const checks=[`Chrome/Browser: ${navigator.userAgentData?.brands?.map(x=>x.brand).join(", ")||navigator.userAgent}` ,`Storage: ${(()=>{try{localStorage.setItem("__rfai_test","1");localStorage.removeItem("__rfai_test");return "OK"}catch(e){return "BLOCKED"}})()}`,`BroadcastChannel: ${"BroadcastChannel" in window?"OK":"FALLBACK"}`,`Crypto Subtle: ${(window.crypto&&crypto.subtle)?"OK":"Fallback hash"}`,`Offline file mode: ${location.protocol==="file:"?"YES":"NO"}`];alert(checks.join("\n"))};
+$("admbtn").onclick=openAdm;$("pauseAdminBtn").onclick=openAdm;$("admx").onclick=closeAdm;$("admmanual").onclick=manualOpen;$("aiMapRefresh").onclick=refreshTmdMaps;$("aiMapOpenTmd").onclick=()=>window.open("https://satda.tmd.go.th/","_blank","noopener");$("admgo").onclick=doLogin;$("admlogout").onclick=logOut;$("addMemberBtn").onclick=createMember;$("refreshMembersBtn").onclick=()=>{renderMemberDirectory();updateAdminKPIs()};$("memberSearch").oninput=renderMemberDirectory;$("auditRefreshBtn").onclick=renderAuditBoard;$("auditExportBtn").onclick=exportAudit;$("auditReportBtn").onclick=reportSelectedAction;$("runSelfTestBtn").onclick=runSelfTest;$("clearErrorBtn").onclick=clearErrors;$("exportErrorBtn").onclick=exportErrors;$("admclear").onclick=()=>{safeDel(SESSION_KEY);ADMIN_OK=false;CURRENT_ADMIN="";location.reload()};$("admpause").onclick=pauseSite;$("admresume").onclick=resumeSite;$("admhealth").onclick=()=>{const checks=[`Chrome/Browser: ${navigator.userAgentData?.brands?.map(x=>x.brand).join(", ")||navigator.userAgent}` ,`Storage: ${(()=>{try{localStorage.setItem("__rfai_test","1");localStorage.removeItem("__rfai_test");return "OK"}catch(e){return "BLOCKED"}})()}`,`BroadcastChannel: ${"BroadcastChannel" in window?"OK":"FALLBACK"}`,`Crypto Subtle: ${(window.crypto&&crypto.subtle)?"OK":"Fallback hash"}`,`Offline file mode: ${location.protocol==="file:"?"YES":"NO"}`];alert(checks.join("\n"))};
 $("admemail").onkeydown=e=>{if(e.key==="Enter")$("admpw").focus()};$("admpw").onkeydown=e=>{if(e.key==="Enter")doLogin()};
 document.addEventListener("keydown",e=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerCase()==="a"){e.preventDefault();openAdm()}if(e.key==="Escape"&&$("manualOverlay"))$("manualOverlay").remove()});
 $("admsittpl").onclick=()=>$("admsit").value=JSON.stringify({headline:{th:"หัวข้อสถานการณ์...",en:"Situation headline..."},stats:[{v:"0",l:{th:"ป้ายกำกับ",en:"Label"}}],statsAsOf:new Date().toISOString().slice(0,16).replace("T"," "),note:{th:"",en:""},roads:{as:{th:"",en:""},avoid:[],limited:[],ok:[],hard:[]}},null,1);
