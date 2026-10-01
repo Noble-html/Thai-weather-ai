@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Thailand flood situation, Bangkok road status, AI risk demo and safety help in Thai and English. Unofficial information portal by Rachata.">
-<meta property="og:title" content="Rachata Flood AI - น้ำท่วมไทย | Thailand Flood Portal">
-<meta property="og:description" content="สถานการณ์น้ำท่วม สถานะถนน และความปลอดภัย / Thailand flood situation, roads and safety help.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0b2f5b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%8A%3C/text%3E%3C/svg%3E">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="Thailand flood situation, Bangkok road status, AI risk demo and safety help in Thai and English. Unofficial information portal by Rachata." name="description"/>
+<meta content="Rachata Flood AI - น้ำท่วมไทย | Thailand Flood Portal" property="og:title"/>
+<meta content="สถานการณ์น้ำท่วม สถานะถนน และความปลอดภัย / Thailand flood situation, roads and safety help." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="#0b2f5b" name="theme-color"/>
+<link href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%8A%3C/text%3E%3C/svg%3E" rel="icon"/>
 <title>Rachata Flood AI - น้ำท่วมไทย | Thailand Flood Portal</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -120,116 +121,119 @@ a.tel{font-weight:700;font-size:1.15em;color:var(--l3)}
 @keyframes bcastIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}@keyframes urgentPulse{50%{box-shadow:0 0 0 5px rgba(255,255,255,.12)}}
 .announcement-order-note{font-size:11px;color:var(--muted);margin:6px 0 0}
 .firebase-help{font-size:12px;line-height:1.6;color:#9bb2c5}.firebase-help b{color:#dfefff}
+
+/* Public boot safety: never leave the public landing section blank before JS initializes. */
+section#t1{display:block}section#t2,section#t3,section#t4{display:none}section#t1.on{display:block}
 </style>
 </head>
 <body>
+<noscript><div style="padding:14px;background:#fff4df;border-bottom:1px solid #e3b35b;color:#593700;font:700 14px/1.5 system-ui,sans-serif">Rachata Flood AI พร้อมแสดงข้อมูลเบื้องต้นแล้ว แต่เบราว์เซอร์นี้ปิดการใช้งาน JavaScript</div></noscript>
 <header>
- <div><h1>Rachata Flood AI</h1><small data-i="sub"></small></div>
- <div style="display:flex;gap:14px;align-items:center"><span class="muted" style="color:#dbe6f5"><span data-i="owner"></span>: <b>Rachata</b></span><button class="adminbtn" id="admbtn" aria-label="Admin access">◈ ADMIN</button><span class="lang fs"><button id="fsm" aria-label="Smaller text">A-</button><button id="fsp" aria-label="Larger text">A+</button></span><span class="lang"><button id="bth">ไทย</button><button id="ben">EN</button></span></div>
+<div><h1>Rachata Flood AI</h1><small data-i="sub">ระบบข้อมูลและเตือนภัยน้ำท่วมประเทศไทย</small></div>
+<div style="display:flex;gap:14px;align-items:center"><span class="muted" style="color:#dbe6f5"><span data-i="owner">เจ้าของระบบ</span>: <b>Rachata</b></span><button aria-label="Admin access" class="adminbtn" id="admbtn">◈ ADMIN</button><span class="lang fs"><button aria-label="Smaller text" id="fsm">A-</button><button aria-label="Larger text" id="fsp">A+</button></span><span class="lang"><button id="bth">ไทย</button><button id="ben">EN</button></span></div>
 </header>
-<div class="demo" data-i="demo"></div>
-<div id="publicMissionBar" style="display:none;max-width:1100px;margin:10px auto 0;padding:0 14px"><div style="background:linear-gradient(135deg,#071522,#102b3c);border:1px solid #31536d;border-radius:12px;padding:12px 14px;color:#e8f5ff;box-shadow:0 8px 24px rgba(0,0,0,.08)"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><b id="publicMissionTitle">DAILY MISSION</b><span id="publicMissionMeta" class="muted"></span></div><div id="publicMissionBody" style="margin-top:5px"></div></div></div><div id="publicBroadcastRail" aria-live="polite" aria-atomic="false"></div>
-
-<nav id="tabs"><button data-t="t1" class="on" data-i="t1"></button><button data-t="t2" data-i="t2"></button><button data-t="t3" data-i="t3"></button><button data-t="t4" data-i="t4"></button></nav>
+<div class="demo" data-i="demo">⚠ เว็บไซต์ข้อมูลที่ไม่เป็นทางการ - ไม่ใช่ระบบเตือนภัยของรัฐ ค่าความเสี่ยง % เป็นการประเมินของ AI แบบทดลอง โปรดตรวจประกาศทางการ</div>
+<div id="publicMissionBar" style="display:none;max-width:1100px;margin:10px auto 0;padding:0 14px"><div style="background:linear-gradient(135deg,#071522,#102b3c);border:1px solid #31536d;border-radius:12px;padding:12px 14px;color:#e8f5ff;box-shadow:0 8px 24px rgba(0,0,0,.08)"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><b id="publicMissionTitle">DAILY MISSION</b><span class="muted" id="publicMissionMeta"></span></div><div id="publicMissionBody" style="margin-top:5px"></div></div></div><div aria-atomic="false" aria-live="polite" id="publicBroadcastRail"></div>
+<nav id="tabs"><button class="on" data-i="t1" data-t="t1">สถานการณ์</button><button data-i="t2" data-t="t2">ประเมินความเสี่ยง</button><button data-i="t3" data-t="t3">ขอความช่วยเหลือ</button><button data-i="t4" data-t="t4">ถาม AI</button></nav>
 <main>
-<section id="t1" class="on">
- <div class="sos" id="sos"></div>
- <div class="hero"><h2 id="hl"></h2><span class="pill" id="age"></span> <span class="muted" id="ageTxt"></span></div>
- <div class="tiles" id="tiles"></div>
- <p class="muted" id="note"></p>
- <div class="grid">
-  <div><div class="card"><h3 data-i="news"></h3><ul class="news" id="news"></ul></div>
-  <div class="card rd"><h3 data-i="roads"></h3><div id="roads"></div></div></div>
-  <div><div class="card"><h3 data-i="live"></h3><div class="links" id="live"></div><p class="muted" data-i="liveN"></p></div>
-  <div class="card"><h3 data-i="prov"></h3><div class="scroll"><table><thead><tr><th data-i="pv"></th><th data-i="rk"></th><th data-i="st"></th><th></th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted" data-i="provN"></p><p class="muted" id="mbadge"></p></div></div>
- </div>
+<section class="on" id="t1">
+<div class="sos" id="sos"></div>
+<div class="hero"><h2 id="hl">ฝนเริ่มซาลง แต่น้ำท่วมขังยังอยู่ - กทม. คาดใช้เวลาระบาย 2-3 วัน หากไม่มีฝนเพิ่ม</h2><span class="pill" id="age">ข้อมูลล่าสุด</span> <span class="muted" id="ageTxt">อัปเดต 2026-09-28 11:30:00</span></div>
+<div class="tiles" id="tiles"><div class="tile"><b>545,000</b><span>ผู้ได้รับผลกระทบ (25 จังหวัด) - ปภ.</span></div><div class="tile"><b>8</b><span>ผู้เสียชีวิตที่รายงาน</span></div><div class="tile"><b>35 / 81</b><span>จุดถนนสายหลัก กทม. ที่ยังท่วมขัง</span></div><div class="tile"><b>1,950</b><span>ลบ.ม./วินาที เขื่อนเจ้าพระยา (26 ก.ย.)</span></div><div class="tile"><b>50</b><span>เขต กทม. ประกาศพื้นที่ภัยพิบัติ</span></div></div>
+<p class="muted" id="note">ตัวเลขในแต่ละรายงานไม่ตรงกัน (เช่น ครัวเรือนใน กทม. ที่ได้รับผลกระทบมีรายงานทั้ง 52,000 และ 329,000) และเปลี่ยนแปลงต่อเนื่อง</p>
+<div class="grid">
+<div><div class="card"><h3 data-i="news">ข่าวและประกาศล่าสุด</h3><ul class="news" id="news"><li><a href="https://www.nationthailand.com/thailand/bangkok/40071588" target="_blank" rel="noopener">ฝนเริ่มซาลง กทม. เร่งลดระดับน้ำในคลองสายหลัก หลังหย่อมความกดอากาศต่ำเคลื่อนออก แต่ยังมีฝนสลับจากมรสุม</a><div class="m">28 Sep - Nation Thailand</div></li><li><a href="https://www.thaienquirer.com/74635/thai-enquirer-news-summary-september-28-2026/" target="_blank" rel="noopener">ครม. ประกาศหยุดพิเศษ 28-29 ก.ย. ใน กทม. ปทุมธานี นนทบุรี สมุทรปราการ พร้อม 14 มาตรการเร่งด่วน และใช้ทางด่วนฟรีถึงเที่ยงคืน 29 ก.ย.</a><div class="m">28 Sep - Thai Enquirer</div></li><li><a href="https://www.thansettakij.com/general-news/670047" target="_blank" rel="noopener">สำนักการระบายน้ำ กทม. รายงานถนนสายหลักท่วมขัง 81 จุด ระบายแล้ว 46 จุด เหลือ 35 จุดใน 13 เขต (08.00 น.)</a><div class="m">28 Sep - ฐานเศรษฐกิจ</div></li><li><a href="https://www.nationthailand.com/news/general/40071576" target="_blank" rel="noopener">ถนนวิภาวดีรังสิตน้ำลด รถทุกชนิดผ่านได้ ส่วนแยกบางกะปิ (นวมินทร์) รถเล็กยังผ่านไม่ได้</a><div class="m">28 Sep - Nation Thailand</div></li><li><a href="https://www.thansettakij.com/general-news/670051" target="_blank" rel="noopener">กรมอุตุฯ รายงานฝนเบาถึงหนักบางแห่งใน กทม. และสมุทรปราการ คาดฝนฟ้าคะนอง 70% ของพื้นที่ กทม.-ปริมณฑล</a><div class="m">28 Sep - ฐานเศรษฐกิจ</div></li><li><a href="https://www.chiangraitimes.com/thailand-news/floods-hit-25-provinces/" target="_blank" rel="noopener">ปภ. รายงานน้ำท่วม 25 จังหวัด ประชาชนได้รับผลกระทบกว่า 545,000 คน เสียชีวิต 8 ราย</a><div class="m">27-28 Sep - Chiang Rai Times</div></li><li><a href="https://www.bangkokpost.com/thailand/general/3326549/all-50-bangkok-districts-declared-disaster-areas" target="_blank" rel="noopener">กทม. ประกาศพื้นที่ภัยพิบัติทั้ง 50 เขต, ปทุมธานีประกาศเขตภัยพิบัติฉุกเฉินรังสิต, กรมชลฯ เพิ่มการระบายเขื่อนเจ้าพระยาเป็น 1,950 ลบ.ม./วินาที</a><div class="m">26 Sep - Bangkok Post</div></li><li><a href="https://www.bangkokpost.com/thailand/general/3323454/rising-water-levels-warning-for-chao-phraya-basin-provinces" target="_blank" rel="noopener">กรมชลประทานคาดน้ำที่สถานี C.2 นครสวรรค์ 1,400-1,450 ลบ.ม./วินาที วันที่ 29 ก.ย. และเตือน 11 จังหวัดลุ่มเจ้าพระยา</a><div class="m">22 Sep - Bangkok Post</div></li></ul></div>
+<div class="card rd"><h3 data-i="roads">สถานะถนน กทม. (น้ำท่วมสูง / ผ่านได้)</h3><div id="roads"><h4 style="color:var(--l3)">ท่วมสูง - ควรเลี่ยง</h4><ul><li>ถนนรามคำแหง ช่วงพระราม 9 - แยกลำสาลี และซอยรามคำแหง 24</li><li>ถนนศรีนครินทร์ ช่วงแยกลำสาลี - ถนนพัฒนาการ</li><li>ถนนนวมินทร์ ช่วงแยกประเสริฐมนูกิจ - แยกบางกะปิ</li><li>ถนนสุวินทวงศ์และสีหบุรานุกิจ โซนมีนบุรี</li><li>ถนนพหลโยธิน หน้า ม.เกษตรฯ - กรมป่าไม้</li><li>ซอยร่มเกล้า 24, ซอยประเสริฐมนูกิจ 27, ถนนนักกีฬาแหลมทอง</li></ul><h4 style="color:var(--l2)">ผ่านได้จำกัด / ระวัง</h4><ul><li>ถนนศรีนครินทร์ ช่วงพัฒนาการ - สุขุมวิท 77 (รถเล็กผ่านได้)</li><li>ถนนรามคำแหง แยกลำสาลี - ซอย 129/4 (ท่วมเป็นบางแห่ง รถยนต์ผ่านได้)</li><li>ถนนเพชรบุรี สะพานคลองตัน (ท่วม แต่ผ่านได้)</li><li>ถนนนวมินทร์ ช่วงนวมินทร์-รัชดา-รามอินทรา ถึงแยกประเสริฐมนูกิจ (ท่วมเล็กน้อย รถเล็กผ่านได้)</li></ul><h4 style="color:var(--l0)">สัญจรได้</h4><ul><li>ถนนวิภาวดีรังสิต ผ่านได้ทุกชนิดรถ (06.30 น.)</li><li>ถนนเสนานิคม เริ่มสัญจรได้</li></ul><h4 style="color:var(--l1)">ชุมชนที่เข้า-ออกลำบาก</h4><ul><li>เคหะคลองจั่น และเคหะร่มเกล้า</li></ul><p class="muted">ที่มา: ศูนย์ป้องกันน้ำท่วม กทม. 07.00 น. 28 ก.ย. และ Nation Thailand 06.30 น.</p></div></div></div>
+<div><div class="card"><h3 data-i="live">ข้อมูลทางการแบบเรียลไทม์</h3><div class="links" id="live"><a class="btn sm" href="https://dds.bangkok.go.th/" target="_blank" rel="noopener">BMA Flood Centre</a><a class="btn sm" href="https://www.tmd.go.th" target="_blank" rel="noopener">TMD</a><a class="btn sm" href="https://www.rid.go.th" target="_blank" rel="noopener">RID</a><a class="btn sm" href="https://www.disaster.go.th" target="_blank" rel="noopener">DDPM</a></div><p class="muted" data-i="liveN">เปิดข้อมูลจากหน่วยงานต้นทางในแท็บใหม่</p></div>
+<div class="card"><h3 data-i="prov">ประเมินความเสี่ยงโดย AI (ตัวอย่างทดลอง)</h3><div class="scroll"><table><thead><tr><th data-i="pv">จังหวัด</th><th data-i="rk">ความเสี่ยง</th><th data-i="st">ระดับ</th><th></th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted" data-i="provN">ไม่ใช่การพยากรณ์ทางการ โปรดตรวจประกาศจากหน่วยงานที่เกี่ยวข้อง</p><p class="muted" id="mbadge"></p></div></div>
+</div>
 </section>
 <section id="t2"><div class="grid">
- <div class="card"><h3 data-i="in"></h3>
-  <label class="f" data-i="loc"></label><input type="text" id="loc" value="Bangkok, Thailand">
-  <label class="f" data-i="pre"></label><select id="pre"></select>
-  <label class="f"><span data-i="f0"></span><output id="o0"></output></label><input type="range" id="i0" min="0" max="200" value="100">
-  <label class="f"><span data-i="f1"></span><output id="o1"></output></label><input type="range" id="i1" min="0" max="100" value="60">
-  <label class="f"><span data-i="f2"></span><output id="o2"></output></label><input type="range" id="i2" min="0" max="100" value="60">
-  <label class="f"><span data-i="f3"></span><output id="o3"></output></label><input type="range" id="i3" min="0" max="100" value="0">
-  <label class="f"><span data-i="f4"></span><output id="o4"></output></label><input type="range" id="i4" min="0" max="100" value="60"></div>
- <div class="card res"><h3 data-i="out"></h3><div id="out"></div></div>
+<div class="card"><h3 data-i="in">ป้อนข้อมูล</h3>
+<label class="f" data-i="loc">สถานที่</label><input id="loc" type="text" value="Bangkok, Thailand"/>
+<label class="f" data-i="pre">โหลดข้อมูลสถานการณ์จริงของจังหวัด</label><select id="pre"></select>
+<label class="f"><span data-i="f0">ฝนสะสม 24 ชม.</span><output id="o0"></output></label><input id="i0" max="200" min="0" type="range" value="100"/>
+<label class="f"><span data-i="f1">ระดับแม่น้ำ (% ของตลิ่ง)</span><output id="o1"></output></label><input id="i1" max="100" min="0" type="range" value="60"/>
+<label class="f"><span data-i="f2">น้ำจากต้นน้ำ (% ของสูงสุด)</span><output id="o2"></output></label><input id="i2" max="100" min="0" type="range" value="60"/>
+<label class="f"><span data-i="f3">น้ำทะเลหนุน (%)</span><output id="o3"></output></label><input id="i3" max="100" min="0" type="range" value="0"/>
+<label class="f"><span data-i="f4">ความอิ่มตัวของดิน (%)</span><output id="o4"></output></label><input id="i4" max="100" min="0" type="range" value="60"/></div>
+<div class="card res"><h3 data-i="out">ผลการประเมิน</h3><div id="out"></div></div>
 </div></section>
 <section id="t3"><div class="grid">
- <div class="card"><h3 data-i="hot"></h3><ul class="t" id="hot"></ul></div>
- <div class="card"><h3 data-i="do"></h3><ul class="t" id="dos"></ul></div>
- <div class="card"><h3 data-i="after"></h3><ul class="t" id="aft"></ul></div>
- <div class="card"><h3 data-i="world"></h3><ul class="t" id="wld"></ul></div>
+<div class="card"><h3 data-i="hot">หมายเลขฉุกเฉิน</h3><ul class="t" id="hot"></ul></div>
+<div class="card"><h3 data-i="do">ระหว่างน้ำท่วม</h3><ul class="t" id="dos"></ul></div>
+<div class="card"><h3 data-i="after">หลังน้ำลด</h3><ul class="t" id="aft"></ul></div>
+<div class="card"><h3 data-i="world">ข้อมูลทั่วโลก</h3><ul class="t" id="wld"></ul></div>
 </div></section>
-<section id="t4"><div class="card"><h3 data-i="askT"></h3><div id="chat"></div><div class="chips" id="chips"></div>
- <div class="row"><input id="q" autocomplete="off"><button class="btn" id="send" data-i="send"></button><button class="btn" id="stop" style="display:none;background:var(--l3)" data-i="stop"></button></div><div class="muted" id="mode"></div></div></section>
+<section id="t4"><div class="card"><h3 data-i="askT">Flood &amp; Science Assistant</h3><div id="chat"></div><div class="chips" id="chips"></div>
+<div class="row"><input autocomplete="off" id="q"/><button class="btn" data-i="send" id="send">ส่ง</button><button class="btn" data-i="stop" id="stop" style="display:none;background:var(--l3)">หยุด</button></div><div class="muted" id="mode"></div></div></section>
 </main>
-<footer><span data-i="foot"></span> &copy; 2026 <b>Rachata</b></footer>
-<div id="adm" hidden>
- <div class="adm-shell">
-  <div class="adm-top">
-   <div class="adm-brand"><div class="adm-orb">◈</div><div><div class="adm-title">RACHATA FLOOD AI / ADMIN CONTROL</div><div class="adm-sub">FIREBASE REALTIME • OFFLINE-READY • ROLE-BASED ACCESS • AUDIT READY</div></div></div>
-   <div class="adm-actions"><button class="adm-action" id="admmanual">MANUAL</button><button class="adm-action gold" id="admhealth">SYSTEM CHECK</button><button class="adm-action" id="admx">CLOSE ✕</button></div>
-  </div>
-  <div id="admlogin">
-   <div class="adm-login-wrap"><div class="adm-login">
-    <h2 id="admtitle">ADMINISTRATOR SIGN IN</h2>
-    <div class="lock-line"><span class="adm-dot"></span><span>OFFLINE AUTHENTICATION CHANNEL READY</span></div>
-    <p id="admmsg" class="adm-status">No network or server is required for administrator sign-in.</p>
-    <div class="adm-field"><label for="admemail">ADMINISTRATOR EMAIL</label><input id="admemail" type="email" inputmode="email" autocomplete="username" placeholder="name@example.com"></div>
-    <div class="adm-field"><label for="admpw">ACCESS PASSWORD</label><input id="admpw" type="password" autocomplete="current-password" placeholder="••••••"></div>
-    <div class="adm-foot"><span class="adm-status" id="admattempt"></span><button class="adm-btn gold" id="admgo">SECURE SIGN IN →</button></div>
-    <div class="adm-status" style="margin-top:12px">Tip: Press <span class="mono">Ctrl + Shift + A</span> from the public page to open Admin.</div>
-   </div></div>
-  </div>
-  <div id="admmain" hidden>
-   <div class="adm-grid">
-    <div class="adm-card wide">
-     <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><h3 id="admwho">ADMINISTRATOR</h3><div id="admmode" class="adm-muted" style="margin-top:6px"></div></div><div style="text-align:right"><div id="admlive" class="role-pill">LOCAL / OFFLINE</div><div id="admauthage" class="adm-muted" style="margin-top:6px"></div></div></div>
-    </div>
-    <div class="adm-card third"><h3>01 // STATUS</h3><div class="adm-kpi"><strong id="admKpiData">LOCAL</strong><span>DATA CHANNEL</span></div><div class="adm-muted" id="admDataStatus" style="margin-top:8px"></div></div>
-    <div class="adm-card third"><h3>02 // MODEL</h3><div class="adm-kpi"><strong id="admKpiModel">DEMO</strong><span>MODEL</span></div><div class="adm-muted" id="admModelStatus" style="margin-top:8px"></div></div>
-    <div class="adm-card third"><h3>03 // SITE</h3><div class="adm-kpi"><strong id="admKpiSite">LIVE</strong><span>PUBLIC STATE</span></div><div class="adm-muted" id="admSiteStatus" style="margin-top:8px"></div></div>
-    <div class="adm-card wide"><h3>04 // SITUATION DATA</h3><p class="adm-muted">แก้ไข JSON แล้วกด Preview ก่อน Publish. ในโหมดไฟล์เดียว ข้อมูลจะเก็บในเครื่องนี้และซิงก์กับแท็บอื่นที่เปิดไฟล์เดียวกัน.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-btn" id="admsittpl">TEMPLATE</button><button class="adm-btn" id="admsitload">LOAD CURRENT</button><button class="adm-btn" id="admsitprev">PREVIEW</button><button class="adm-btn gold" id="admsitpub">PUBLISH LOCAL</button></div>
-      <textarea id="admsit" rows="15" spellcheck="false"></textarea><div class="adm-status" id="admsitmsg"></div>
-    </div>
-    <div class="adm-card"><h3>05 // AI TRAINING</h3><p class="adm-muted">CSV: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood. ระบบแบ่ง train/holdout และคำนวณ accuracy, precision, recall.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><input type="file" id="admfile" accept=".csv,.txt,text/csv" class="adm-input"><button class="adm-btn" id="admtpl">CSV TEMPLATE</button></div><div id="admdata" class="adm-status" style="margin-top:8px"></div><button class="adm-btn gold" id="admtrain" style="margin-top:8px">TRAIN MODEL LOCALLY</button><pre id="alog" style="height:200px;overflow:auto;background:#020407;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:10px;color:#9fe7b7;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap"></pre></div>
-    <div class="adm-card"><h3>06 // MODEL CONTROL</h3><p class="adm-muted">เปิดใช้โมเดลที่ train แล้ว หรือส่งออกเป็นไฟล์ model.json เพื่อเก็บสำรอง.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admuse">USE MODEL</button><button class="adm-btn" id="admexp">EXPORT MODEL</button><button class="adm-btn" id="admmodreset">RESET MODEL</button></div><div id="admdep" class="adm-status" style="margin-top:8px"></div></div>
-    <div class="adm-card wide"><h3>07 // ADMIN OPERATIONS</h3><div class="adm-muted" style="margin:8px 0 12px">สิทธิ์ถูกแยกตามบัญชี. ปุ่มระงับเว็บไซต์ให้เฉพาะ <b style="color:#fff">rachata.le@gmail.com</b> เท่านั้น.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admlogout">LOG OUT</button><button class="adm-btn" id="admclear">CLEAR LOCAL SESSION</button><button class="adm-btn red" id="admpause" hidden>PAUSE WEBSITE — 2-STEP</button><button class="adm-btn gold" id="admresume" hidden>RESUME WEBSITE</button></div><div id="admopmsg" class="adm-status" style="margin-top:10px"></div></div>
-    <div class="adm-card wide"><h3>08 // ACCESS MATRIX</h3><table class="adm-table"><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="admusers"></tbody></table></div>
-    <div class="adm-card wide" id="roleBriefCard"><h3>09 // COMMAND STRUCTURE / ROLE BRIEF</h3><p class="adm-muted">โครงสร้าง 5 ระดับของ Rachata Flood AI — สิทธิ์จะถูกตรวจทุกครั้งก่อนทำคำสั่งสำคัญ</p>
-      <div class="adm-role-grid">
-        <div class="adm-role-card"><div class="role-mark hsa">1</div><b>HSA — HEAD SUPERVISOR OF ADMINISTRATOR</b><small>ผู้บัญชาการระบบ • เข้าถึงทุกอย่าง • เชิญ/เพิ่ม/แก้/ปลดเจ้าหน้าที่ • ไล่ออกได้ • ควบคุมฉุกเฉินระงับเว็บไซต์ (เฉพาะ rachata.le@gmail.com)</small></div>
-        <div class="adm-role-card"><div class="role-mark fsa">2</div><b>FSA — FIRST SECRETARY ADMINISTRATOR</b><small>ผู้บริหารระดับเลขานุการ • สิทธิ์งาน Admin เกือบทั้งหมด • จัดการข้อมูล/เจ้าหน้าที่/AI ได้ • ยกเว้น Emergency Site Shutdown ของ HSA</small></div>
-        <div class="adm-role-card"><div class="role-mark am">3</div><b>AM — ADMINISTRATOR MANAGER</b><small>ผู้จัดการเจ้าหน้าที่ • ตรวจสถานะสมาชิก • เปิด/ระงับบัญชีระดับปฏิบัติการ • จัดการงานและตักเตือน • ห้ามแตะ HSA Emergency Control</small></div>
-        <div class="adm-role-card"><div class="role-mark sar">4</div><b>SAR — SITE ACTION REPORTER</b><small>ผู้ตรวจการกระทำ • เฝ้าดู Audit Board • บันทึก/รายงานการกระทำผิดระเบียบ • ส่งเรื่องขึ้น HSA/FSA เพื่อพิจารณาตักเตือนหรือปลด</small></div>
-        <div class="adm-role-card"><div class="role-mark admin">5</div><b>ADMINISTRATOR</b><small>ผู้ดูแล AI/เว็บไซต์ • Train AI • ตรวจโมเดล • ตรวจ Error Center • แก้ข้อมูลด้านเทคนิคที่ได้รับมอบหมาย</small></div>
-      </div>
-    </div>
-    <div class="adm-card wide" id="staffManagerCard"><h3>10 // ADMINISTRATOR DIRECTORY / INVITE & CONTROL</h3>
-      <div class="member-toolbar"><input id="memberSearch" class="member-search" placeholder="ค้นหาอีเมล / ชื่อ / ยศ"><button class="adm-btn gold" id="addMemberBtn">＋ ADD ADMINISTRATOR</button><button class="adm-btn" id="refreshMembersBtn">↻ REFRESH</button></div>
-      <div class="invite-note"><b>ROLE CONTROL:</b> HSA/FSA สามารถดูแลสมาชิกตามสิทธิ์ของตนได้ • HSA ใช้ <b>MASTER ACCESS</b> เพื่อเปิดดู session ของสมาชิกแทนโดยไม่ต้องรู้รหัสของสมาชิก • ผู้ได้รับเชิญใหม่จะตั้งรหัสผ่านของตัวเองครั้งแรกด้วย Invite Code</div>
-      <div class="scroll" style="margin-top:10px"><table class="adm-table"><thead><tr><th>EMAIL</th><th>NAME</th><th>ROLE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="memberDirectory"></tbody></table></div>
-      <div id="memberMsg" class="adm-status" style="margin-top:10px"></div>
-    </div>
-    <div class="adm-card wide" id="auditBoardCard"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><div><h3>11 // AUDIT BOARD / SITE ACTION REPORTER</h3><div class="adm-muted">บอร์ดการกระทำของเจ้าหน้าที่ทั้งหมด • refresh อัตโนมัติ • บันทึกเหตุการณ์ในเครื่องนี้</div></div><div class="audit-live"><span class="audit-dot"></span><span id="auditLiveText">LIVE REFRESH</span></div></div>
-      <div class="adm-ops-grid"><button class="adm-mini" id="auditRefreshBtn">↻ REFRESH BOARD</button><button class="adm-mini" id="auditExportBtn">⇩ EXPORT AUDIT JSON</button><button class="adm-mini" id="auditReportBtn">⚑ REPORT SELECTED ACTION</button></div>
-      <div id="auditFeed" class="audit-feed" style="margin-top:10px"></div>
-      <div id="auditMsg" class="adm-status" style="margin-top:9px"></div>
-    </div>
-    <div class="adm-card wide" id="cloudControlCard"><h3>12 // CLOUD REAL-TIME CONTROL</h3><p class="adm-muted">เชื่อมฐานข้อมูล Firebase Cloud Firestore กลางเพื่อให้ข้อมูลสถานการณ์, สมาชิก, Audit Board, การแจ้งเตือน, ประกาศ และภารกิจประจำวันตรงกันทุกเครื่องแบบ Realtime. การเปลี่ยนแปลงจะถูกฟังด้วย listener และส่งเข้าหน้าเว็บทันทีเมื่อออนไลน์. เมื่อออฟไลน์ Firestore สามารถใช้ข้อมูล cache และซิงก์กลับเมื่ออินเทอร์เน็ตกลับมา. ใช้ Firebase Authentication + Cloud Firestore Security Rules. ต้องกรอก Firebase Web App Configuration ครั้งแรก และตั้ง Rules ตามคู่มือภายในระบบ. Firebase API key ของเว็บมีไว้ระบุโปรเจกต์ ไม่ใช่สิทธิ์เข้าถึงข้อมูล; ความปลอดภัยต้องมาจาก Authentication, Firestore Rules และ App Check.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="role-pill" id="cloudStatusPill">CLOUD: OFFLINE</span><button class="adm-btn" id="cloudSetupBtn">FIREBASE SETUP</button><button class="adm-btn" id="cloudConnectBtn">CONNECT / RECONNECT</button><button class="adm-btn" id="cloudNotifyBtn">ENABLE DESKTOP NOTIFICATIONS</button></div><div id="cloudMsg" class="adm-status" style="margin-top:10px"></div><div class="firebase-help" style="margin-top:10px"><b>การเชื่อมต่อ:</b> เปิด Firebase Console → สร้าง Web App → คัดลอก Firebase Config → กด FIREBASE SETUP แล้ววาง JSON. จากนั้นเปิด Email/Password ใน Authentication และสร้างบัญชีเจ้าหน้าที่ที่ต้องการให้เข้า Cloud. <b>การซิงก์:</b> Firestore listener จะส่งประกาศ/ภารกิจ/ข้อมูลล่าสุดไปทุกหน้าที่ออนไลน์. <b>ความปลอดภัย:</b> ตั้ง Firestore Rules จากปุ่มคู่มือก่อนเปิดใช้งานจริง.</div></div>
-    <div class="adm-card wide" id="missionBoardCard"><h3>13 // DAILY MISSION BOARD / LIVE</h3><p class="adm-muted">ประกาศภารกิจประจำวันให้เจ้าหน้าที่ทุกระดับ • ทุกเครื่องที่เชื่อม Firebase จะรับภารกิจฉบับเดียวกันทันทีผ่าน realtime listener • ประวัติการประกาศยังคงอยู่และไม่ถูกลบจากปุ่มผู้ใช้.</p><div style="display:grid;grid-template-columns:1.2fr 1.6fr .7fr auto;gap:8px;align-items:end;flex-wrap:wrap"><div><label class="adm-status">TITLE</label><input id="missionTitle" class="adm-input" placeholder="ภารกิจวันนี้"></div><div><label class="adm-status">BRIEF</label><input id="missionBody" class="adm-input" placeholder="รายละเอียดภารกิจ"></div><div><label class="adm-status">PRIORITY</label><select id="missionPriority" class="adm-input" aria-label="Mission priority"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select><div class="firebase-help" style="grid-column:1/-1"><b>NORMAL</b> = ข้อมูลทั่วไป • <b>HIGH</b> = สำคัญ/ด่วน ใช้สีส้ม • <b>URGENT</b> = แจ้งเตือนเร่งด่วนมาก ใช้สีแดงและแสดงคำเตือนชัดเจน</div></div><button class="adm-btn gold" id="missionPublishBtn">PUBLISH MISSION</button></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-mini" id="missionRefreshBtn">↻ REFRESH MISSIONS</button><button class="adm-mini" id="missionClearBtn" disabled title="ประกาศแล้วไม่สามารถยกเลิกได้">ANNOUNCEMENT CANNOT BE CANCELLED</button></div><div id="missionFeed" class="audit-feed"></div><div style="display:grid;grid-template-columns:1.1fr 1.6fr .7fr auto;gap:8px;align-items:end;margin-top:12px"><div><label class="adm-status">BROADCAST TITLE</label><input id="announcementTitle" class="adm-input" placeholder="หัวข้อประกาศที่ต้องการให้ทุกคนเห็น"></div><div><label class="adm-status">MESSAGE</label><input id="announcementBody" class="adm-input" placeholder="ข้อความที่ต้องอ่านและปฏิบัติตาม"></div><div><label class="adm-status">PRIORITY</label><select id="announcementPriority" class="adm-input"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select></div><button class="adm-btn gold" id="announcementPublishBtn">PUBLISH BROADCAST</button></div><p class="announcement-order-note">ลำดับการแสดง: URGENT สีแดง → HIGH สีส้ม → NORMAL ตามลำดับเวลา. ปุ่ม × ซ่อนเฉพาะเครื่องนั้นเท่านั้น; ไม่มีปุ่มยกเลิกประกาศ.</p><div id="missionMsg" class="adm-status" style="margin-top:9px"></div></div>
-    <div class="adm-card wide" id="notificationBoardCard"><h3>14 // REAL-TIME NOTIFICATION CENTER</h3><p class="adm-muted">แจ้งเตือนจาก Audit / รายงาน / ภารกิจ / ระบบ จะขึ้นทันทีเมื่อมี event ใหม่.</p><div id="notificationFeed" class="audit-feed"></div></div>
-    <div class="adm-card wide" id="errorCenterCard"><h3>15 // ERROR CENTER / AI OPERATIONS</h3><p class="adm-muted">Administrator ระดับ 5 รับผิดชอบหลัก • ระบบนี้ตรวจ JavaScript/global errors ที่เกิดขึ้นในหน้านี้และเก็บ log ล่าสุดเพื่อวิเคราะห์</p>
-      <div class="adm-ops-grid"><button class="adm-mini" id="runSelfTestBtn">▶ RUN SELF-TEST</button><button class="adm-mini" id="clearErrorBtn">CLEAR ERROR LOG</button><button class="adm-mini" id="exportErrorBtn">⇩ EXPORT ERROR LOG</button></div>
-      <pre id="errorFeed" style="height:180px;overflow:auto;background:#05080c;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;color:#ffb2b2;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;margin:10px 0 0"></pre>
-    </div>
-   </div>
-  </div>
- </div>
+<footer><span data-i="foot">ระบบต้นแบบเพื่อข้อมูล ไม่ใช่ระบบเตือนภัยทางการ</span> &copy; 2026 <b>Rachata</b></footer>
+<div hidden="" id="adm">
+<div class="adm-shell">
+<div class="adm-top">
+<div class="adm-brand"><div class="adm-orb">◈</div><div><div class="adm-title">RACHATA FLOOD AI / ADMIN CONTROL</div><div class="adm-sub">FIREBASE REALTIME • OFFLINE-READY • ROLE-BASED ACCESS • AUDIT READY</div></div></div>
+<div class="adm-actions"><button class="adm-action" id="admmanual">MANUAL</button><button class="adm-action gold" id="admhealth">SYSTEM CHECK</button><button class="adm-action" id="admx">CLOSE ✕</button></div>
 </div>
-<div id="sitePauseOverlay" aria-live="polite"><div class="pause-panel"><div class="pause-icon">⏸</div><h2>เว็บไซต์อยู่ในโหมดระงับชั่วคราว</h2><p>ระบบสาธารณะกำลังอยู่ระหว่างการบำรุงรักษาหรือหยุดให้บริการชั่วคราว</p><div class="small">RACHATA FLOOD AI • ADMIN MAINTENANCE MODE</div><div style="margin-top:18px"><button class="btn" id="pauseAdminBtn">ADMIN ACCESS</button></div></div></div>
+<div id="admlogin">
+<div class="adm-login-wrap"><div class="adm-login">
+<h2 id="admtitle">ADMINISTRATOR SIGN IN</h2>
+<div class="lock-line"><span class="adm-dot"></span><span>OFFLINE AUTHENTICATION CHANNEL READY</span></div>
+<p class="adm-status" id="admmsg">No network or server is required for administrator sign-in.</p>
+<div class="adm-field"><label for="admemail">ADMINISTRATOR EMAIL</label><input autocomplete="username" id="admemail" inputmode="email" placeholder="name@example.com" type="email"/></div>
+<div class="adm-field"><label for="admpw">ACCESS PASSWORD</label><input autocomplete="current-password" id="admpw" placeholder="••••••" type="password"/></div>
+<div class="adm-foot"><span class="adm-status" id="admattempt"></span><button class="adm-btn gold" id="admgo">SECURE SIGN IN →</button></div>
+<div class="adm-status" style="margin-top:12px">Tip: Press <span class="mono">Ctrl + Shift + A</span> from the public page to open Admin.</div>
+</div></div>
+</div>
+<div hidden="" id="admmain">
+<div class="adm-grid">
+<div class="adm-card wide">
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><h3 id="admwho">ADMINISTRATOR</h3><div class="adm-muted" id="admmode" style="margin-top:6px"></div></div><div style="text-align:right"><div class="role-pill" id="admlive">LOCAL / OFFLINE</div><div class="adm-muted" id="admauthage" style="margin-top:6px"></div></div></div>
+</div>
+<div class="adm-card third"><h3>01 // STATUS</h3><div class="adm-kpi"><strong id="admKpiData">LOCAL</strong><span>DATA CHANNEL</span></div><div class="adm-muted" id="admDataStatus" style="margin-top:8px"></div></div>
+<div class="adm-card third"><h3>02 // MODEL</h3><div class="adm-kpi"><strong id="admKpiModel">DEMO</strong><span>MODEL</span></div><div class="adm-muted" id="admModelStatus" style="margin-top:8px"></div></div>
+<div class="adm-card third"><h3>03 // SITE</h3><div class="adm-kpi"><strong id="admKpiSite">LIVE</strong><span>PUBLIC STATE</span></div><div class="adm-muted" id="admSiteStatus" style="margin-top:8px"></div></div>
+<div class="adm-card wide"><h3>04 // SITUATION DATA</h3><p class="adm-muted">แก้ไข JSON แล้วกด Preview ก่อน Publish. ในโหมดไฟล์เดียว ข้อมูลจะเก็บในเครื่องนี้และซิงก์กับแท็บอื่นที่เปิดไฟล์เดียวกัน.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-btn" id="admsittpl">TEMPLATE</button><button class="adm-btn" id="admsitload">LOAD CURRENT</button><button class="adm-btn" id="admsitprev">PREVIEW</button><button class="adm-btn gold" id="admsitpub">PUBLISH LOCAL</button></div>
+<textarea id="admsit" rows="15" spellcheck="false"></textarea><div class="adm-status" id="admsitmsg"></div>
+</div>
+<div class="adm-card"><h3>05 // AI TRAINING</h3><p class="adm-muted">CSV: rain_mm, river_pct, inflow_pct, tide_pct, soil_pct, flood. ระบบแบ่ง train/holdout และคำนวณ accuracy, precision, recall.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><input accept=".csv,.txt,text/csv" class="adm-input" id="admfile" type="file"/><button class="adm-btn" id="admtpl">CSV TEMPLATE</button></div><div class="adm-status" id="admdata" style="margin-top:8px"></div><button class="adm-btn gold" id="admtrain" style="margin-top:8px">TRAIN MODEL LOCALLY</button><pre id="alog" style="height:200px;overflow:auto;background:#020407;border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:10px;color:#9fe7b7;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap"></pre></div>
+<div class="adm-card"><h3>06 // MODEL CONTROL</h3><p class="adm-muted">เปิดใช้โมเดลที่ train แล้ว หรือส่งออกเป็นไฟล์ model.json เพื่อเก็บสำรอง.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admuse">USE MODEL</button><button class="adm-btn" id="admexp">EXPORT MODEL</button><button class="adm-btn" id="admmodreset">RESET MODEL</button></div><div class="adm-status" id="admdep" style="margin-top:8px"></div></div>
+<div class="adm-card wide"><h3>07 // ADMIN OPERATIONS</h3><div class="adm-muted" style="margin:8px 0 12px">สิทธิ์ถูกแยกตามบัญชี. ปุ่มระงับเว็บไซต์ให้เฉพาะ <b style="color:#fff">rachata.le@gmail.com</b> เท่านั้น.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="adm-btn" id="admlogout">LOG OUT</button><button class="adm-btn" id="admclear">CLEAR LOCAL SESSION</button><button class="adm-btn red" hidden="" id="admpause">PAUSE WEBSITE — 2-STEP</button><button class="adm-btn gold" hidden="" id="admresume">RESUME WEBSITE</button></div><div class="adm-status" id="admopmsg" style="margin-top:10px"></div></div>
+<div class="adm-card wide"><h3>08 // ACCESS MATRIX</h3><table class="adm-table"><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>STATUS</th><th>CONTROL</th></tr></thead><tbody id="admusers"></tbody></table></div>
+<div class="adm-card wide" id="roleBriefCard"><h3>09 // COMMAND STRUCTURE / ROLE BRIEF</h3><p class="adm-muted">โครงสร้าง 5 ระดับของ Rachata Flood AI — สิทธิ์จะถูกตรวจทุกครั้งก่อนทำคำสั่งสำคัญ</p>
+<div class="adm-role-grid">
+<div class="adm-role-card"><div class="role-mark hsa">1</div><b>HSA — HEAD SUPERVISOR OF ADMINISTRATOR</b><small>ผู้บัญชาการระบบ • เข้าถึงทุกอย่าง • เชิญ/เพิ่ม/แก้/ปลดเจ้าหน้าที่ • ไล่ออกได้ • ควบคุมฉุกเฉินระงับเว็บไซต์ (เฉพาะ rachata.le@gmail.com)</small></div>
+<div class="adm-role-card"><div class="role-mark fsa">2</div><b>FSA — FIRST SECRETARY ADMINISTRATOR</b><small>ผู้บริหารระดับเลขานุการ • สิทธิ์งาน Admin เกือบทั้งหมด • จัดการข้อมูล/เจ้าหน้าที่/AI ได้ • ยกเว้น Emergency Site Shutdown ของ HSA</small></div>
+<div class="adm-role-card"><div class="role-mark am">3</div><b>AM — ADMINISTRATOR MANAGER</b><small>ผู้จัดการเจ้าหน้าที่ • ตรวจสถานะสมาชิก • เปิด/ระงับบัญชีระดับปฏิบัติการ • จัดการงานและตักเตือน • ห้ามแตะ HSA Emergency Control</small></div>
+<div class="adm-role-card"><div class="role-mark sar">4</div><b>SAR — SITE ACTION REPORTER</b><small>ผู้ตรวจการกระทำ • เฝ้าดู Audit Board • บันทึก/รายงานการกระทำผิดระเบียบ • ส่งเรื่องขึ้น HSA/FSA เพื่อพิจารณาตักเตือนหรือปลด</small></div>
+<div class="adm-role-card"><div class="role-mark admin">5</div><b>ADMINISTRATOR</b><small>ผู้ดูแล AI/เว็บไซต์ • Train AI • ตรวจโมเดล • ตรวจ Error Center • แก้ข้อมูลด้านเทคนิคที่ได้รับมอบหมาย</small></div>
+</div>
+</div>
+<div class="adm-card wide" id="staffManagerCard"><h3>10 // ADMINISTRATOR DIRECTORY / INVITE &amp; CONTROL</h3>
+<div class="member-toolbar"><input class="member-search" id="memberSearch" placeholder="ค้นหาอีเมล / ชื่อ / ยศ"/><button class="adm-btn gold" id="addMemberBtn">＋ ADD ADMINISTRATOR</button><button class="adm-btn" id="refreshMembersBtn">↻ REFRESH</button></div>
+<div class="invite-note"><b>ROLE CONTROL:</b> HSA/FSA สามารถดูแลสมาชิกตามสิทธิ์ของตนได้ • HSA ใช้ <b>MASTER ACCESS</b> เพื่อเปิดดู session ของสมาชิกแทนโดยไม่ต้องรู้รหัสของสมาชิก • ผู้ได้รับเชิญใหม่จะตั้งรหัสผ่านของตัวเองครั้งแรกด้วย Invite Code</div>
+<div class="scroll" style="margin-top:10px"><table class="adm-table"><thead><tr><th>EMAIL</th><th>NAME</th><th>ROLE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="memberDirectory"></tbody></table></div>
+<div class="adm-status" id="memberMsg" style="margin-top:10px"></div>
+</div>
+<div class="adm-card wide" id="auditBoardCard"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><div><h3>11 // AUDIT BOARD / SITE ACTION REPORTER</h3><div class="adm-muted">บอร์ดการกระทำของเจ้าหน้าที่ทั้งหมด • refresh อัตโนมัติ • บันทึกเหตุการณ์ในเครื่องนี้</div></div><div class="audit-live"><span class="audit-dot"></span><span id="auditLiveText">LIVE REFRESH</span></div></div>
+<div class="adm-ops-grid"><button class="adm-mini" id="auditRefreshBtn">↻ REFRESH BOARD</button><button class="adm-mini" id="auditExportBtn">⇩ EXPORT AUDIT JSON</button><button class="adm-mini" id="auditReportBtn">⚑ REPORT SELECTED ACTION</button></div>
+<div class="audit-feed" id="auditFeed" style="margin-top:10px"></div>
+<div class="adm-status" id="auditMsg" style="margin-top:9px"></div>
+</div>
+<div class="adm-card wide" id="cloudControlCard"><h3>12 // CLOUD REAL-TIME CONTROL</h3><p class="adm-muted">เชื่อมฐานข้อมูล Firebase Cloud Firestore กลางเพื่อให้ข้อมูลสถานการณ์, สมาชิก, Audit Board, การแจ้งเตือน, ประกาศ และภารกิจประจำวันตรงกันทุกเครื่องแบบ Realtime. การเปลี่ยนแปลงจะถูกฟังด้วย listener และส่งเข้าหน้าเว็บทันทีเมื่อออนไลน์. เมื่อออฟไลน์ Firestore สามารถใช้ข้อมูล cache และซิงก์กลับเมื่ออินเทอร์เน็ตกลับมา. ใช้ Firebase Authentication + Cloud Firestore Security Rules. ต้องกรอก Firebase Web App Configuration ครั้งแรก และตั้ง Rules ตามคู่มือภายในระบบ. Firebase API key ของเว็บมีไว้ระบุโปรเจกต์ ไม่ใช่สิทธิ์เข้าถึงข้อมูล; ความปลอดภัยต้องมาจาก Authentication, Firestore Rules และ App Check.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="role-pill" id="cloudStatusPill">CLOUD: OFFLINE</span><button class="adm-btn" id="cloudSetupBtn">FIREBASE SETUP</button><button class="adm-btn" id="cloudConnectBtn">CONNECT / RECONNECT</button><button class="adm-btn" id="cloudNotifyBtn">ENABLE DESKTOP NOTIFICATIONS</button></div><div class="adm-status" id="cloudMsg" style="margin-top:10px"></div><div class="firebase-help" style="margin-top:10px"><b>การเชื่อมต่อ:</b> เปิด Firebase Console → สร้าง Web App → คัดลอก Firebase Config → กด FIREBASE SETUP แล้ววาง JSON. จากนั้นเปิด Email/Password ใน Authentication และสร้างบัญชีเจ้าหน้าที่ที่ต้องการให้เข้า Cloud. <b>การซิงก์:</b> Firestore listener จะส่งประกาศ/ภารกิจ/ข้อมูลล่าสุดไปทุกหน้าที่ออนไลน์. <b>ความปลอดภัย:</b> ตั้ง Firestore Rules จากปุ่มคู่มือก่อนเปิดใช้งานจริง.</div></div>
+<div class="adm-card wide" id="missionBoardCard"><h3>13 // DAILY MISSION BOARD / LIVE</h3><p class="adm-muted">ประกาศภารกิจประจำวันให้เจ้าหน้าที่ทุกระดับ • ทุกเครื่องที่เชื่อม Firebase จะรับภารกิจฉบับเดียวกันทันทีผ่าน realtime listener • ประวัติการประกาศยังคงอยู่และไม่ถูกลบจากปุ่มผู้ใช้.</p><div style="display:grid;grid-template-columns:1.2fr 1.6fr .7fr auto;gap:8px;align-items:end;flex-wrap:wrap"><div><label class="adm-status">TITLE</label><input class="adm-input" id="missionTitle" placeholder="ภารกิจวันนี้"/></div><div><label class="adm-status">BRIEF</label><input class="adm-input" id="missionBody" placeholder="รายละเอียดภารกิจ"/></div><div><label class="adm-status">PRIORITY</label><select aria-label="Mission priority" class="adm-input" id="missionPriority"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select><div class="firebase-help" style="grid-column:1/-1"><b>NORMAL</b> = ข้อมูลทั่วไป • <b>HIGH</b> = สำคัญ/ด่วน ใช้สีส้ม • <b>URGENT</b> = แจ้งเตือนเร่งด่วนมาก ใช้สีแดงและแสดงคำเตือนชัดเจน</div></div><button class="adm-btn gold" id="missionPublishBtn">PUBLISH MISSION</button></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0"><button class="adm-mini" id="missionRefreshBtn">↻ REFRESH MISSIONS</button><button class="adm-mini" disabled="" id="missionClearBtn" title="ประกาศแล้วไม่สามารถยกเลิกได้">ANNOUNCEMENT CANNOT BE CANCELLED</button></div><div class="audit-feed" id="missionFeed"></div><div style="display:grid;grid-template-columns:1.1fr 1.6fr .7fr auto;gap:8px;align-items:end;margin-top:12px"><div><label class="adm-status">BROADCAST TITLE</label><input class="adm-input" id="announcementTitle" placeholder="หัวข้อประกาศที่ต้องการให้ทุกคนเห็น"/></div><div><label class="adm-status">MESSAGE</label><input class="adm-input" id="announcementBody" placeholder="ข้อความที่ต้องอ่านและปฏิบัติตาม"/></div><div><label class="adm-status">PRIORITY</label><select class="adm-input" id="announcementPriority"><option>NORMAL</option><option>HIGH</option><option>URGENT</option></select></div><button class="adm-btn gold" id="announcementPublishBtn">PUBLISH BROADCAST</button></div><p class="announcement-order-note">ลำดับการแสดง: URGENT สีแดง → HIGH สีส้ม → NORMAL ตามลำดับเวลา. ปุ่ม × ซ่อนเฉพาะเครื่องนั้นเท่านั้น; ไม่มีปุ่มยกเลิกประกาศ.</p><div class="adm-status" id="missionMsg" style="margin-top:9px"></div></div>
+<div class="adm-card wide" id="notificationBoardCard"><h3>14 // REAL-TIME NOTIFICATION CENTER</h3><p class="adm-muted">แจ้งเตือนจาก Audit / รายงาน / ภารกิจ / ระบบ จะขึ้นทันทีเมื่อมี event ใหม่.</p><div class="audit-feed" id="notificationFeed"></div></div>
+<div class="adm-card wide" id="errorCenterCard"><h3>15 // ERROR CENTER / AI OPERATIONS</h3><p class="adm-muted">Administrator ระดับ 5 รับผิดชอบหลัก • ระบบนี้ตรวจ JavaScript/global errors ที่เกิดขึ้นในหน้านี้และเก็บ log ล่าสุดเพื่อวิเคราะห์</p>
+<div class="adm-ops-grid"><button class="adm-mini" id="runSelfTestBtn">▶ RUN SELF-TEST</button><button class="adm-mini" id="clearErrorBtn">CLEAR ERROR LOG</button><button class="adm-mini" id="exportErrorBtn">⇩ EXPORT ERROR LOG</button></div>
+<pre id="errorFeed" style="height:180px;overflow:auto;background:#05080c;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;color:#ffb2b2;font:11px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;margin:10px 0 0"></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-live="polite" id="sitePauseOverlay"><div class="pause-panel"><div class="pause-icon">⏸</div><h2>เว็บไซต์อยู่ในโหมดระงับชั่วคราว</h2><p>ระบบสาธารณะกำลังอยู่ระหว่างการบำรุงรักษาหรือหยุดให้บริการชั่วคราว</p><div class="small">RACHATA FLOOD AI • ADMIN MAINTENANCE MODE</div><div style="margin-top:18px"><button class="btn" id="pauseAdminBtn">ADMIN ACCESS</button></div></div></div>
 <script>
 /* Rachata Flood AI resilient boot. Firebase is optional at page-load.
    The public site renders without waiting for any CDN; Firebase SDK loads only
@@ -337,10 +341,58 @@ const P=[["Nakhon Sawan","นครสวรรค์",[.15,.55,.6,0,.7]],["Ayut
 const lvl=r=>r>.75?3:r>.5?2:r>.3?1:0,col=l=>`var(--l${l})`;
 let lang="en";try{lang=localStorage.getItem("l")||((navigator.language||"").startsWith("th")?"th":"en")}catch(e){lang=(navigator.language||"").startsWith("th")?"th":"en"}
 const tr=k=>T[lang][k];
+
+// ---------- PUBLIC-SAFE DATA NORMALIZER ----------
+function normalizeDataShape(d){
+  const base=(typeof window!=='undefined' && typeof DATA!=='undefined')?DATA:{};
+  const x=(d&&typeof d==='object')?d:{};
+  const headline=(x.headline&&typeof x.headline==='object')?x.headline:{};
+  const note=(x.note&&typeof x.note==='object')?x.note:{};
+  const roads=(x.roads&&typeof x.roads==='object')?x.roads:{};
+  const as=(roads.as&&typeof roads.as==='object')?roads.as:{};
+  const stats=Array.isArray(x.stats)?x.stats.filter(s=>s&&typeof s==='object').map(s=>({
+    v:String(s.v??''),
+    l:(s.l&&typeof s.l==='object')?{th:String(s.l.th??s.l.en??''),en:String(s.l.en??s.l.th??'')}:{th:String(s.l??''),en:String(s.l??'')}
+  })):[];
+  const news=Array.isArray(x.news)?x.news.filter(n=>n&&typeof n==='object').map(n=>({
+    d:String(n.d??''),s:String(n.s??'News'),u:String(n.u??'#'),th:String(n.th??n.en??'Untitled'),en:String(n.en??n.th??'Untitled'),lang:n.lang?String(n.lang):undefined
+  })):[];
+  const list=k=>Array.isArray(roads[k])?roads[k].filter(Boolean).map(v=>v&&typeof v==='object'?{th:String(v.th??v.en??''),en:String(v.en??v.th??'')}:{th:String(v),en:String(v)}):[];
+  return {
+    ...base,
+    ...x,
+    updated:String(x.updated||base.updated||new Date().toISOString()),
+    statsAsOf:String(x.statsAsOf||base.statsAsOf||''),
+    headline:{th:String(headline.th??base.headline?.th??'สถานการณ์น้ำท่วมประเทศไทย'),en:String(headline.en??base.headline?.en??'Thailand flood situation')},
+    note:{th:String(note.th??base.note?.th??''),en:String(note.en??base.note?.en??'')},
+    stats:stats.length?stats:(Array.isArray(base.stats)?base.stats:[]),
+    news:news.length?news:(Array.isArray(base.news)?base.news:[]),
+    roads:{as:{th:String(as.th??base.roads?.as?.th??''),en:String(as.en??base.roads?.as?.en??'')},avoid:list('avoid'),limited:list('limited'),ok:list('ok'),hard:list('hard')}
+  };
+}
+function publicBootFallback(reason){
+  try{
+    const t=(typeof lang==='string'?lang:'th');
+    const set=(id,v)=>{const e=document.getElementById(id);if(e&&v!=null)e.textContent=String(v)};
+    const show=(id)=>{const e=document.getElementById(id);if(e)e.style.display='block'};
+    document.querySelectorAll('main section').forEach((e,i)=>e.classList.toggle('on',i===0));
+    set('hl',DATA?.headline?.[t]||'Rachata Flood AI — สถานการณ์น้ำท่วมประเทศไทย');
+    set('age','ข้อมูลล่าสุด');
+    set('ageTxt',DATA?.updated?('อัปเดต '+new Date(DATA.updated).toLocaleString('th-TH')):'กำลังใช้ข้อมูลเริ่มต้นของระบบ');
+    const tiles=document.getElementById('tiles');
+    if(tiles&&!tiles.innerHTML.trim()){tiles.innerHTML='<div class="tile"><b>Rachata Flood AI</b><span>ระบบข้อมูลสถานการณ์น้ำท่วม</span></div><div class="tile"><b>LIVE</b><span>พร้อมแสดงข้อมูล</span></div>'}
+    const news=document.getElementById('news');
+    if(news&&!news.innerHTML.trim())news.innerHTML='<li><b>ข้อมูลสถานการณ์พร้อมใช้งาน</b><div class="m">ระบบกำลังใช้ข้อมูลเริ่มต้นที่ฝังอยู่ในเว็บไซต์</div></li>';
+    const live=document.getElementById('live');
+    if(live&&!live.innerHTML.trim())live.innerHTML='<span class="btn sm">TMD</span><span class="btn sm">DDPM</span><span class="btn sm">BMA</span><span class="btn sm">RID</span>';
+    document.body.dataset.publicBoot='ok';
+  }catch(_){/* final safety net */}
+}
+
 // ================= Rendering =================
 function ageInfo(){let t0=DATA.statsAsOf?Date.parse(String(DATA.statsAsOf).replace(" ","T")+"+07:00"):NaN;if(isNaN(t0))t0=Date.parse(DATA.updated);const m=Math.max(0,(Date.now()-t0)/60000);const t=m<60?Math.round(m)+" "+tr("min"):m<1440?Math.round(m/60)+" "+tr("hr"):Math.round(m/1440)+" "+tr("day");
  return m<360?[0,tr("f"),t]:m<1440?[1,tr("s"),t]:[3,tr("o"),t]}
-function render(){
+function renderUnsafe(){
  document.documentElement.lang=lang;$("bth").classList.toggle("on",lang==="th");$("ben").classList.toggle("on",lang==="en");
  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=tr(e.dataset.i));$("q").placeholder=tr("ph");
  $("hl").textContent=DATA.headline[lang];
@@ -357,7 +409,16 @@ function render(){
  $("chips").innerHTML="";tr("chips").forEach(t=>{const b=document.createElement("button");b.textContent=t;b.onclick=()=>ask(t);$("chips").appendChild(b)});
  setMode();badge();calc();updateMaintenanceUI();updateAdminKPIs();
 }
-function tab(id){document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id===id));document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0)}
+function render(){
+  try{
+    DATA=normalizeDataShape(DATA);
+    renderUnsafe();
+  }catch(e){
+    try{logError(e,'public.render')}catch(_){ }
+    publicBootFallback(e);
+  }
+}
+function tab(id){document.querySelectorAll("section").forEach(s=>{const on=s.id===id;s.classList.toggle("on",on);s.style.display=on?"block":"none"});document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===id));scrollTo(0,0)}
 document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
 ["th","en"].forEach(l=>$("b"+l).onclick=()=>{lang=l;try{localStorage.setItem("l",l)}catch(e){}render();$("chat").innerHTML="";add("b",tr("hi"))});
 // ================= Calculator =================
@@ -515,7 +576,7 @@ async function cloudLoadPublic(){if(!CLOUD_READY)return;try{
   const n1=await cloudFrom(FB_COLLECTIONS.notifications).limit(100).get();
   const s1=await cloudFrom(FB_COLLECTIONS.site).eq("id","main").maybeSingle();
   const a1=await cloudFrom(FB_COLLECTIONS.announcements).limit(50).get();
-  if(d1?.data?.payload?.updated){DATA={...DATA,...d1.data.payload};saveLocalDataNoCloud(DATA)}
+  if(d1?.data?.payload?.updated){DATA=normalizeDataShape({...DATA,...d1.data.payload});saveLocalDataNoCloud(DATA)}
   if(m1?.data) safeSet("rfai:missions:cloud",m1.data.filter(x=>x.active!==false).sort(prioritySort));
   if(n1?.data) safeSet("rfai:notifs:cloud",n1.data.sort((a,b)=>prioritySort(a,b)));
   if(a1?.data) safeSet("rfai:announcements:cloud",a1.data.filter(x=>x.cancelled!==true).sort(prioritySort));
@@ -525,7 +586,7 @@ async function cloudLoadPublic(){if(!CLOUD_READY)return;try{
 function prioritySort(a,b){const p=(PRIORITY_RANK[String(b?.priority||b?.type||"NORMAL").toUpperCase()]||1)-(PRIORITY_RANK[String(a?.priority||a?.type||"NORMAL").toUpperCase()]||1);if(p)return p;return (Date.parse(b?.created_at||b?.published_at||b?.createdAt||0)||0)-(Date.parse(a?.created_at||a?.published_at||a?.createdAt||0)||0)}
 function setupRealtime(){if(!CLOUD_READY||!CLOUD)return;for(const u of CLOUD_UNSUB)try{u()}catch(e){}CLOUD_UNSUB=[];
   const listen=(name,cb)=>{try{const u=CLOUD.collection(name).onSnapshot(s=>cb(s),e=>logError(e,"firebase.listen."+name));CLOUD_UNSUB.push(u)}catch(e){logError(e,"firebase.listen."+name)}};
-  listen(FB_COLLECTIONS.data,s=>{const d=s.docs.find(x=>x.id==="main")?.data();if(d?.payload?.updated){DATA={...DATA,...d.payload};saveLocalDataNoCloud(DATA);render();showRealtimePulse("สถานการณ์อัปเดตแล้ว")}});
+  listen(FB_COLLECTIONS.data,s=>{const d=s.docs.find(x=>x.id==="main")?.data();if(d?.payload?.updated){DATA=normalizeDataShape({...DATA,...d.payload});saveLocalDataNoCloud(DATA);render();showRealtimePulse("สถานการณ์อัปเดตแล้ว")}});
   listen(FB_COLLECTIONS.missions,s=>{safeSet("rfai:missions:cloud",s.docs.map(firebaseDocData).filter(x=>x.active!==false).sort(prioritySort));renderMissionBoard();renderBroadcasts();showRealtimePulse("มีภารกิจใหม่")});
   listen(FB_COLLECTIONS.notifications,s=>{safeSet("rfai:notifs:cloud",s.docs.map(firebaseDocData).sort(prioritySort).slice(0,100));renderNotifications();renderBroadcasts();showRealtimePulse("มีการแจ้งเตือนใหม่")});
   listen(FB_COLLECTIONS.announcements,s=>{safeSet("rfai:announcements:cloud",s.docs.map(firebaseDocData).filter(x=>x.cancelled!==true).sort(prioritySort).slice(0,50));renderBroadcasts();showRealtimePulse("มีประกาศใหม่")});
@@ -591,8 +652,11 @@ const m=getMember(email);$('admpw').value="";if(!m||!m.active){FAILS++;setLoginS
 function logOut(){if(CURRENT_ADMIN)audit("LOGOUT","Session ended",ACTING_ADMIN||CURRENT_ADMIN);ADMIN_OK=false;CURRENT_ADMIN="";AUTH_AT=0;IMPERSONATING="";ACTING_ADMIN="";safeDel(SESSION_KEY);$('admmain').hidden=true;$('admlogin').hidden=false;adm.hidden=true}
 
 function loadLocalData(){
-  try{const v=safeGet(DATA_KEY);if(v&&v.headline&&Array.isArray(v.stats)&&Array.isArray(v.news))DATA={...DATA,...v};}
-  catch(e){logError(e,"load-data")}
+  try{
+    const v=safeGet(DATA_KEY);
+    if(v&&typeof v==='object') DATA=normalizeDataShape(v);
+    else DATA=normalizeDataShape(DATA);
+  }catch(e){logError(e,"load-data");DATA=normalizeDataShape(DATA)}
 }
 function applyModel(m,meta){["w1","b1","w2","b2"].forEach(k=>net[k]=m[k]);MODEL_META=meta||null;render();}
 function saveModel(){if(!TRAINED)return false;safeSet(MODEL_KEY,TRAINED);try{const bc=new BroadcastChannel("rfai-live");bc.postMessage({type:"model",model:TRAINED});bc.close()}catch(e){};return true}
@@ -688,15 +752,15 @@ $("admsitload").onclick=()=>{$("admsit").value=JSON.stringify({headline:DATA.hea
 $("admfile").onchange=async e=>{const f=e.target.files[0];if(!f)return;const t=await f.text();ROWS=[];let bad=0;t.split(/\r?\n/).forEach(l=>{const c=l.split(/[,;\t]/).map(x=>parseFloat(x));if(c.length<6||c.slice(0,6).some(isNaN)){if(l.trim())bad++;return}ROWS.push({x:[Math.min(1,c[0]/200),c[1]/100,c[2]/100,c[3]/100,c[4]/100].map(c01),y:c01(c[5])})});const pos=ROWS.filter(r=>r.y>=.5).length;$("admdata").textContent=`${ROWS.length} usable rows • ${pos} flood • ${bad} skipped`};
 $("admtpl").onclick=()=>dl("template.csv","rain_mm,river_pct,inflow_pct,tide_pct,soil_pct,flood\n120,80,70,40,90,1\n20,35,30,10,50,0\n","text/csv");$("admtrain").onclick=trainModel;
 $("admuse").onclick=()=>{if(TRAINED){applyModel(TRAINED,TRAINED.meta);$("admdep").textContent="Trained model active."}else $("admdep").textContent="Train a model first."};$("admexp").onclick=()=>{const m=TRAINED||safeGet(MODEL_KEY);if(m)dl("model.json",JSON.stringify(m),"application/json");else $("admdep").textContent="No model available."};$("admmodreset").onclick=resetModel;
-try{const bc=new BroadcastChannel("rfai-live");bc.onmessage=e=>{const m=e.data||{};if(m.type==="data"&&m.data){DATA=m.data;safeSet(DATA_KEY,m.data);render()}else if(m.type==="model"&&m.model){TRAINED=m.model;MODEL_META=m.model.meta||null;applyModel(m.model,m.model.meta)}else if(m.type==="pause"){if(m.paused)safeSet(PAUSE_KEY,{at:Date.now(),by:"remote"});else safeDel(PAUSE_KEY);updateMaintenanceUI()}}}catch(e){}
-window.addEventListener("storage",e=>{if(e.key===DATA_KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render()}catch(_){}}if(e.key===PAUSE_KEY){updateMaintenanceUI()}});
-loadLocalData();loadSavedModel();updateMaintenanceUI();renderMissionBoard();renderNotifications();initCloud();
+try{const bc=new BroadcastChannel("rfai-live");bc.onmessage=e=>{const m=e.data||{};if(m.type==="data"&&m.data){DATA=normalizeDataShape(m.data);safeSet(DATA_KEY,DATA);render()}else if(m.type==="model"&&m.model){TRAINED=m.model;MODEL_META=m.model.meta||null;applyModel(m.model,m.model.meta)}else if(m.type==="pause"){if(m.paused)safeSet(PAUSE_KEY,{at:Date.now(),by:"remote"});else safeDel(PAUSE_KEY);updateMaintenanceUI()}}}catch(e){}
+window.addEventListener("storage",e=>{if(e.key===DATA_KEY&&e.newValue){try{DATA=normalizeDataShape(JSON.parse(e.newValue));render()}catch(_){}}if(e.key===PAUSE_KEY){updateMaintenanceUI()}});
+try{loadLocalData()}catch(e){};try{loadSavedModel()}catch(e){};try{updateMaintenanceUI()}catch(e){};try{renderMissionBoard()}catch(e){};try{renderNotifications()}catch(e){};try{render()}catch(e){publicBootFallback(e)};setTimeout(()=>{try{if(cloudConfigured())initCloud().catch(()=>{})}catch(e){}},1200);
 setInterval(()=>{sessionGuard();updateAdminKPIs()},60000);
 $("cloudSetupBtn").onclick=openCloudSetup;$("announcementPublishBtn").onclick=publishAnnouncement;$("cloudConnectBtn").onclick=async()=>{CLOUD_BOOT=false;CLOUD=null;await initCloud();if(CLOUD_READY){await cloudLoadPublic();await refreshMissionsCloud();await refreshNotificationsCloud();await refreshMembersCloud();await refreshAuditCloud();renderMissionBoard();renderNotifications();renderAuditBoard();renderMemberDirectory();updateAdminKPIs()}};$("cloudNotifyBtn").onclick=enableDesktopNotifications;$("missionPublishBtn").onclick=publishMission;$("missionRefreshBtn").onclick=async()=>{if(CLOUD_READY){await refreshMissionsCloud()}renderMissionBoard()};$("missionClearBtn").onclick=clearMission;$("copyCloudSQL")?.addEventListener("click",copyFirebaseRules);
 let fs=1;try{fs=+localStorage.getItem("fs")||1}catch(e){}
 function setFs(v){fs=Math.max(.9,Math.min(1.7,v));document.documentElement.style.setProperty("--fs",fs);try{localStorage.setItem("fs",fs)}catch(e){}}
 $("fsp").onclick=()=>setFs(fs+.15);$("fsm").onclick=()=>setFs(fs-.15);setFs(fs);
-render();add("b",tr("hi"));
+try{render()}catch(e){publicBootFallback(e)};try{add("b",tr("hi"))}catch(e){};
 window.addEventListener("error",e=>{
   try{const box=document.getElementById("rfaiBootError");if(box){box.style.display="block";box.textContent="SYSTEM NOTICE: "+(e.message||"A non-critical script error occurred. Offline mode remains available.")}}catch(_){}
 });
